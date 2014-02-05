@@ -1,0 +1,12 @@
+body {
+    color: #5a5a5a;
+    padding-top: 70px;
+}
+.featurette-heading {
+    font-size: 50px;
+    margin-top: 50px;
+}
+
+.featurette-divider {
+    margin: 80px 0;
+}
