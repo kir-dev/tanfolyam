@@ -8,6 +8,7 @@
     * tartalom: js hangsúly, de html + css is
     * időpontok
     * elérhetőség, segédanyagok, github repo
+    * segédanyagokat emailben kiküldjük majd
 * nem cél (mert nem lehetséges):
     * profi webfejlesztő legyél a végére
     * mindent megtanítsunk a js, html, css körül
@@ -31,10 +32,11 @@
 
 ## HTTP
 
+* rfc 2616 (~180 oldal)
 * szöveg alapú
+    * stringek utaznak a hálózaton
     * nézzünk megy egy demot (egyszerű http szerver és kliens)
     * kódot is nézzük; lássuk, hogy egyszerű
-* állapotmentes
 * kérés-válasz
 * kérés és válasz felépítése hasonló: fejléc + törzs
     * fejléc: kulcs-érték párok a szervernek/től
@@ -47,14 +49,19 @@
     * válasz (response):
         * első sor -> status code
         * néhány header (content-encoding, content-type, cache-control)
-* curl
+* állapotmentes
+    * session: egyedi azonosítót küldünk minden kérésben
+    * klasszikus példa: bevásárló kosár
+* cookie
+    * kulcs-érték párok
+    * minden kéréssel elmegy
 
 ## Chrome, mint fejlesztőeszköz
 
 * dev-toolbar bevezető -> demo ezerrel
+* network panel
 * dom nézegetés, és manipuláció
 * javascript debugger, console
-* network panel
 * live edit
 
 ## Összegzés
