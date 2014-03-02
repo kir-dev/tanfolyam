@@ -179,7 +179,7 @@ Továbbra is functions.js és functions.html-ben találhatóak a példák.
 
 * function + receiver = method
 * `this` kulcsszó megjelenése
-    * máskép működik mint a többi nyelvben
+    * másképp működik mint a többi nyelvben
     * _általában_ a hívó objektumra mutat
     * `call`, `apply` és `bind` segítségével beállítható
 
