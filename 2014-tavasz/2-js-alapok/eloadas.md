@@ -171,6 +171,7 @@ Példák a functions.js és functions.html fájlokban.
     * a függvényen belül (implicit) lokális változó
     * tömb szerű (van length tulajdonsága)
     * segítségével lehet változó számú paramétereket fogadó függvényt írni
+* [további olvasmány MDN-en](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 
 ## Objektumok és függvények
 
