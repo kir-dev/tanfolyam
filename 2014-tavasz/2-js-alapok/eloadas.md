@@ -59,7 +59,7 @@ var b = [1,2,3,4];
 
 * `length` tulajdonság
 * bejárható for ciklussal (forEach is használható a modern böngészőkben)
-* stacként is használhat: `push` és `pop`
+* stacként is használható: `push` és `pop`
     * `push`: új elem a tömb végére fűzése
     * `pop`: utolsó elem visszaadása és törlése
 * [Array az MDN-en](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
