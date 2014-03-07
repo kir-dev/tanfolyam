@@ -121,7 +121,7 @@ kifejezés típusa is megegyezik
 
         1 === '1' // => false
 
-Logikai kifejezések az if fejében:
+Logikai kifejezések az `if` fejében:
 
 ~~~javascript
 if (0) {
@@ -173,6 +173,95 @@ Példák a functions.js és functions.html fájlokban.
     * segítségével lehet változó számú paramétereket fogadó függvényt írni
 * [további olvasmány MDN-en](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 
+### Scope-ok
+
+* function jelenti a scope-ot
+* globális és lokális scope
+* `window` objektum szerepe
+* `var` kulcsszó -> lokális scope-ban deklarál
+* [MDN részletes leírás](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions_and_function_scope)
+
+A külső scope változói elérhetőek a belső(bb) scope-okban is.
+
+~~~javascript
+var outer = 1;
+
+function f() {
+    console.log(outer++);
+}
+
+f(); // => 1
+f(); // => 2
+f(); // => 3
+~~~
+
+`var` kulcsszó nélkül a globális scope-ban hozunk létre változókat
+
+~~~javascript
+function f() {
+    g = 1;
+}
+
+f();
+console.log(g); // => 1
+~~~
+
+Shadowing: változó elfedése scope-on belül. Külső változót a globális (`window`)
+objektumon keresztül érhetjük el.
+
+~~~javascript
+var x = 1;
+
+function f() {
+    var x = 42;
+
+    console.log(x); // => 42
+    console.log(window.x); // => 1
+}
+~~~
+
+### Closures
+
+* zárványok
+* kód és környezete tárolódik el
+* stack nem szűnik meg, ahogy várnánk
+
+Klasszikus closure példa:
+
+~~~javascript
+function f() {
+    var x = 42;
+
+    reutrn function () {
+        return (x++);
+    };
+}
+
+var foo = f();
+console.log(foo()); // => 42
+console.log(foo()); // => 43
+~~~
+
+### Self-invoking functions
+
+* önmagát meghívó, anonymous függvény
+* névtér szeparációra
+* global namespace pollution
+
+Module pattern
+
+~~~javascript
+var MyModule = (function () {
+    var privat = 42;
+
+    return {
+        publikus: function () { return privat + 1; }
+    };
+})();
+
+MyModule.publikus() // => 43
+~~~
+
 ## Objektumok és függvények
 
 Továbbra is functions.js és functions.html-ben találhatóak a példák.
@@ -182,6 +271,32 @@ Továbbra is functions.js és functions.html-ben találhatóak a példák.
     * másképp működik mint a többi nyelvben
     * _általában_ a hívó objektumra mutat
     * `call`, `apply` és `bind` segítségével beállítható
+
+### new operátor
+
+* constructor function == új objektumot hoz létre, előre definiált tulajdonságokkal
+* objektum példányosítás a `new` operátorral
+    * függvényt hív
+    * beállítja a `this` változót
+    * ha nincs visszatérési érték, akkor a `this`-t adja vissza, különben a visszatérési értéket
+
+Írjunk saját `new` megvalósítást!
+
+~~~javascript
+function new2(Class) {
+    var $this = {};
+    $this.__proto__ = Class.prototype;
+    $this = Class.apply($this, Array.prototype.slice.call(arguments, 1)) || $this;
+
+    return $this;
+}
+
+var Animal = function (name) { this.name = name; };
+
+// ekvivalensek
+var a1 = new Animal("zsiráf");
+var a2 = new2(Animal, "zsiráf");
+~~~
 
 ## HTML + JavaScript
 
