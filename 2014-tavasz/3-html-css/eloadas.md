@@ -12,7 +12,7 @@ gondoskodik arról, hogy megfelelően leírja, hogy a böngésző, meg tudja jel
 Leírja a szükséges struktúrát ahhoz, hogy a böngésző a számunkra megfelelő módon tudja megjeleníteni a tartalmat. Egymagában sajnos nem elegendő a HTML nyelv
 mivel csak a struktúránkat írja le. Ha azt szeretnénk, hogy az oldalunk szép is legyen, akkor be kell vessük a CSS-t (Cascading Style Sheet), ami az oldal stílusát írja le. 
 
-## HTML - HyperText Markup Languaga
+## HTML - HyperText Markup Language
 ------
 
 ### A dokumentum struktúrája
@@ -251,7 +251,7 @@ attribútum segítségével.
 
 A HTML dokumentumok jelenlegi talán két legfontosabb eleméről van szó. Az oldalak struktúrájának a felépítésekor ezeket használjuk leginkább. Ezeket a tageket arra használjuk, hogy csoportosítsuk az elemeinket egy struktúrába, beágyazzuk őket egy egységbe, hogy például együtt tudjuk őket mozgatni. Itt kitérnék egy fontos fogalomra mégpedig a `block` és `inline` elemekre. Ha valami blokk szintű elem akkor azt látjuk, hogy előtte és utána is található egy sortörés és ha nem mondjuk meg neki milyen széles legyen, akkor teljes szélességben kitölti a szülő elemet. A `<span>` ezzel ellentétesen inline elem, se előtte és se utána nem láthatunk sortörést és a bongésző egymás után rakja az ilyen elemekben lévő tartalmat. Volt már korábban blokk szintű elemekről szó, ilyenek például a címek, és inline elemekről is volt szó, ilyen például a kép `<img />`. 
 
-### A HTML DOM
+## A HTML DOM
 -------
 
 A HTML DOM (Document Object Model) egy szabvány amit a W3C (World Wide Web
@@ -282,8 +282,115 @@ gyökérnek nevezzük (root). Ez a három kapcsolati viszony:
 ## CSS - Cascading Style Sheet
 ------
 
+Eddig a weboldalunk stuktúráját írtuk le, a következőkben pedig a megformázásával fogunk foglalatoskodni. A CSS lehet külön fájlba írni, vagy pedig az oldal `<head>` részében egy nyitott `<style type="text/css"></style>` tagek közé is írhatjuk. Ha külön fájlba írjuk akkor azt szintén az oldal `<head>` részében linkelnünk kell. Ezt a következő kód beillesztésével tehetjük meg:
+
+~~~html
+<link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
+~~~
+
+A fájl elérés utját a már ismert `href` attribútumban adhatjuk meg.
+
+#### A dokumentum elemeinek az elérése
+
+A dokumentum elemeit három féle képpen tudjuk elérni.
+
+* magán a tag nevén, de ez befolyásolja az összes ilyen nevű elemet
+* egy (egyedi) azonosítón keresztül, amit attributumként megadhatunk, `id`
+* css osztályokon keresztül, amit ha szeretnénk több elemere is definiálhatunk `class`
+
+Példa mindhárom módszerre:
+
+~~~html
+<head>
+    <style type="text/css">
+    
+    /*a tag nevén keresztül*/
+    p {
+        color: red;
+    }
+
+    /*id-n keresztül*/
+    #header {
+        color: red;
+    }
+
+    /*class-on keresztül*/
+    .post {
+        color: red;
+    }
+
+    </style>
+</head>
+<body>
+    <p> bekezdés </p>
+    <p> bekezdés </p>
+
+    <div id="header">
+        az oldal headerje lesz majd
+    </div>
+
+    <div class="post">
+        egy post az oldalon
+    </div>
+
+    <div class="post">
+        egy másik post az oldalon
+    </div>
+</body>
+~~~
+
+Innentől kezdve, hogy elérjük a html dokumentumunk elemeit a kapcsos zárójelben megadott tulajdonságok érvényesek lesznek az adott elemre. 
+Több kategóriába soroljuk a stílusokat, a következőkben ezeket fogjuk kifejteni.
+
+#### A Szövegformázió stílusok
+
+~~~css
+color: #000000; /*a betűk színe, hexadecimálisan, rgb(), rgba(), szín-neve-angolul*/
+font-family: Arial, Helvetica; /*a betű típusa (font-face)*/
+font-size: 15px; /*a betű mérete*/
+font-weight: 400; /*a betű vastagsága 100-tól, 900-ig hasonló a boldhoz*/
+font-style: italic; /*a betű stílusa, bold*/
+letter-spacing: 15px; /*betűköz*/
+line-height: 15px; /*sorköz*/
+text-align: center; /*szöveg kizárása, left, right, center, justify*/
+text-decoration: underline; /*szöveg dekorálása*/
+text-shadow: 0px 1px 2px #000000; /*árnyék, left, top, blur, color*/
+text-transform: uppercase; /*csupa nagy betű, kis betű, kapitalizált stb.*/
+~~~
+
+#### Háttér és keret formázások
+
+~~~css
+background-attachment: fixed; /*görgethető legyen a háttér vagy ne*/
+background-color: red; /*háttér színe*/
+background-image: url(‘images/ pic.png’); /*háttérkép*/
+background-position: left top; /*a háttér pozicioja*/
+background-repeat: no-repeat; /*a hatter ismetlese*/
+background: transparent url(‘../images/pic_holder.png’) top left norepeat; /*itt megadhatjuk mindezt egyszerre is*/
+border-width: 2px; /*border vastagsága*/
+border-color: #234f8a; /*border színe*/
+border-style: solid; /*stílusa*/
+border: 3px solid dashed; /*megadható egyszerre itt is*/
+border-top: 3px solid dashed; /*csak felső margó az elemre left, right, bottom is lehetséges*/
+border-radius: 2px; /*a sarkok lekerekítése bizonyos sugárral*/
+box-shadow: 0px 3px 4px #000000; /*árnyéka az elemnek*/
+~~~
+
+### A DOM manipulációja
+-----
+
+#### Floatolás
+
+Sokszor szükség van arra, hogy több elem egymás mellé kerüljön. Sajnos ez a blokk szintű elemek esetében nem lehetséges, de ilyenek a listák is. A floatolás segítségével képesek vagyunk egymás mellé lebegtetni az adott elemeket.
+
+~~~css 
+li {
+    float: left; /*lehetséges jobbra is: right;*/
+}
+~~~
+
+#### Pozicionálás
+
+Három különböző módon tudunk pozicionálni egy elemet. Az első lehetőség a `fixed` vagyis fix helyzetbe kerül, ezt sok weboldalon láthatjuk pl menük esetében. Amikor görgetsz a menü mindig a képernyő tetején marad. A második megoldás a `relative`
 
 
-
-
- 
