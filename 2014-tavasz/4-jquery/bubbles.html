@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>event bubbling</title>
+</head>
+<body>
+
+    <div id="parent">
+        <div id="child">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+    </div>
+    <div id="parent2" style="color: tomato;">
+        <div id="child2">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+    </div>
+    <div id="parent3" style="color: magenta;">
+        <div id="child3">
+            <div id="child4">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        document.getElementById('parent').addEventListener('click', function () {
+            console.log("from parent");
+        });
+        document.getElementById('child').addEventListener('click', function () {
+            console.log("from child");
+        });
+
+        document.getElementById('parent2').addEventListener('click', function () {
+            console.log("from parent2");
+        }, true);
+        document.getElementById('child2').addEventListener('click', function () {
+            console.log("from child2");
+        }, true);
+
+        document.getElementById('parent3').addEventListener('click', function () {
+            console.log("from parent3");
+        });
+        document.getElementById('child3').addEventListener('click', function (e) {
+            console.log("from child3");
+            e.stopPropagation();
+        });
+        document.getElementById('child4').addEventListener('click', function () {
+            console.log("from child4");
+        });
+    </script>
+</body>
+</html>

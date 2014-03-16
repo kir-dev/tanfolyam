@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>jquery</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <style type="text/css">
+        p {
+            margin: 1px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="post">
+            <p>Lorem ipsum</p>
+        </div>
+        <div class="post">
+            <p>Lorem ipsum</p>
+        </div>
+        <div class="post">
+            <p>Lorem ipsum</p>
+        </div>
+        <div class="post">
+            <p>Lorem ipsum</p>
+        </div>
+        <div class="post">
+            <p>Lorem ipsum</p>
+        </div>
+        <div class="post">
+            <p>Lorem ipsum</p>
+        </div>
+        <div class="post">
+            <p>Lorem ipsum</p>
+        </div>
+        <div class="post">
+            <p>Lorem ipsum</p>
+        </div>
+        <div class="post">
+            <p>Lorem ipsum</p>
+        </div>
+        <div class="post">
+            <p>Lorem ipsum</p>
+        </div>
+        <div class="post">
+            <p>Lorem ipsum</p>
+        </div>
+        <div class="post">
+            <p>Lorem ipsum</p>
+        </div>
+    </div>
+    <input type="button" value="button-value">
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.post').css('background-color', 'tomato');
+
+            $('.post').on('click', 'button', function () {
+                alert($(this).text());
+            });
+        });
+    </script>
+</body>
+</html>
