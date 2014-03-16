@@ -226,13 +226,13 @@ Ezek közül jelenleg minket a HTML DOM fog érdekelni. A HTML DOM-ban minden el
 egy NODE reprezentál és az egész struktúrát egy fába rendezve lehet legkönnyebben
 szemléltetni.
 
-![html-dom][http://www.w3schools.com/js/pic_htmltree.gif]
+![html-dom](http://www.w3schools.com/js/pic_htmltree.gif)
 
 A NODE egy doboz az ábrán. Minden egyes HTML tag amit beleírunk a dokumentumba
 illetve azok attribútumai és értékei egy ilyen NODE-dá képződnek. Láthatjuk, hogy az
 egymásban lévő elemek, hogyan kapcsolódnak egymáshoz.
 
-![navigation][http://www.w3schools.com/js/pic_navigate.gif]
+![navigation](http://www.w3schools.com/js/pic_navigate.gif)
 
 A NODE-ok között különböző kapcsolati viszonyok állhatnak fent. A DOM fa legfelső elemét
 gyökérnek nevezzük (root). Ez a három kapcsolati viszony:
