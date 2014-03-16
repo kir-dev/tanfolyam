@@ -122,3 +122,11 @@
 - eseménykezelőben
     - event paraméter: csomagolt natív event
     - this a fogadó elemre mutat
+
+## Ajax
+
+## XMLHttpRequest
+
+## jQuery.ajax
+
+## Limitációk és jsonp
