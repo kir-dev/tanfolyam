@@ -354,7 +354,8 @@ A selectorok segítségével speciálisan is tudunk html elemeket kiválasztani 
 * div, p - kijelöli a div és a p elemeket
 * div p - kijelöli azokat a p elemeket, amik egy div-ben vannak (gyerek viszony)
 * div > p - kijelöli azokat a p elemeket, aminek közvetlen szülője egy div (szülő viszony)
-* div + p - kijelöli azokat a p elemketet, amielyek egy div után következnek (testvér viszony)
+* div + p - kijelöli azokat a p elemeket, amelyek közvetlenül egy div után következnek (testvér viszony)
+* div ~ p - kijelöli azokat a p elemeket, amelyek egy div után következnek
 
 A pszeudo osztályok segítségével, pedig speciálisan tudunk egy elemre stílusokat definiálni, például amikor az egér az adott elem felett van. Néhány pszeudo osztály:
 
