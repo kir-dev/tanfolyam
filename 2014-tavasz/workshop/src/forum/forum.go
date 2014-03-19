@@ -6,6 +6,7 @@ import (
 	"github.com/gorilla/pat"
 	"io/ioutil"
 	"log"
+	"math"
 	"net/http"
 	"strconv"
 	"sync"
@@ -13,10 +14,10 @@ import (
 )
 
 type Topic struct {
-	Id          int     `json:"id"`
-	Title       string  `json:"title"`
-	Description string  `json:"description"`
-	Posts       []*Post `json:"posts"`
+	Id          int    `json:"id"`
+	Title       string `json:"title"`
+	Description string `json:"description"`
+	posts       []*Post
 }
 
 type Post struct {
@@ -30,6 +31,10 @@ type ErrorMessage struct {
 	Message    string `json:"message"`
 	StatusCode int    `json:"status_code"`
 }
+
+const (
+	PageSize = 20
+)
 
 var (
 	topicId      = 0
@@ -45,8 +50,8 @@ func main() {
 
 	// routes
 	r := pat.New()
-	r.Get("/topics", handleListTopics)
 	r.Get("/topics/{id}", handleGetTopic)
+	r.Get("/topics", handleListTopics)
 	r.Post("/topics/{id}/posts/new", handleNewPost)
 	r.Post("/topics/new", handleNewTopic)
 
@@ -57,8 +62,9 @@ func main() {
 }
 
 func handleListTopics(w http.ResponseWriter, req *http.Request) {
+	from, to := paginate(req, len(topics))
 	payload := map[string]interface{}{
-		"topics":      topics,
+		"topics":      topics[from:to],
 		"status_code": http.StatusOK,
 	}
 	sendPayload(w, payload)
@@ -72,8 +78,11 @@ func handleGetTopic(w http.ResponseWriter, req *http.Request) {
 	}
 
 	if topic := findTopic(id); topic != nil {
+		from, to := paginate(req, len(topic.posts))
+
 		payload := map[string]interface{}{
 			"topic":       topic,
+			"posts":       topic.posts[from:to],
 			"status_code": http.StatusOK,
 		}
 		sendPayload(w, payload)
@@ -89,7 +98,7 @@ func handleNewTopic(w http.ResponseWriter, req *http.Request) {
 	}
 
 	topic.Id = getNextTopicId()
-	topic.Posts = make([]*Post, 0)
+	topic.posts = make([]*Post, 0)
 	topics = append(topics, &topic)
 
 	log.Printf("Created topic with title: '%s'", topic.Title)
@@ -117,7 +126,7 @@ func handleNewPost(w http.ResponseWriter, req *http.Request) {
 	post.Timestamp = time.Now()
 	post.Id = getNextPostId()
 
-	topic.Posts = append(topic.Posts, &post)
+	topic.posts = append(topic.posts, &post)
 	log.Printf("Added post to topic (id: %d)", id)
 
 	sendError(w, ErrorMessage{"Post created", http.StatusCreated})
@@ -184,4 +193,28 @@ func findTopic(id int) *Topic {
 	}
 
 	return nil
+}
+
+func paginate(req *http.Request, length int) (int, int) {
+	p := req.URL.Query().Get("page")
+	if p == "" {
+		return 0, length
+	}
+
+	page, err := strconv.Atoi(p)
+	if err != nil {
+		return 0, length
+	}
+
+	// when page is out of range
+	if float64(page) > math.Ceil(float64(length)/float64(PageSize)) || page <= 0 {
+		return 0, 0
+	}
+
+	to := page * PageSize
+	if to > length {
+		to = length
+	}
+
+	return (page - 1) * PageSize, to
 }
