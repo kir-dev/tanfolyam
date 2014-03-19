@@ -1,0 +1,30 @@
+body {
+  width: 960px;
+  margin: 0 auto;
+  font-size: 18px;
+  color: #333;
+  background-color: #eee;
+  font-family: 'Verdana', 'sans-serif';
+}
+
+a {
+  color: orange;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #222;
+}
+
+#topics-container .topic {
+  margin-bottom: 15px;
+}
+
+#topics-container .topic h3 {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+#topics-container .topic p {
+  margin: 3px 0;
+}

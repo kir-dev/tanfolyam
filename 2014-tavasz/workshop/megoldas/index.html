@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Fórum</title>
+    <link rel="stylesheet" type="text/css" href="/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Fórum</h1>
+        <h2>Elérhető témák</h2>
+
+        <div id="topics-container"></div>
+    </div>
+
+    <script type="text/x-mustache" id="topic-template">
+        {{#topics}}
+        <div class="topic" data-id="{{id}}">
+            <h3><a href="#">{{title}}</a></h3>
+            <p>{{description}}</p>
+        </div>
+        {{/topics}}
+    </script>
+
+    <script src="/mustache.min.js"></script>
+    <script src="/jquery-1.11.0.min.js"></script>
+    <script src="/topics.js"></script>
+</body>
+</html>
