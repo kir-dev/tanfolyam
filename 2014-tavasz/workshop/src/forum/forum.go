@@ -25,6 +25,7 @@ type Post struct {
 	Timestamp time.Time `json:"timestamp"`
 	Author    string    `json:"author"`
 	Content   string    `json:"content"`
+	ReplyTo   int       `json:"reply_to"`
 }
 
 type ErrorMessage struct {
@@ -50,6 +51,7 @@ func main() {
 
 	// routes
 	r := pat.New()
+	r.Get("/topics/{topicId}/posts/{id}", handleGetPost)
 	r.Get("/topics/{id}", handleGetTopic)
 	r.Get("/topics", handleListTopics)
 	r.Post("/topics/{id}/posts/new", handleNewPost)
@@ -59,6 +61,37 @@ func main() {
 
 	log.Println("Started forum. Listening on localhost:8080...")
 	log.Fatal(http.ListenAndServe(":8080", nil))
+}
+
+func handleGetPost(w http.ResponseWriter, req *http.Request) {
+	topicId, ok := getIdFromUrl("topicId", w, req)
+	if !ok {
+		return
+	}
+
+	postId, ok := getIdFromUrl("id", w, req)
+	if !ok {
+		return
+	}
+
+	topic := findTopic(topicId)
+	if topic == nil {
+		sendError(w, ErrorMessage{"Topic not found", http.StatusNotFound})
+		return
+	}
+
+	for _, post := range topic.posts {
+		if post.Id == postId {
+			payload := map[string]interface{}{
+				"status_code": http.StatusOK,
+				"post":        post,
+			}
+			sendPayload(w, payload)
+			return
+		}
+	}
+
+	sendError(w, ErrorMessage{"Post not found", http.StatusNotFound})
 }
 
 func handleListTopics(w http.ResponseWriter, req *http.Request) {
@@ -217,4 +250,14 @@ func paginate(req *http.Request, length int) (int, int) {
 	}
 
 	return (page - 1) * PageSize, to
+}
+
+func getIdFromUrl(name string, w http.ResponseWriter, req *http.Request) (int, bool) {
+	id, err := strconv.Atoi(req.URL.Query().Get(":" + name))
+	if err != nil {
+		sendError(w, ErrorMessage{"Invalid id", http.StatusBadRequest})
+		return -1, false
+	}
+
+	return id, true
 }
