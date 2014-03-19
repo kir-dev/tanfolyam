@@ -49,7 +49,7 @@ func main() {
 	// init
 	topics = make([]*Topic, 0)
 
-	// routes
+	// api routes
 	r := pat.New()
 	r.Get("/topics/{topicId}/posts/{id}", handleGetPost)
 	r.Get("/topics/{id}", handleGetTopic)
@@ -57,7 +57,10 @@ func main() {
 	r.Post("/topics/{id}/posts/new", handleNewPost)
 	r.Post("/topics/new", handleNewTopic)
 
-	http.Handle("/", r)
+	// serve files from directory
+	http.Handle("/", http.FileServer(http.Dir(".")))
+	// serve api from /api path
+	http.Handle("/api/", http.StripPrefix("/api", r))
 
 	log.Println("Started forum. Listening on localhost:8080...")
 	log.Fatal(http.ListenAndServe(":8080", nil))
