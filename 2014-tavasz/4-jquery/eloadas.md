@@ -125,8 +125,85 @@
 
 ## Ajax
 
+- Asynchronous JavaScript and XML
+- de már nem XML, legtöbbször JSON-t küldözgetnek a hálózaton
+- háttérben, az oldal teljes újratöltése nélkül lehet a szerverhez fordulni
+- aszinkron működést biztosít
+- dinamikus weboldalak
+- azt az érzetet kelti a felhasználóban, hogy gyorsabb az oldal
+
 ## XMLHttpRequest
+
+- modern böngészőkben egész jól használható (IE8,9+)
+- picit több boilerplate kód kell, mint a jQuery-nél
+- ha a böngésző támogatja, akkor lehet GET és POST kérésen kívül más is küldeni
+- sima GET kérés
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/users', true);
+        xhr.onload = function () {
+            var data = JSON.parse(xhr.responseText);
+            console.log(data);
+        };
+        xhr.send();
+
+- POST kérés
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/users', true);
+        xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+        xhr.send();
+
+- alkalmazásszintű hibakezelés az onloadban
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/u', true);
+        xhr.onload = function () {
+            if (xhr.state === 200) {
+                var data = JSON.parse(xhr.responseText);
+                console.log(data);
+            } else {
+                alert('Baj van.');
+            }
+        };
+        xhr.send();
 
 ## jQuery.ajax
 
+- alapvetően a jQuery.ajax hívás
+- vannak rövidítések
+    - get, post, getJSON, getScript
+    - nem annyira flexibilisek
+- minimál
+
+        $.ajax({
+            url: '/users',
+            success: function (data) {
+                console.log(data);
+            }
+        });
+
+- callbackek
+    - success: siker
+    - error: hiba (alkalmazás szintű is, pl 404, 500)
+    - complete: mindig lefut a kérés után
+- alternatíva
+
+        $.ajax({url: '/users'}).done(...).fail(...).always(...)
+
+- data: adat amit küldeni szeretnénk, automatikusan feldolgozza
+- dataType: válasz tartalmát előre feldolgozza (json, xml)
+- type: HTTP verb,
+    - GET, POST mindenhol támogatott
+    - a többi (PUT, DELETE) nem biztos, böngészőfüggő
+- $(selector).load(url)
+    - betölti a válasz tartalmát a selectorral kijelölt tagbe
+
 ## Limitációk és jsonp
+
+- bookmarkolhatóság
+- web crawlers
+- böngésző history inkonzisztencia (HTML5 előtt)
+- same origin policy
+    - megoldás: CORS (cross-origin resource sharing), JSONP
+    - JSONP-re példa
