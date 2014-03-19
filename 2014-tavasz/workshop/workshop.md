@@ -65,17 +65,20 @@ Egy példaválasz:
         {
           "id": 1,
           "title": "Kir-Dev",
-          "description": "Kir-Dev szakmai kibeszélő"
+          "description": "Kir-Dev szakmai kibeszélő",
+          "last_post_date": "2014-03-19T19:17:04.441315438+01:00"
         },
         {
           "id": 2,
           "title": "Tanfolyam",
-          "description": "Tanfolyam vélemények"
+          "description": "Tanfolyam vélemények",
+          "last_post_date": "2014-03-18T19:17:04.441315438+01:00"
         },
         {
           "id": 3,
           "title": "Macskás gif",
-          "description": "Macskás gifek minden alkalomra"
+          "description": "Macskás gifek minden alkalomra",
+          "last_post_date": "2014-03-19T20:17:04.441315438+01:00"
         }
       ]
     }

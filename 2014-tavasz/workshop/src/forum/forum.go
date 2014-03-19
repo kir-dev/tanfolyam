@@ -14,10 +14,11 @@ import (
 )
 
 type Topic struct {
-	Id          int    `json:"id"`
-	Title       string `json:"title"`
-	Description string `json:"description"`
-	posts       []*Post
+	Id           int       `json:"id"`
+	Title        string    `json:"title"`
+	Description  string    `json:"description"`
+	LastPostDate time.Time `json:"last_post_date"`
+	posts        []*Post
 }
 
 type Post struct {
@@ -163,6 +164,7 @@ func handleNewPost(w http.ResponseWriter, req *http.Request) {
 	post.Id = getNextPostId()
 
 	topic.posts = append(topic.posts, &post)
+	topic.LastPostDate = post.Timestamp
 	log.Printf("Added post to topic (id: %d)", id)
 
 	sendError(w, ErrorMessage{"Post created", http.StatusCreated})
