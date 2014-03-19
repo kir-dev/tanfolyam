@@ -1,0 +1,3 @@
+# ignore installed go packages
+*/workshop/pkg/
+*/workshop/src/github.com
