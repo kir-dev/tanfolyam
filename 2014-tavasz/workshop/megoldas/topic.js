@@ -5,12 +5,18 @@ $(document).ready(function (){
     downloadPosts(page);
     Utils.paginate(page, downloadPosts);
 
+    // visszatöltjük a legutoljára használt felhasználónevet
+    $("#post-author").val(window.localStorage.getItem("author"))
+
     $("#submit-post-form").click(function () {
         var button = $(this),
             post = {
             author: $("#post-author").val(),
             content: $("#post-content").val()
         };
+
+        // eltároljuk a legutolára használt felhasználónevet
+        window.localStorage.setItem("author", $("#post-author").val());
 
         // a mentés idejére letiltjuk a gombot
         button.attr('disabled', 'disabled');
