@@ -41,9 +41,18 @@ var Utils = (function ($) {
             }, {});
     }
 
+    var showHidePagination = function (id, pred) {
+        if (pred()) {
+            $('.pagination #' + id).hide();
+        } else {
+            $('.pagination #' + id).show();
+        }
+    }
+
     return {
         validate: validate,
         validatePresenceOf: validatePresenceOf,
         params: params(),
+        showHidePagination: showHidePagination,
     };
 })(jQuery);

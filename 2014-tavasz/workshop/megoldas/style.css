@@ -67,3 +67,7 @@ a:hover {
 .post p {
   margin-top: 0;
 }
+
+.pagination #next {
+  float: right;
+}
