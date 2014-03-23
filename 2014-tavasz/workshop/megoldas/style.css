@@ -29,6 +29,10 @@ a:hover {
   margin: 3px 0;
 }
 
+#topics-container, #posts-container {
+  margin-bottom: 15px;
+}
+
 .form-field-group {
   margin-bottom: 20px;
 }

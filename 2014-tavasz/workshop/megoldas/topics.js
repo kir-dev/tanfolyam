@@ -3,12 +3,7 @@ $(document).ready(function (){
         page = hash ? parseInt(hash) : 1;
 
     downloadTopics(page);
-
-    $(".pagination a").click(function () {
-        var direction = this.id === 'prev' ? -1 : 1;
-        page += direction;
-        downloadTopics(page);
-    });
+    Utils.paginate(page, downloadTopics);
 });
 
 var downloadTopics = function (page) {
@@ -19,6 +14,7 @@ var downloadTopics = function (page) {
         url: '/api/topics?page=' + page,
         dataType: 'json'
     }).done(function (data) {
+        // rendezzük a témákat időrendben csökkenő sorrendbe
         data.topics.sort(function(t1,t2) {
             return new Date(t2.last_post_date) - new Date(t1.last_post_date);
         });

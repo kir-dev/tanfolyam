@@ -1,24 +1,9 @@
 $(document).ready(function (){
-    var topicId = Utils.params["id"];
-    $.ajax({
-        url: '/api/topics/' + topicId + '/posts',
-        dataType: 'json'
-    }).done(function (data) {
-        // minden posthoz létrehozunk egy burkolót
-        // ami többek között a dátumformázásért is felel
-        var posts = data.posts.map(function (p) {
-            return new Post(p);
-        });
-        $('#posts-container').append(
-            Mustache.render($('#post-template').html(), {posts: posts})
-        );
+    var hash = window.location.hash.substr(1),
+        page = hash ? parseInt(hash) : 1;
 
-        // téma cím és leírás beállítása
-        $("#title").text(data.topic.title);
-        $("#description").text(data.topic.description)
-    }).fail(function (data) {
-        alert('There was an error: ' + data.message);
-    });
+    downloadPosts(page);
+    Utils.paginate(page, downloadPosts);
 
     $("#submit-post-form").click(function () {
         var button = $(this),
@@ -31,7 +16,7 @@ $(document).ready(function (){
         button.attr('disabled', 'disabled');
         if (Utils.validatePresenceOf(post, ["author", "content"])) {
             $.ajax({
-                url: '/api/topics/' + topicId +'/posts/new',
+                url: '/api/topics/' + Utils.params.id +'/posts/new',
                 type: "POST",
                 data: JSON.stringify(post),
                 success: function () {
@@ -65,3 +50,30 @@ var Post = function (post) {
 Post.prototype.date = function () {
     return new Date(this.timestamp).toLocaleString("hu");
 };
+
+var downloadPosts = function (page) {
+    Utils.showHidePagination('prev', function () { return page === 1; });
+    window.location.hash = page;
+
+    $.ajax({
+        url: '/api/topics/' + Utils.params.id + '/posts?page=' + page,
+        dataType: 'json'
+    }).done(function (data) {
+        // minden posthoz létrehozunk egy burkolót
+        // ami többek között a dátumformázásért is felel
+        var posts = data.posts.map(function (p) {
+            return new Post(p);
+        });
+        $('#posts-container').html(
+            Mustache.render($('#post-template').html(), {posts: posts})
+        );
+
+        Utils.showHidePagination('next', function () { return data.posts.length === 0; });
+
+        // téma cím és leírás beállítása
+        $("#title").text(data.topic.title);
+        $("#description").text(data.topic.description)
+    }).fail(function (data) {
+        alert('There was an error: ' + data.message);
+    });
+}

@@ -49,10 +49,21 @@ var Utils = (function ($) {
         }
     }
 
+    var paginate = function (startPage, download) {
+        var page = startPage;
+
+        $(".pagination a").click(function () {
+            var direction = this.id === 'prev' ? -1 : 1;
+            page += direction;
+            download(page);
+        });
+    }
+
     return {
         validate: validate,
         validatePresenceOf: validatePresenceOf,
         params: params(),
         showHidePagination: showHidePagination,
+        paginate: paginate,
     };
 })(jQuery);
