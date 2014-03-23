@@ -18,6 +18,8 @@ var Utils = (function ($) {
         return true;
     }
 
+    // ellenőrzi, hogy a felsorolt tulajdonságok léteznek-e
+    // létezőnek tekintjük, ha nem üres string, null vagy undefined
     var validatePresenceOf = function (obj, props) {
         var rules = props.map(function (p) {
             return { property: p, invalidValues: ["", null, undefined] };
@@ -26,6 +28,7 @@ var Utils = (function ($) {
         return validate(obj, rules);
     };
 
+    // kinyeri a query string paramétereket
     var params = function () {
         return window.location.search
             .substr(1)
