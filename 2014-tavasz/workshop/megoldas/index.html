@@ -9,13 +9,19 @@
         <h1>Fórum</h1>
         <h2>Elérhető témák</h2>
 
+        <p>
+            <a href="/newtopic.html">
+                Új téma létrehozása
+            </a>
+        </p>
+
         <div id="topics-container"></div>
     </div>
 
     <script type="text/x-mustache" id="topic-template">
         {{#topics}}
-        <div class="topic" data-id="{{id}}">
-            <h3><a href="#">{{title}}</a></h3>
+        <div class="topic">
+            <h3><a href="/topic.html?id={{id}}">{{title}}</a></h3>
             <p>{{description}}</p>
         </div>
         {{/topics}}
