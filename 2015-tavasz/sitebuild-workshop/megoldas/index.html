@@ -2,7 +2,6 @@
 <head>
     <title>Fórum</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="normalize.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -23,21 +22,5 @@
         </div>
     </div>
 
-    <script type="text/x-mustache" id="topic-template">
-        {{#topics}}
-        <div class="topic">
-            <h3><a href="topic.html?id={{id}}">{{title}}</a></h3>
-            <p>{{description}}</p>
-        </div>
-        {{/topics}}
-        {{^topics}}
-        <p>Nincsenek témák</p>
-        {{/topics}}
-    </script>
-
-    <script src="mustache.min.js"></script>
-    <script src="jquery-1.11.0.min.js"></script>
-    <script src="utils.js"></script>
-    <script src="topics.js"></script>
 </body>
 </html>
