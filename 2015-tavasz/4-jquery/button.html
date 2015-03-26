@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>button click esemény</title>
+</head>
+<body>
+
+    <button id="btn1" onclick="buttonClick(event)">Click me!</button>
+    <button id="btn2">Click me too!</button>
+    <button id="time-btn">Show me the time!</button>
+    <div id="mouse-over-result"></div>
+    <div id="text-area"></div>
+
+    <script type="text/javascript">
+        function buttonClick (e) {
+            alert('Yay, you clicked me!');
+            console.log(e);
+        }
+
+        document.getElementById("time-btn").onclick = function (e) {
+            alert(new Date());
+            console.log(e);
+        };
+
+        document.getElementById('btn2').addEventListener('click', function () {
+            document.getElementById('text-area').innerHTML = "button clicked";
+        });
+
+        function mouseover(e) {
+            document.getElementById('mouse-over-result').innerHTML = e.target.textContent;
+        }
+
+        document.getElementById('btn1').addEventListener('mouseover', mouseover);
+        document.getElementById('btn2').addEventListener('mouseover', mouseover);
+    </script>
+</body>
+</html>
