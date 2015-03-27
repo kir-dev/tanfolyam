@@ -4,7 +4,7 @@
 
 * bemutatkozás, körről is két szó (dia sem árt)
 * tanfolyamról
-    * felépítés: 3+1 alkalom, gyakorlat orientált
+    * felépítés: HTML, CSS, Sitebuild workshop, JS, Kis backend, Frontend workshop
     * tartalom: js hangsúly, de html + css is
     * időpontok
     * elérhetőség, segédanyagok, github repo
