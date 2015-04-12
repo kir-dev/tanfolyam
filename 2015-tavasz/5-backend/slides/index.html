@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Kir-Dev Web alapozó tanfolyam</title>
+
+		<meta name="description" content="Kir-Dev web alapozó -- Bevezető">
+		<meta name="author" content="Gulyás Gergely">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/moon.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Backend alapok</h1>
+					<h3>2015 tavasz, Kir-Dev</h3>
+					<p>
+                    <small>Gulyás Gergely</small>
+					</p>
+				</section>
+				<section>
+					<h2>Az elöadásról</h2>
+                    <ul>
+                    	<li>A workshopon használt backend bemutatása</li>
+						<li>Nem lesz gyakorlati rész</li>
+						<li>Még kevésbé cél a teljes megismerés</li>
+						<li>Ne fekete dobozként gondoljatok rá</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Bejövö kérésekre válasz elöállítása</h2>
+				</section>
+				<section>
+					<h2>A Go nyelv</h2>
+					<p>Google által fejlesztett</p>
+					<p>C szerű szintaxis</p>
+					<img src="img/gopherbw.png" style="height:300px;" />
+				</section>
+				<section>
+					<h2>Szigorú szintaktika</h2>
+					<ul>
+                    	<li>Indentálás helyettesíti a kapcsoszárójeleket</li>
+						<li>Nagybetűs nevek publikusak, kisbetűsök privátak</li>
+						<li>Ami máshol warning, az itt error</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Garbage collector</h2>
+					<p>Elvégzi a memóriakezelés nagy részét</p>
+				</section>
+				<section>
+					<h3>Összességében kevesebb nyelvi elem</h3>
+					<ul>
+						<li>Nincs generikusság</li>
+						<li>Nincsenek Exception-ök</li>
+                    	<li>Nincsenek osztályok</li>
+					</ul>
+					<p>&#8658; Átláthatóbb kód</p>
+				</section>
+				<section>
+					<h3>Van viszont</h3>
+					<ul>
+                    	<li>Beépített stringkezelés</li>
+						<li>Egyedi névterek</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Miben más mint a C</h3>
+					<ul>
+                    	<li>Nem kell pontosvessző</li>
+						<li>Függvényeknek több visszatérési értéke is lehet</li>
+						<li>Szigorú típusosság</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Saját package manager</h2>
+					<ul>
+                    	<li>Dinamikusan importálja a libraryk amiket használunk</li>
+						<li>Elég leírni, hogy miket szeretnénk</li>
+						<li>Majd futtatni egy install-t és letölti azokat</li>
+						<li>Például web modul</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Kód</h1>
+				</section>
+				<section>
+					<h1>Kérdések?</h1>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
