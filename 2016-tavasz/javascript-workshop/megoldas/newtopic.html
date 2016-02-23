@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Fórum</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div>
+        <h1><a href="index.html">Fórum</a></h1>
+        <h2>Új téma létrehozása</h2>
+    </div>
+
+    <div id="new-topic-form">
+        <div class="error" style="display: none;">
+            A téma címének és leírásának kitöltése kötelező.
+        </div>
+        <div class="form-field-group">
+            <div class="form-label"><label for="topic-title">Téma címe</label></div>
+            <div class="form-field"><input type="text" id="topic-title"></div>
+        </div>
+
+        <div class="form-field-group">
+            <div class="form-label"><label for="topic-description">Leírás</label></div>
+            <div class="form-field">
+                <textarea id="topic-description"></textarea>
+            </div>
+        </div>
+
+        <div class="form-submit">
+            <button id="submit-topic-form">Létrehozás</button>
+        </div>
+
+    </div>
+
+    <script src="mustache.min.js"></script>
+    <script src="jquery-1.11.0.min.js"></script>
+    <script src="utils.js" ></script>
+    <script src="new-topic.js"></script>
+</body>
+</html>
