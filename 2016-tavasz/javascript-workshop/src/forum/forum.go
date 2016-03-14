@@ -49,6 +49,7 @@ var (
 func main() {
 	// init
 	topics = make([]*Topic, 0)
+	initTestData()
 
 	// api routes
 	r := pat.New()
@@ -63,8 +64,38 @@ func main() {
 	// serve api from /api path
 	http.Handle("/api/", http.StripPrefix("/api", r))
 
-	log.Println("Started forum. Listening on localhost:8080...")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Println("Started forum. Listening on localhost:8089...")
+	log.Fatal(http.ListenAndServe(":8089", nil))
+}
+
+func initTestData() {
+
+	topic := Topic{Title: "Teszt téma", Description: "Ide lehet posztolni akármit"}
+	topic.Id = getNextTopicId()
+	topic.posts = make([]*Post, 0)
+	topics = append(topics, &topic)
+
+	post := Post{Author: "Geri", Content: "Teszt poszt, működik a blog :)"}
+	post.Timestamp = time.Now()
+	post.Id = getNextPostId()
+	topic.posts = append(topic.posts, &post)
+
+	post2 := Post{Author: "Pék Sanyi", Content: "Nagyon király, csak így tovább! Jól haladtok de van még hátra egy pár feladat!", ReplyTo: post.Id}
+	post2.Timestamp = time.Now()
+	post2.Id = getNextPostId()
+	topic.posts = append(topic.posts, &post2)
+	topic.LastPostDate = post2.Timestamp
+
+	topic2 := Topic{Title: "Javascript téma", Description: "Minden ami javascript"}
+	topic2.Id = getNextTopicId()
+	topic2.posts = make([]*Post, 0)
+	topics = append(topics, &topic2)
+
+	post3 := Post{Author: "Robert Nyman", Content: testScopePost()}
+	post3.Timestamp = time.Now()
+	post3.Id = getNextPostId()
+	topic2.posts = append(topic2.posts, &post3)
+	topic2.LastPostDate = post3.Timestamp
 }
 
 func handleGetPost(w http.ResponseWriter, req *http.Request) {
@@ -265,4 +296,46 @@ func getIdFromUrl(name string, w http.ResponseWriter, req *http.Request) (int, b
 	}
 
 	return id, true
+}
+
+func testScopePost() string {
+	return `Scope
+
+Scope refers to where variables and functions are accessible, and in what context it is being executed. Basically, a variable or function can be defined in a global or local scope. Variables have so-called function scope, and functions have the same scope as variables.
+
+
+Global scope
+
+When something is global means that it is accessible from anywhere in your code. Take this for example:
+
+var monkey = "Gorilla"; 
+function greetVisitor () {
+	return alert("Hello dear blog reader!");
+}
+
+If that code was being run in a web browser, the function scope would be window, thus making it available to everything running in that web browser window.
+
+
+Local scope
+
+As opposed to the global scope, the local scope is when something is just defined and accessible in a certain part of the code, like a function. For instance;
+
+function talkDirty () {
+	var saying = "Oh, you little VB lover, you";
+	return alert(saying);
+}
+alert(saying); // Throws an error
+
+If you take a look at the code above, the variable saying is only available within the talkDirty function. Outside of it it isn’t defined at all. Note of caution: if you were to declare saying without the var keyword preceding it, it would automatically become a global variable.
+
+What this also means is that if you have nested functions, the inner function will have access to the containing functions variables and functions:
+
+function saveName (firstName) {
+	function capitalizeName () {
+		return firstName.toUpperCase();
+	}
+	var capitalized = capitalizeName();
+	return capitalized;
+}
+alert(saveName("Robert")); // Returns "ROBERT"`
 }
