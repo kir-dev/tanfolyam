@@ -707,6 +707,15 @@ code {
 
   </section>
   <section>
+    <h3 id="ism-tl-k-rd-sek">Ismétlő kérdések</h3>
+<ul>
+<li>Mi az a DOM?</li>
+<li>Mik azok a css selectorok?</li>
+<li>Mire jók a media queryk?</li>
+</ul>
+
+  </section>
+  <section>
     <h3 id="-ltal-nos">Általános</h3>
 <ul>
 <li>Eredeti célja: interaktivitást vinni a weboldalakba</li>
@@ -845,6 +854,165 @@ kifejezés típusa is megegyezik</p>
 </li>
 <li>Azonnal lefut</li>
 </ul>
+
+  </section>
+  <section>
+    <h1 id="sz-net">Szünet</h1>
+
+  </section>
+  <section>
+    <h3 id="ism-tl-s">Ismétlés</h3>
+<ul>
+<li>Hogyan hozunk létre tömböt és objectet?</li>
+<li>Mi számít <code>false</code> értéknek?</li>
+<li><code>function</code> elsőrendű nyelvi elem-e?</li>
+</ul>
+
+  </section>
+  <section>
+    <h3 id="dom">DOM</h3>
+<ul>
+<li>Javascriptből is elérhető</li>
+<li>Egy-egy node kikeresése és változtatása</li>
+<li>Új dom elem hozzáadása</li>
+</ul>
+
+  </section>
+  <section>
+    <h3 id="esem-nyek">Események</h3>
+<ul>
+<li>onxxx property (html attr és javascript)</li>
+<li><code>addEventListener</code></li>
+<li><code>addEventListener</code> előnyös: nagyobb kontroll és több eseménykezelő is regisztrálható</li>
+<li>Event bubbling</li>
+<li><a href="http://themousepotatowebsite.co.za/javascript-events-capturing-and-bubbling/">http://themousepotatowebsite.co.za/javascript-events-capturing-and-bubbling/</a></li>
+</ul>
+
+  </section>
+  <section>
+    <h3 id="jquery">jQuery</h3>
+<ul>
+<li><a href="http://jquery.com/">http://jquery.com/</a></li>
+<li>Library DOM manipulációhoz és eseménykezeléshez (és még sok más)</li>
+<li><code>$(document)</code> jquery objektummá alakítás (minden dom elementre megy)</li>
+<li>Függvények paraméter nélkül általában lekérdezést jelentenek</li>
+<li>Paraméterrel pedig értékadás</li>
+<li><code>$(document).ready(...)</code></li>
+</ul>
+
+  </section>
+  <section>
+    <h3 id="jquery-dom-bej-r-s">jQuery DOM bejárás</h3>
+<ul>
+<li>Css selectorok, kicsit kiegészítve</li>
+<li><a href="http://api.jquery.com/category/selectors/">http://api.jquery.com/category/selectors/</a></li>
+<li><code>$()</code> függvény a belépési pont</li>
+<li><code>$(&#39;li&#39;)</code> minden <code>li</code> elem az egész oldalon</li>
+<li><code>$(&#39;.post&#39;)</code></li>
+<li><code>$(&#39;#container&#39;)</code></li>
+<li><code>$(&#39;.post.active&#39;)</code> az olyan elemek, amiknek post <strong>és</strong> active class-a is van</li>
+<li>Tetszőleges kombinálhatóak: <code>$(ul#menu li a)</code></li>
+<li>Pszeudo selectorok <code>:checked, :visible</code></li>
+<li><code>text()</code>, <code>html()</code></li>
+<li>Form elemekhez: <code>val()</code></li>
+</ul>
+
+  </section>
+  <section>
+    <h3 id="dom-manipul-ci-">DOM manipuláció</h3>
+<ul>
+<li>Selectorral kiválasztott elemeket egyszerre lehet<ul>
+<li><code>$(&#39;.post&#39;).show()/hide()</code></li>
+<li><code>$(&#39;.post&#39;).css(&#39;background-color, &#39;tomato&#39;)</code></li>
+<li><code>$(&#39;.post:first&#39;).text(&#39;hello world&#39;)</code></li>
+<li><code>$(&#39;.post:nth-child(2)&#39;).html(&#39;&lt;span&gt;hello world&lt;/span&gt;&#39;)</code></li>
+</ul>
+</li>
+<li><code>remove()</code>, <code>append()</code></li>
+<li>Új dom elem</li>
+<li>Fade, slide, és egyedi animációk</li>
+<li>Class hozzáadás, elvétel</li>
+<li>attr, prop</li>
+</ul>
+
+  </section>
+  <section>
+    <h3 id="esem-nyek">Események</h3>
+<ul>
+<li><code>on(&#39;event&#39;, handler)</code></li>
+<li>Rövidítés: <code>click(handler)</code>, <code>mouseenter(handler)</code>, stb</li>
+<li>Még nem létező elemekhez is lehet eseményt regisztrálni</li>
+<li><code>this</code> a fogadó elemre mutat</li>
+</ul>
+
+  </section>
+  <section>
+    <h3 id="ajax">Ajax</h3>
+<ul>
+<li>Asynchronous JavaScript and XML</li>
+<li>Ma már szinte mindig JSON</li>
+<li>Háttérben, az oldal teljes újratöltése nélkül lehet a szerverhez fordulni</li>
+<li>Aszinkron működést biztosít</li>
+<li>Azt az érzetet kelti a felhasználóban, hogy gyorsabb az oldal</li>
+<li>XMLHttpRequest</li>
+</ul>
+
+  </section>
+  <section>
+    <h2 id="jquery-ajax">jQuery.ajax</h2>
+<ul>
+<li>Alapvetően a jQuery.ajax hívás</li>
+<li><p>Vannak rövidítések</p>
+<ul>
+<li>get, post, getJSON, getScript</li>
+<li><p>Nem annyira flexibilisek</p>
+<pre><code>  $.ajax({
+      url: &#39;/users&#39;,
+      success: function (data) {
+          console.log(data);
+      }
+  });</code></pre>
+</li>
+</ul>
+</li>
+<li><p>data: adat amit küldeni szeretnénk, automatikusan feldolgozza</p>
+</li>
+<li>dataType: válasz tartalmát előre feldolgozza (json, xml)</li>
+<li>type: HTTP verb,<ul>
+<li>GET, POST mindenhol támogatott</li>
+<li>A többi (PUT, DELETE) nem biztos, böngészőfüggő</li>
+</ul>
+</li>
+</ul>
+
+  </section>
+  <section>
+    <h3 id="callbackek">Callbackek</h3>
+<ul>
+<li>success: siker</li>
+<li>error: hiba (alkalmazás szintű is, pl 404, 500)</li>
+<li>complete: mindig lefut a kérés után</li>
+<li><p>Alternatíva:</p>
+<p>  <code>$.ajax({url: &#39;/users&#39;}).done(...).fail(...).always(...)</code></p>
+</li>
+</ul>
+
+  </section>
+  <section>
+    <h3 id="limit-ci-k-s-jsonp">Limitációk és jsonp</h3>
+<ul>
+<li>Bookmarkolhatóság</li>
+<li>Web crawlers</li>
+<li>Böngésző history inkonzisztencia (HTML5 előtt)</li>
+<li>Same origin policy<ul>
+<li>Megoldás: CORS (cross-origin resource sharing), JSONP</li>
+</ul>
+</li>
+</ul>
+
+  </section>
+  <section>
+    <h1 id="k-sz-n-m-a-figyelmet-">Köszönöm a figyelmet!</h1>
 
   </section>
 

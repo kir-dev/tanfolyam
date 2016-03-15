@@ -11,6 +11,14 @@ theme: sudodoki/reveal-cleaver-theme
 
 --
 
+### Ismétlő kérdések
+
+- Mi az a DOM?
+- Mik azok a css selectorok?
+- Mire jók a media queryk?
+
+--
+
 ### Általános
 
 - Eredeti célja: interaktivitást vinni a weboldalakba
@@ -135,3 +143,142 @@ kifejezés típusa is megegyezik
     - Inline
     - Src attribútum
 - Azonnal lefut
+
+--
+
+# Szünet
+
+--
+
+### Ismétlés
+
+- Hogyan hozunk létre tömböt és objectet?
+- Mi számít `false` értéknek?
+- `function` elsőrendű nyelvi elem-e?
+
+--
+
+### DOM
+
+- Javascriptből is elérhető
+- Egy-egy node kikeresése és változtatása
+- Új dom elem hozzáadása
+
+--
+
+### Események
+
+- onxxx property (html attr és javascript)
+- `addEventListener`
+- `addEventListener` előnyös: nagyobb kontroll és több eseménykezelő is regisztrálható
+- Event bubbling
+- http://themousepotatowebsite.co.za/javascript-events-capturing-and-bubbling/
+
+--
+
+### jQuery
+
+- http://jquery.com/
+- Library DOM manipulációhoz és eseménykezeléshez (és még sok más)
+- `$(document)` jquery objektummá alakítás (minden dom elementre megy)
+- Függvények paraméter nélkül általában lekérdezést jelentenek
+- Paraméterrel pedig értékadás
+- `$(document).ready(...)`
+
+--
+
+### jQuery DOM bejárás
+
+- Css selectorok, kicsit kiegészítve
+- http://api.jquery.com/category/selectors/
+- `$()` függvény a belépési pont
+- `$('li')` minden `li` elem az egész oldalon
+- `$('.post')`
+- `$('#container')`
+- `$('.post.active')` az olyan elemek, amiknek post **és** active class-a is van
+- Tetszőleges kombinálhatóak: `$(ul#menu li a)`
+- Pszeudo selectorok `:checked, :visible`
+- `text()`, `html()`
+- Form elemekhez: `val()`
+
+--
+
+### DOM manipuláció
+
+- Selectorral kiválasztott elemeket egyszerre lehet
+    - `$('.post').show()/hide()`
+    - `$('.post').css('background-color, 'tomato')`
+    - `$('.post:first').text('hello world')`
+    - `$('.post:nth-child(2)').html('<span>hello world</span>')`
+- `remove()`, `append()`
+- Új dom elem
+- Fade, slide, és egyedi animációk
+- Class hozzáadás, elvétel
+- attr, prop
+
+--
+
+### Események
+
+- `on('event', handler)`
+- Rövidítés: `click(handler)`, `mouseenter(handler)`, stb
+- Még nem létező elemekhez is lehet eseményt regisztrálni
+- `this` a fogadó elemre mutat
+
+--
+
+### Ajax
+
+- Asynchronous JavaScript and XML
+- Ma már szinte mindig JSON
+- Háttérben, az oldal teljes újratöltése nélkül lehet a szerverhez fordulni
+- Aszinkron működést biztosít
+- Azt az érzetet kelti a felhasználóban, hogy gyorsabb az oldal
+- XMLHttpRequest
+
+--
+
+## jQuery.ajax
+
+- Alapvetően a jQuery.ajax hívás
+- Vannak rövidítések
+    - get, post, getJSON, getScript
+    - Nem annyira flexibilisek
+
+            $.ajax({
+                url: '/users',
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+
+- data: adat amit küldeni szeretnénk, automatikusan feldolgozza
+- dataType: válasz tartalmát előre feldolgozza (json, xml)
+- type: HTTP verb,
+    - GET, POST mindenhol támogatott
+    - A többi (PUT, DELETE) nem biztos, böngészőfüggő
+
+--
+
+### Callbackek
+
+- success: siker
+- error: hiba (alkalmazás szintű is, pl 404, 500)
+- complete: mindig lefut a kérés után
+- Alternatíva:
+
+    `$.ajax({url: '/users'}).done(...).fail(...).always(...)`
+
+--
+
+### Limitációk és jsonp
+
+- Bookmarkolhatóság
+- Web crawlers
+- Böngésző history inkonzisztencia (HTML5 előtt)
+- Same origin policy
+    - Megoldás: CORS (cross-origin resource sharing), JSONP
+
+--
+
+# Köszönöm a figyelmet!
