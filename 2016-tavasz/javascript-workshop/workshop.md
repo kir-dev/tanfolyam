@@ -4,7 +4,8 @@ Kir-Dev tanfolyam workshop
 Fejlesztés
 ----------
 
-Hozd létre a feladatok megoldásához szükséges html, css és js fájlokat.
+A feladatokhoz használhatod az előző workshopon elkészült megoldásodat, de 
+javasoljuk hogy a [közös megoldásból](https://github.com/kir-dev/tanfolyam/tree/master/2016-tavasz/sitebuild-workshop/megoldas) indulj ki.
 
 A webszervert a stewie.sch.bme.hu:8089-es címen éritek el (ezen belül a /api 
 route-ot kell majd használni)

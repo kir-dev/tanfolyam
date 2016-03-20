@@ -11,7 +11,7 @@ theme: sudodoki/reveal-cleaver-theme
 
 --
 
-### Ismétlő kérdések
+### Ismétlö kérdések
 
 - Mi az a DOM?
 - Mik azok a css selectorok?
