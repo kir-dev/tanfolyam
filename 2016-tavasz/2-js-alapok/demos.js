@@ -1,16 +1,16 @@
 
 //Típusos demó
 
-console.log("hello world:", typeof "hello world");
-console.log("42:", typeof 42);
-console.log("12.2:", typeof 12.2);
-console.log("true:", typeof true);
-console.log("null:", typeof null);
-console.log("undefined:", typeof undefined);
-console.log("variable:", typeof variable);
-console.log("console.log:", typeof console.log);
-console.log("typeof 42:", typeof typeof 42); // typeof eredménye mindig string
-console.log("array:", typeof []); // és minden más is
+typeof "hello world"
+typeof 42
+typeof 12.2
+typeof true
+typeof null
+typeof undefined
+typeof variable
+typeof console.log
+typeof typeof 42
+typeof [] //és minden más is
 
 //Tömbök demó
 
@@ -109,6 +109,7 @@ document.getElementById('btn2').addEventListener('mouseover', mouseover);
 
 
 //Jquery
+//jquery.html
 
 $('.post').css('background-color', 'tomato');
 
