@@ -1,36 +1,23 @@
 Kir-Dev tanfolyam workshop
 ==========================
 
-Futtatás
----------
-
-### Már van előre fordított binárisom
-
-1. indítsd el, a `localhost:8080`-as címen fogod elérni a szervert
-
-### Saját magamnak fordítok egyet
-
-1. clone-ozd le a [tanfolyam repot](https://github.com/kir-dev/tanfolyam)
-2. a fórum-szervert a `2014-tavasz/workshop/src/forum` mappában találod
-3. állítsd be a `GOPATH` változót a workshop mappára
-
-        $ export GOPATH=/path/to/2014-tavasz/workshop
-
-4. fordítsd le a binárist
-
-        $ go install
-
-5. a `2014-tavasz/workshop/bin` mappában találod a futtatható állományt
-6. indítsd el, a `localhost:8080`-as címen fogod elérni a szervert
-
 Fejlesztés
 ----------
 
-Az indítási mappából kiszolgálja a statikus fájlokat a szerver. Hozd létre a
-feladatok megoldásához szükséges html, css és js fájlokat.
+Hozd létre a feladatok megoldásához szükséges html, css és js fájlokat.
 
-Egy jó webszerverhez híven az `index.html` fájlt küldi vissza a válaszban,
-amennyiben nem adunk meg pontos elérési utat.
+A webszervert a stewie.sch.bme.hu:8089-es címen éritek el (ezen belül a /api 
+route-ot kell majd használni)
+
+A chrome-ban ki kell kapcsolni a Same-oigin policy-t, hogy el tudd érni a 
+szervert localhostról
+
+Linux: `google-chrome --disable-web-security`
+OSX: `open -a Google\ Chrome --args --disable-web-security`
+Windows: A chrome mappájából (C:\Program Files (x86)\Google\Chrome\Application)
+`chrome.exe --disable-web-security`
+
+Ha jól csináltad, a chrome szólni fog hogy instabil és nem biztonságos ilyet művelni.
 
 API leírás
 ----------
