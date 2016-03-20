@@ -75,3 +75,26 @@ a:hover {
 .pagination #next {
   float: right;
 }
+
+button {
+  background-color: #3f3f3f;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  border: none;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+button:hover, button:focus, button:active {
+  background-color: #2098d1;
+  color: white;
+}
