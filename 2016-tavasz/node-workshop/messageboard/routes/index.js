@@ -17,13 +17,13 @@ var deletePost = require('../middleware/deletePost');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  if(req.session.username != 'fos'){
-    res.render('index.html');
+  if(req.session.username != null){
+    res.reneder('index.html');
   }else{
-    res.redirect('login');
+    res.redirect('/login');
   }
-
 });
+
 
 router.get('/board', listPosts);
 
@@ -42,7 +42,7 @@ router.post('/login', function (req,res,next) {
 
 router.use('/logout', function (req,res,next) {
   req.session.username=null;
-  res.redirect('/');
+  res.end();
 });
 
 router.get('/who',  function (req,res,next) {

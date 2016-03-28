@@ -61,7 +61,7 @@
             <div>
                 <h4>Comments:</h4>
                 <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="comment in post.comments track by $index">{{comment}}</li>
+                    <li class="list-group-item" ng-repeat="comment in post.comments track by $index"><b>@{{comment.name}}: </b>{{comment.comment}}</li>
                 </ul>
             </div>
             <div class="input-group">
