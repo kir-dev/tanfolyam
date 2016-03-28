@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="messageBoard" lang="en">
-  <head>
-    <base href="/">	    
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
+<head>
+    <base href="/">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,31 +14,37 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href="./stylesheets/style.css" rel="stylesheet">
     <script src="./javascripts/app.js"></script>
-  </head>
-  <body ng-controller="PostController as post">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
+</head>
+<body ng-controller="PostController as post">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">
-            <img alt="Brand" src="./images/kirdev.png" class="logo">
-          </a>
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" src="./images/kirdev.png" class="logo">
+            </a>
         </div>
-      </div>
-    </nav>
-    <div class="col-xs-12 col-md-6 col-sm-8 col-sm-offset-2 col-md-offset-3">
-      <form method="post" name="post_form">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#about"><b>@<span id="username"></span></b></a>
+            </li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="col-xs-12 col-md-6 col-sm-8 col-sm-offset-2 col-md-offset-3">
+    <form method="post" name="post_form">
         <div class="form-group">
-
-            <input type="textarea" id="name_field" maxlength="30" ng-model="name" class="form-control status-box" rows="1" placeholder="Tell me your name!">
-            <input type="textarea" id="message_field" ng-model="message" class="form-control status-box" rows="2" placeholder="What's on your mind?">
+            <textarea id="message_field" ng-model="message" class="form-control status-box" rows="4"
+                   placeholder="What's on your mind?"></textarea>
         </div>
-      </form>
-      <div class="button-group pull-right">
-          <p class="counter">{{140-message.length}}</p>
-          <a href="#" ng-disabled="!(!!name && !!message && message.length <= 140)" id="postBtn" ng-click="!(!!name && !!message && message.length <= 140) || addNewPost(name,message)" class="btn btn-primary">Post</a>
-      </div>
+    </form>
+    <div class="button-group pull-right">
+        <p class="counter">{{140-message.length}}</p>
+        <a href="#" ng-disabled="!(!!message && message.length <= 140)" id="postBtn"
+           ng-click="!(!!message && message.length <= 140) || addNewPost(message)"
+           class="btn btn-primary">Post</a>
+    </div>
 
-      <ul id="posts" class="posts">
+    <ul id="posts" class="posts">
         <li ng-repeat="post in posts | orderBy:'-id' track by post.id ">
             <div class="username row">
                 <strong>@{{post.name}}</strong>
@@ -46,25 +52,27 @@
             </div>
             <p class="lead">{{post.message}}</p>
             <div class="indicators">
-            <span ng-click=likePost(post.id) class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-	    <span class="indicator">{{post.likes}}</span>
-	    <span  class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-	    <span class="indicator">{{post.comments.length}}</span>
+                <span ng-click=likePost(post.id) class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                <span class="indicator">{{post.likes}}</span>
+                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                <span class="indicator">{{post.comments.length}}</span>
             </div>
             <hr>
-	    <div>
+            <div>
                 <h4>Comments:</h4>
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="comment in post.comments track by $index">{{comment}}</li>
                 </ul>
             </div>
-                <div class="input-group">
-                    <input type = "textarea" class="form-control custom-control" rows="3" style="resize:none" placeholder="Write a comment." ng-model="comment">
-                    <a ng-disabled="!(!!comment)" ng-click="!(!!comment) || commentOnPost(post.id,comment);comment = null" class="input-group-addon btn btn-primary">Send</a>
-                </div>
-	</li> 
-      </ul>
-    </div>
+            <div class="input-group">
+                <input type="textarea" class="form-control custom-control" rows="3" style="resize:none"
+                       placeholder="Write a comment." ng-model="comment">
+                <a ng-disabled="!(!!comment)" ng-click="!(!!comment) || commentOnPost(post.id,comment);comment = null"
+                   class="input-group-addon btn btn-primary">Send</a>
+            </div>
+        </li>
+    </ul>
+</div>
 
-  </body>
+</body>
 </html>

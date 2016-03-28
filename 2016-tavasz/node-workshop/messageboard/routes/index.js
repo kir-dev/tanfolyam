@@ -1,5 +1,12 @@
 var express = require('express');
+var session = require('express-session');
 var router = express.Router();
+
+router.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}));
 
 var listPosts = require('../middleware/listPosts');
 var addPost = require('../middleware/addPost');
@@ -10,7 +17,12 @@ var deletePost = require('../middleware/deletePost');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index.html');
+  if(req.session.username != 'fos'){
+    res.render('index.html');
+  }else{
+    res.redirect('login');
+  }
+
 });
 
 router.get('/board', listPosts);
@@ -23,5 +35,18 @@ router.post('/board/comment', commentOnPost);
 
 router.delete('/board/delete/:postId', deletePost);
 
+router.post('/login', function (req,res,next) {
+  req.session.username=req.body.username;
+  res.redirect('/');
+});
+
+router.use('/logout', function (req,res,next) {
+  req.session.username=null;
+  res.redirect('/');
+});
+
+router.get('/who',  function (req,res,next) {
+  res.send(req.session.username);
+});
 
 module.exports = router;

@@ -1,27 +1,30 @@
+$(document).ready(function(){
+    $( "#username" ).load( "/who");
+});
 
 (function () {
-    var app = angular.module('messageBoard', ['ngRoute','ngAnimate']).config(['$locationProvider', function ($locationProvider) {
-	$locationProvider.html5Mode(true);
-    }]);
-  
 
-	app.controller('PostController', function ($scope, $route, $routeParams, $location, $http) {
-    	
-    	$http.get('board').
+    var app = angular.module('messageBoard', ['ngRoute','ngAnimate']).config(['$locationProvider', function ($locationProvider) {
+        $locationProvider.html5Mode(true);
+    }]);
+
+    app.controller('PostController', function ($scope, $route, $routeParams, $location, $http) {
+
+        $http.get('board').
             success(function (data) {
-            $scope.posts = data;
-        });
-        
-    
-      	$scope.clearForm = function() {
-    	    $scope.name = null;
-    	    $scope.message = null;
-	} 
+                $scope.posts = data;
+            });
+
+
+        $scope.clearForm = function() {
+            $scope.name = null;
+            $scope.message = null;
+        } 
 
         $scope.addNewPost = function (name, message) {
             var data = {};
-            data.name = name;
-            data.message = message;
+            data.name = $("#username").text();
+            data.message = $("#message_field").val();
             $http.post('board/add', JSON.stringify(data)).
                 success($scope.update);
             $scope.clearForm();
@@ -30,8 +33,8 @@
         $scope.update = function () {
             $http.get('board').
                 success(function (data) {
-                $scope.posts = data;
-            });
+                    $scope.posts = data;
+                });
         };
 
         $scope.commentOnPost = function (postId, comment) {
@@ -46,13 +49,12 @@
                 success($scope.update);
         }
 
-    	$scope.data = {
+        $scope.data = {
             repeatSelect: null,
-       	    availableOptions: []
-    	};
-  });
+            availableOptions: []
+        };
+    });
 })();
-
 
 
 
