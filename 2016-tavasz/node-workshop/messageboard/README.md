@@ -64,6 +64,7 @@ Body:
 Body:
 
     {
+    	postId: 5,
     	name: "Geri",
     	comment: "Indeed."
     }
