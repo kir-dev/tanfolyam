@@ -27,6 +27,7 @@ repoban is megtaláljátok.
 
 Legyen lehetőség egy formon keresztül új témát felvenni. Egy új témához a címét
 és a leírását kell megadni. A cím és a leírás megadását tegyük kötelezővé.
+Tipp: Az elküldött adatnak JSON.stringify()-olva kell lennie
 
 ### 3. Egy téma megjelenítése
 

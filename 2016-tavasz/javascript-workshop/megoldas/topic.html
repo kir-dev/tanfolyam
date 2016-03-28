@@ -2,27 +2,48 @@
 <head>
     <title>Fórum</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="normalize.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div id="container">
         <h1><a href="index.html">Fórum</a></h1>
-        <h2 id="title"></h2>
-        <p id="description"></p>
+        <h2 id="title">Lorem ipsum</h2>
+        <p id="description">lorem ipsum lorem ipsum lorem ipsum</p>
 
         <h3>Hozzászólások:</h3>
         <div id="posts-container"></div>
+
+        <div class="post">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae nulla quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed odio varius, posuere dui vel, facilisis enim. Curabitur id est aliquet nisi luctus tristique in eu libero. In hac habitasse platea dictumst. Pellentesque rhoncus et neque nec malesuada. Aliquam ornare erat et arcu pellentesque consequat. Nulla facilisi. Aliquam erat volutpat. Vestibulum ac lobortis nunc. Donec consectetur eget metus non auctor. Cras feugiat sed est egestas venenatis. Donec dictum rutrum fermentum. Etiam vulputate feugiat mauris sit amet imperdiet.</p>
+            <div class="meta">
+                Írta: <span class="author">loremipsum</span>
+                <span class="timestamp">0000-00-00</span>
+            </div>
+        </div>
+
+        <div class="post">
+            <p>Maecenas euismod blandit metus, vitae rutrum diam varius consectetur. Donec justo lectus, tincidunt in pellentesque eu, rutrum sit amet velit. Nulla dolor magna, fringilla imperdiet pharetra vel, hendrerit in sapien. Cras faucibus dolor in dapibus ultrices. In lacinia elit metus, sed pretium risus convallis id. Curabitur facilisis arcu ut placerat efficitur. Nullam fermentum luctus dui, ut commodo nulla sagittis at. </p>
+            <div class="meta">
+                Írta: <span class="author">loremipsum</span>
+                <span class="timestamp">0000-00-00</span>
+            </div>
+        </div>
+
+        <div class="post">
+            <p>Proin eleifend mollis lectus, vitae auctor libero blandit at. Nunc dapibus risus lacinia ipsum euismod facilisis. Nullam sit amet porta augue. Fusce imperdiet nulla in felis commodo varius. Nam consequat purus nulla, sed vehicula leo eleifend sit amet. Curabitur pellentesque, dui vitae semper sodales, sem lorem viverra eros, blandit lacinia felis lacus porta mi. Nullam auctor lorem non purus consequat, eu porta tellus faucibus. Fusce sapien metus, imperdiet sit amet lacinia sagittis, interdum id erat. Etiam a tortor vel nibh feugiat hendrerit in nec magna. Praesent elementum ipsum vitae eros ullamcorper, vitae blandit felis fringilla. Praesent eget eros magna. Fusce lectus purus, imperdiet id mollis non, facilisis nec quam. Donec varius mauris in nisi ultrices, sit amet convallis lorem cursus.</p>
+            <div class="meta">
+                Írta: <span class="author">loremipsum</span>
+                <span class="timestamp">0000-00-00</span>
+            </div>
+        </div>
+
         <div class="pagination">
-            <a href="javascript:void(0)" id="prev">Előző</a>
-            <a href="javascript:void(0)" id="next">Következő</a>
+            <a id="prev">Előző</a>
+            <a id="next">Következő</a>
         </div>
 
         <div id="new-post-form">
             <h3>Új hozzászólás</h3>
-            <div class="error" style="display: none;">
-                A szerző és tartalom megadás kötelező
-            </div>
             <div class="form-field-group">
                 <div class="form-label"><label for="post-author">Szerző</label></div>
                 <div class="form-field"><input type="text" id="post-author"></div>
@@ -42,24 +63,5 @@
         </div>
     </div>
 
-    <script type="text/x-mustache" id="post-template">
-        {{#posts}}
-        <div class="post" data-id="{{id}}">
-            <p>{{content}}</p>
-            <div class="meta">
-                Írta: <span class="author">{{author}}</span>
-                <span class="timestamp">{{date}}</span>
-            </div>
-        </div>
-        {{/posts}}
-        {{^posts}}
-        <p>Nincsenek még hozzászólások</p>
-        {{/posts}}
-    </script>
-
-    <script src="mustache.min.js"></script>
-    <script src="jquery-1.11.0.min.js"></script>
-    <script src="utils.js"></script>
-    <script src="topic.js"></script>
 </body>
 </html>

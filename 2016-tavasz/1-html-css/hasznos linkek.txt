@@ -1,0 +1,5 @@
+HTML szintaxis ellenőrzésre: https://validator.w3.org/
+
+Gyakorlásra oldalak:
+https://www.codeschool.com/
+https://www.codecademy.com/
