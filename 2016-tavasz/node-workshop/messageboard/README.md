@@ -91,9 +91,12 @@ Body:
     	username: "Geri",
     }
 
-    POST /logout
+
+    GET /logout
+
 
     GET /who
+
 
 Válasz:
 
