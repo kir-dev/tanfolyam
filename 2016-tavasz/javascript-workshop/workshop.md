@@ -13,10 +13,12 @@ route-ot kell majd használni)
 A chrome-ban ki kell kapcsolni a Same-oigin policy-t, hogy el tudd érni a 
 szervert localhostról
 
-Linux: `google-chrome --disable-web-security`
-OSX: `open -a Google\ Chrome --args --disable-web-security`
+Linux: `google-chrome --disable-web-security --user-data-dir="/akarmi"`
+
+OSX: `open -a Google\ Chrome --args --disable-web-security --user-data-dir="/akarmi"`
+
 Windows: A chrome mappájából (C:\Program Files (x86)\Google\Chrome\Application)
-`chrome.exe --disable-web-security`
+`chrome.exe --disable-web-security --user-data-dir="C:/akarmi"`
 
 Ha jól csináltad, a chrome szólni fog hogy instabil és nem biztonságos ilyet művelni.
 
