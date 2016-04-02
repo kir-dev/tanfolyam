@@ -64,6 +64,7 @@ Kérés törzse:
 ##### Lehetséges hibák:
 
 Ugyanaz, mint az esemény létrehozásánál
++ Nem létező ID
 
 ### Helyszínek kilistázása
 
@@ -107,5 +108,12 @@ Kérés törzse:
 
 ##### Lehetséges hibák:
 
-* Már létezik az adott felhasználónév
-* Túl rövid a jelszó (8 karakter)
+* Nem létező felhasználónév
+* Hibás jelszó
+
+Válasz:
+
+	{
+		display_name: "Gulyás Gergely"
+	}
+	
