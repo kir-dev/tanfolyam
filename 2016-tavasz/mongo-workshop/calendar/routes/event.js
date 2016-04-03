@@ -4,7 +4,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
     dal.Event.find().populate('location').exec(function (err, doc) {
         res.json(doc);
-    })
+    });
 });
 
 function saveEvent (req, res) {
