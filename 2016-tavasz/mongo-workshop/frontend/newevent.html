@@ -67,9 +67,13 @@
 					dataType: "json",
 					success: function( response ) {
 						if(typeof response.error != 'undefined') alert(response.error);
-						else alert("Sikerült");
-						$("#ok").fadeIn();
 					}
+					complete: function(xhr, textStatus) {
+						if (textStatus == "200"){
+							alert("Sikerült");
+							$("#ok").fadeIn();
+						}
+					} 
 				});
 			});
 			

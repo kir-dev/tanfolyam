@@ -3,9 +3,9 @@
 		<script src="config.js"></script>
 		<link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
 		<link href="styles/default.css" rel="stylesheet">
-		<link href="jquery-ui.css" rel="stylesheet">
-		<script src="jquery.js"></script>
-		<script src="jquery-ui.js"></script>
+		<link href="jq/jquery-ui.css" rel="stylesheet">
+		<script src="jq/jquery.js"></script>
+		<script src="jq/jquery-ui.js"></script>
 		
 		<link rel="stylesheet" type="text/css" href="datetime/jquery.timepicker.css" />
 		<link rel="stylesheet" type="text/css" href="datetime/bootstrap-datepicker.css" />
@@ -69,10 +69,14 @@
 					dataType: "json",
 					success: function( response ) {
 						if(typeof response.error != 'undefined') alert(response.error);
-						else alert("Sikerült");
-						$("#ok").fadeIn();
-						location.reload(); 
-					}
+					},
+					complete: function(xhr, textStatus) {
+						if (textStatus == "200"){
+							alert("Sikerült");
+							$("#ok").fadeIn();
+							location.reload(); 
+						}
+					} 
 				});
 			});
 			
