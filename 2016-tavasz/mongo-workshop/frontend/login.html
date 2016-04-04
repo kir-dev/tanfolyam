@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<script src="config.js"></script>
+		<link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="styles/default.css" rel="stylesheet">
+		<script src="jquery.js"></script>
+		<title>Login</title>
+		<meta charset="UTF-8">
+	</head>
+	<body  class="login">
+		<div class="container">
+			<h2 class="form-signin-heading">Please sign in</h2>
+			<label class="sr-only">Username</label>
+			<input class="form-control" id="inputUserName" autofocus="" required="" type="text" placeholder="Username"><br/>
+			<label class="sr-only">Password</label>
+			<input class="form-control" id="inputPassword" required="" type="password" placeholder="Password"><br/>
+			<button class="btn btn-lg btn-primary btn-block" id="login">Sign in</button>
+		</div>
+	</body>
+	<script>
+		
+		$('#login').click(function(){
+			$('#login').fadeOut();
+				$.ajax({
+					type: 'post',
+					url: base_url+"/login",
+					data: {
+						username: $('#inputUserName').val(),
+						password: $('#inputPassword').val(),
+
+					},					
+					dataType: "json",
+					success: function( response ) {
+						if(typeof response.error != 'undefined') alert(response.error);
+						else alert("Üdvözöllek: " +response.display_name);
+						
+						$('#login').fadeIn();
+					}
+				});
+			});
+	</script>
+</html>
