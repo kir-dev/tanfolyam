@@ -13,9 +13,9 @@ theme: sudodoki/reveal-cleaver-theme
 
 ### Ismétlö kérdések
 
-- Mi az a DOM?
-- Mik azok a css selectorok?
-- Mire jók a media queryk?
+- Milyen webszervert használtunk az előző alkalmon?
+- Hogy lehet egy paraméteres route-ra feliratkozni?
+- Hogy érjük el egy POST kérés küldött adatait?
 
 --
 
