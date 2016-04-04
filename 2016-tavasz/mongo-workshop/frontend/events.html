@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<script src='config.js'></script>
+		<script src='jq/jquery.js'></script>
+		<link href="fullcalendar/fullcalendar.css" rel="stylesheet">
+		<link href="fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print">
+		<script src="fullcalendar/moment.min.js"></script>
+		<script src="fullcalendar/jquery.min.js"></script>
+		<script src="fullcalendar/fullcalendar.min.js"></script>
+		<title>Events</title>
+		<script>
+			$(document).ready(function() {
+					 $.ajax({
+							url: base_url+"/event",				 
+							// Tell jQuery we're expecting JSONP
+							dataType: "json",
+						 
+							// Work with the response
+							success: function( response ) {
+								console.log( response ); // server response
+								
+								$('#calendar').fullCalendar({
+									defaultDate: '2016-04-04',
+									editable: true,
+									eventLimit: true, // allow "more" link when too many events
+									events: response
+								});
+							}
+						});
+			});
+		</script>
+		<style>
+			body {
+				margin: 40px 10px;
+				padding: 0;
+				font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+				font-size: 14px;
+			}
+			#calendar {
+				max-width: 900px;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id='calendar'></div>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<script src='config.js'></script>
+		<link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="styles/default.css" rel="stylesheet">
+		<script src='jquery.js'></script>
+		<link href="fullcalendar/fullcalendar.css" rel="stylesheet">
+		<link href="fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print">
+		<script src="fullcalendar/moment.min.js"></script>
+		<script src="fullcalendar/jquery.min.js"></script>
+		<script src="fullcalendar/fullcalendar.min.js"></script>
+		<title>Locations</title>
+		<script>
+			$(document).ready(function(){
+				$.ajax({
+						url: base_url+"/location",				 
+						dataType: "json",
+						success: function( response ) {
+							for(var i= 0; i < response.length; i++){
+								$('#loc')
+								 .append($("<option></option>")
+								 .attr("value",response[i]._id)
+								 .text(response[i].title));
+							}
+						}
+					});
+					
+				$( "#loc" ).change(function() {
+					$('#loc').fadeOut();
+					$.ajax({
+						url: base_url+"/location/"+$( "#loc option:selected" ).val(),
+						dataType: "json",
+						success: function( response ) {
+							$('#calendar').fullCalendar( 'destroy' );
+							$('#calendar').fullCalendar({
+								defaultDate: '2016-04-04',
+								editable: true,
+								eventLimit: true, // allow "more" link when too many events
+								events: response
+							});
+							$('#loc').fadeIn();
+						}
+					});
+				});
+			});		
+		</script>
+		<style>
+			body {
+				margin: 40px 10px;
+				padding: 0;
+				font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+				font-size: 14px;
+			}
+			#calendar {
+				max-width: 900px;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<label class="sr-only">Location</label>
+			<select id="loc" class="form-control">
+				<option value='-1'>-</option>
+			</select><br/>
+			<div id='calendar'></div>
+		</div>
+	</body>
+</html>

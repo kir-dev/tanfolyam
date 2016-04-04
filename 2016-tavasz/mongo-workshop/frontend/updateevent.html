@@ -1,0 +1,112 @@
+<html>
+	<head>
+		<script src="config.js"></script>
+		<link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="styles/default.css" rel="stylesheet">
+		<link href="jquery-ui.css" rel="stylesheet">
+		<script src="jquery.js"></script>
+		<script src="jquery-ui.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="datetime/jquery.timepicker.css" />
+		<link rel="stylesheet" type="text/css" href="datetime/bootstrap-datepicker.css" />
+		<script type="text/javascript" src="datetime/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="datetime/jquery.timepicker.js"></script>
+		<script type="text/javascript" src="datetime/datepair.js"></script>
+		
+		<meta charset="UTF-8">
+		
+		<title>Update event</title>
+	</head>
+	<body  class="login">
+		<div class="container">
+				<h2 class="form-signin-heading">Update event</h2>
+				<label class="sr-only">Events</label>
+				<select id="events" class="form-control"></select><br/>
+				<label class="sr-only">Title</label>
+				<input class="form-control" id="title" autofocus="" required="" type="text" placeholder="Title"><br/>
+				<p id="basicExample">
+					<input type="text" id="start_date" class="date start form-control" /><br/>
+					<input type="text" id="start_time" class="time start form-control" /><br/>
+					<input type="text" id="end_date" class="date end form-control" /><br/>
+					<input type="text" id="end_time" class="time end form-control" /><br/>
+				</p>
+				<label class="sr-only" for="inputPassword">Location</label>
+				<select id="loc" class="form-control"></select><br/>
+				<button class="btn btn-lg btn-primary btn-block" id="ok">OK</button>
+			</div>
+	</body>
+	<script>
+		$(document).ready(function(){
+			var datepair;
+			
+			$(function() {
+				$('#basicExample .time').timepicker({
+						'showDuration': true,
+						'timeFormat': 'H:i:s'
+					});
+
+					$('#basicExample .date').datepicker({
+						'format': 'yyyy-mm-dd',
+						'autoclose': true
+					});
+
+					// initialize datepair
+					var basicExampleEl = document.getElementById('basicExample');
+					datepair = new Datepair(basicExampleEl);
+			 });
+		
+			$('#ok').click(function(){
+				$("#ok").fadeOut();
+				$.ajax({
+					type: 'post',
+					url: base_url+"/event/update/"+$( "#events option:selected" ).val(),
+					data: {
+						title: $('#title').val(),
+						start: $('#start_date').val()+"T"+$('#start_time').val()+"Z",
+						end: $('#end_date').val()+"T"+$('#end_time').val()+"Z",
+						location: $( "#loc option:selected" ).val()
+					},					
+					dataType: "json",
+					success: function( response ) {
+						if(typeof response.error != 'undefined') alert(response.error);
+						else alert("Sikerült");
+						$("#ok").fadeIn();
+						location.reload(); 
+					}
+				});
+			});
+			
+			$.ajax({
+				url: base_url+"/event",				 
+				// Tell jQuery we're expecting JSONP
+				dataType: "json",
+			 
+				// Work with the response
+				success: function( response ) {
+					for(var i= 0; i < response.length; i++){
+						$('#events')
+                            .append($("<option></option>")
+                            .attr("value",response[i]._id)
+                            .text(response[i].title));
+					}
+				}
+			});
+			
+			 $.ajax({
+					url: base_url+"/location",				 
+					// Tell jQuery we're expecting JSONP
+					dataType: "json",
+				 
+					// Work with the response
+					success: function( response ) {
+						for(var i= 0; i < response.length; i++){
+							$('#loc')
+                             .append($("<option></option>")
+                             .attr("value",response[i]._id)
+                             .text(response[i].title));
+						}
+					}
+				});
+			});
+	</script>
+</html>
