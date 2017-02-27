@@ -37,6 +37,7 @@ False-ra értékelődik:
 * ""
 * NaN
 * undefined
+
 Minden más true (pl. -1 is, üres tömb, üres objektum is!)
 
 ## Nyelvi elemek részletesen:
