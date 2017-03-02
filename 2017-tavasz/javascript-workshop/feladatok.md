@@ -32,6 +32,9 @@ Tipp: Az elküldött adatnak JSON.stringify()-olva kell lennie
 ### 3. Egy téma megjelenítése
 
 Egy téma adatainak és a hozzá tartozó hozzászólásoknak a megjelenítése.
+A hozzászólások között legyen 20px távolság (a legfelső felett és a legalsó alatt 
+ne legyen plusz margó). A megoldás során ne használj új osztályt és ne írj 
+inline CSS-t.
 
 ### 4. Új hozzászólás felvitele
 
@@ -44,18 +47,25 @@ mindenképpen megadni:
 
 A fenti két mező kitöltését tedd kötelezővé a felhasználó számára!
 
+
 ### 5. Lapozás
 
 A témákat valamint a hozzászólásokat listázó oldalon lehessen lapozni. Azaz ne
 jelenítse meg az oldal az összes témát/hozzászólást egyszerre.
 
-### 6. Válasz a hozzászólásra
+### 6. CSS
+
+Ha a felhasználó a cursort rá viszi egy linkre akkor a link áttünéssel legyen kék színű.
+Az oldal összes gombjának háttérszíne legyen #3f3f3f, betűszíne #fff, stílusa félkövér és 
+ne legyen keretük. Hover eseményre a háttérszín legyen narancssárga. 
+
+### 7. Válasz a hozzászólásra
 
 Alakítsuk át az új hozzászólás formot úgy, hogy lehessen egy adott hozzászólásra
 válaszolni. Valamint a hozzászólások megjelenítésénél jelezzük, hogy az adott
 hozzászólás válasz-e vagy sem. És ha igen, akkor melyik hozzászólásra válaszol.
 
-### 7. Szerző megjegyzése
+### 8. Szerző megjegyzése
 
 Jegyezzük meg a szerzőt és előre töltsük ki a megfelelő mezőt a formon.
 
