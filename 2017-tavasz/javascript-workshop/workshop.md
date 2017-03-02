@@ -27,6 +27,8 @@ Windows: A chrome mappájából (C:\Program Files (x86)\Google\Chrome\Applicatio
 
 Ha jól csináltad, a chrome szólni fog hogy instabil és nem biztonságos ilyet művelni.
 
+Ha más böngészőt szeretnél használni, Firefox-ban az `about:config` oldalon a `security.fileuri.strict_origin_policy` bejegyzést kell `false`-ra állítani, Safariban pedig a _Settings>Advanced>Show Development In Menu Bar_, majd _Disable Cross-Origin Restrictions_
+
 API leírás
 ----------
 
