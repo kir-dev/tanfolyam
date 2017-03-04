@@ -4,23 +4,30 @@ Kir-Dev tanfolyam workshop
 Fejlesztés
 ----------
 
-A feladatokhoz használhatod az előző workshopon elkészült megoldásodat, de 
-javasoljuk hogy a [közös megoldásból](https://github.com/kir-dev/tanfolyam/tree/master/2016-tavasz/sitebuild-workshop/megoldas) indulj ki.
+A feladatokhoz klónozd le ezt a repositoryt, amit a `git clone https://github.com/kir-dev/tanfolyam.git` paranccsal tudsz megtenni.
+Ezután a **tanfolyam/2017-tavasz/alap** mappában találod a kiinduló programkódot.
 
-A webszervert a stewie.sch.bme.hu:8089-es címen éritek el (ezen belül a /api 
-route-ot kell majd használni)
+A webszervert a **stewie.sch.bme.hu** címen éritek el (ezen belül a `/api/topics/` 
+route-okat kell majd használni)
 
-A chrome-ban ki kell kapcsolni a Same-oigin policy-t, hogy el tudd érni a 
-szervert localhostról
+A chrome-ban fejlesztéshez ki kell kapcsolni a Same-Oigin-Policy-t, hogy el tudd érni a 
+szervert localhostról. Ehhez speciális paraméterekkel kell indítani a Chrome-ot az alábbiak alapján:
 
-Linux: `google-chrome --disable-web-security --user-data-dir="/akarmi"`
+Linux:
 
-OSX: `open -a Google\ Chrome --args --disable-web-security --user-data-dir="/akarmi"`
+`google-chrome --disable-web-security --user-data-dir="/akarmi"`
+
+OSX:
+
+`open -a Google\ Chrome --args --disable-web-security --user-data-dir="/akarmi"`
 
 Windows: A chrome mappájából (C:\Program Files (x86)\Google\Chrome\Application)
+
 `chrome.exe --disable-web-security --user-data-dir="C:/akarmi"`
 
 Ha jól csináltad, a chrome szólni fog hogy instabil és nem biztonságos ilyet művelni.
+
+Ha más böngészőt szeretnél használni, Firefox-ban az `about:config` oldalon a `security.fileuri.strict_origin_policy` bejegyzést kell `false`-ra állítani, Safariban pedig a _Settings>Advanced>Show Development In Menu Bar_, majd _Disable Cross-Origin Restrictions_
 
 API leírás
 ----------
