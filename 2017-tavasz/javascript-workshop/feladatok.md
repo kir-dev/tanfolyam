@@ -47,17 +47,17 @@ mindenképpen megadni:
 
 A fenti két mező kitöltését tedd kötelezővé a felhasználó számára!
 
-
-### 5. Lapozás
-
-A témákat valamint a hozzászólásokat listázó oldalon lehessen lapozni. Azaz ne
-jelenítse meg az oldal az összes témát/hozzászólást egyszerre.
-
-### 6. CSS
+### 5. CSS
 
 Ha a felhasználó a cursort rá viszi egy linkre akkor a link áttünéssel legyen kék színű.
 Az oldal összes gombjának háttérszíne legyen #3f3f3f, betűszíne #fff, stílusa félkövér és 
 ne legyen keretük. Hover eseményre a háttérszín legyen narancssárga. 
+
+### 6. Lapozás
+
+A témákat valamint a hozzászólásokat listázó oldalon lehessen lapozni. Azaz ne
+jelenítse meg az oldal az összes témát/hozzászólást egyszerre.
+
 
 ### 7. Válasz a hozzászólásra
 
