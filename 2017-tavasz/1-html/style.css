@@ -1,0 +1,31 @@
+.slide-content {
+  font-size: 40px;
+}
+
+#slide-9 {
+  background: url('media/html5_1.jpg');
+  background-size: cover;
+  color: #eee;
+}
+
+#slide-13 {
+  background: url('media/semantic_elements.png');
+  background-size: cover;
+  color: #eee;
+}
+
+#slide-15 {
+  background: url('media/html5_2.jpg');
+  background-size: cover;
+  color: #eee;
+}
+
+#slide-25 {
+  background: url('media/local_storage.jpg');
+  background-size: cover;
+}
+
+#slide-26 {
+  background: url('media/questions2.png');
+  background-size: cover;
+}
