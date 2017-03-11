@@ -74,7 +74,8 @@ Body:
     }
 
 ### 5. Feladat
-
+A felületen nincs törlés gomb. POSTman klienssel küldjétek le a kéréseket.
+(https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
 #### Poszt törlése
 
 	DELETE /board/delete/:postId
