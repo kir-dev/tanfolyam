@@ -1,0 +1,97 @@
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #404040;
+  background-color: #eee;
+}
+
+.button-group {
+  margin-bottom: 20px;
+}
+
+.counter {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+
+.posts {
+  clear: both;
+  list-style: none;
+  padding-left: 0;
+  width: 100%;
+}
+
+.posts li {
+  background-color: #fff;
+  border: 1px solid #d8d8d8;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  min-height: 42px;
+}
+
+.logo{
+    display: inline-block;
+    max-width: 25%;
+    height: auto;
+}
+
+.navbar-default{
+    background: rgba(255, 255, 255, 0.90);
+}
+
+.username {
+    padding-bottom: 10px;
+}
+
+.indicator {
+    padding-left: 2px;
+    padding-right: 5px;
+}
+
+.indicators {
+    border-radius: 25px;
+    display: inline-block;
+    padding: 5px;
+    border: 2px solid #F37149;
+}
+
+
+input[type="textarea"]:focus,
+input[type="name"]:focus{
+    border-color: hsla(14,88%,70%,0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px hsla(14,88%,70%,0.8);
+    outline: 0 none;
+}
+
+.btn-primary {
+    background: #f37149;
+    color: #ffffff;
+    border-color: #f37149;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #e36139;
+    border-color: #f37149;
+}
+ 
+.btn-primary:active, .btn-primary.active, .btn-primary:active:hover, .btn-primary:active:focus {
+    background: #d35129;
+    box-shadow: none;
+    border-color: #f37149;
+}
+
+.btn-primary.disabled.focus, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled].focus, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover {
+background: #d35129;
+border-color: #f37149;
+}
+
+input#inputName {
+    margin-top: 2em;
+    margin-bottom: 3em;
+}
