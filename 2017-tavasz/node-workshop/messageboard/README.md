@@ -9,7 +9,7 @@
 ### API
 
 * A szerver-kliens kommunikáció JSON formában történik
- * Figyeljetek a válaszok JSON.stringify-okására!
+ * Figyeljetek a válaszok stringify-okására!
 * A workshopon még nem használunk adatbázisokat, így a middleware/module.js `posts` tömbjében fogjuk tárolni a posztokat
 
 ### 1. Feladat
@@ -95,9 +95,10 @@ Body:
     	username: "Geri",
     }
 
+Ehhez a feladathoz létre kell hoznotok egy új struktúrát (itt is tömb ajánlott), amiben a felhasználókat tudjátok tárolni
 
     GET /logout
-    
+
 
     GET /who
 
