@@ -40,10 +40,10 @@ Elvárt struktúra:
 	        message: "Node rocks!",
 	        date: "2016.03.28. 16:10.",
 	        likes: 0,
-	        comments: [
+	        comments: [{
 	        	name: "Geri",
 	        	comment: "Indeed."
-	        ]
+	        }]
 	    }
     ]
 
