@@ -6,6 +6,12 @@
 * Installáld a csomagokat `npm install` paranccsal
 * Az alkalmazást `npm start`-al tudod indítani
 
+### API
+
+* A szerver-kliens kommunikáció JSON formában történik
+ * Figyeljetek a válaszok JSON.stringify-okására!
+* A workshopon még nem használunk adatbázisokat, így a middleware/module.js `posts` tömbjében fogjuk tárolni a posztokat
+
 ### 1. Feladat
 
 #### Poszt hozzáadása
@@ -18,8 +24,6 @@ Request törzsében érkezik json:
         "name": "Geri",
         "message": "Szeretem a Javascriptet!"
     }
-
-A module.js `posts` tömbjébe tegyétek
 
 ### 2. Feladat
 
@@ -93,11 +97,11 @@ Body:
 
 
     GET /logout
-
+    
 
     GET /who
 
 
 Válasz:
 
-	username
+`username` szövegként
