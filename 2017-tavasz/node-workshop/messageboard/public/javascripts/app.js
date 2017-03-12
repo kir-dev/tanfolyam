@@ -44,6 +44,10 @@ $(document).ready(function () {
             $http.post('board/like', data).success($scope.update);
         }
 
+        $scope.deletePost = function (postId) {
+            $http.delete('board/delete/' + postId).success($scope.update);
+        }
+
         $scope.data = {
             repeatSelect: null,
             availableOptions: []

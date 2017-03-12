@@ -56,6 +56,7 @@
                 <span class="indicator">{{post.likes}}</span>
                 <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                 <span class="indicator">{{post.comments.length}}</span>
+                <span ng-click=deletePost(post.id) class="glyphicon glyphicon-trash" aria-hidden="true"></span>
             </div>
             <hr>
             <div>
