@@ -10,3 +10,13 @@ body {
 .featurette-divider {
     margin: 80px 0;
 }
+
+.btn-primary {
+    background-color: #ef3900;
+    border-color: #ef3900;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: #ff721c !important;
+    border-color: #ef3900 !important;
+    color: #ffffff !important;
+}

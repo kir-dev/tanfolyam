@@ -8,9 +8,7 @@
     <meta name="author" content="Kir-Dev">
 
     <title>Kir-Dev web alapozó tanfolyam</title>
-
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="css/site.css" rel="stylesheet">
 
     <link rel="shortcut icon" href="img/favicon.png"/>
@@ -23,77 +21,159 @@
   </head>
 
   <body data-spy="scroll" data-target="#main-navbar">
+	
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+  <a class="navbar-brand" href="#">Kir-Dev tanfolyam</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="main-navbar">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Navigáció mutatása</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">
-            <span>Kir-Dev tanfolyam</span>
-          </a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="#coord">Koordináták</a></li>
-            <li><a href="#details">Részletek</a></li>
-            <li><a href="#advanced">Haladóknak</a></li>
-            <li><a href="#about">Kik vagyunk?</a></li>
-            <li><a href="#sign-up">Jelentkezés</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="#coord">Helyszínek és időpontok</a></li>
+            <li class="nav-item"><a class="nav-link" href="#details">Részletek</a></li>
+            <li class="nav-item"><a class="nav-link" href="#advanced">Haladóknak</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">Kik vagyunk?</a></li>
+            <li class="nav-item"><a class="nav-link" href="#sign-up">Jelentkezés</a></li>
+    </ul>
+      <a class="btn btn-primary" style="color: white;" href="https://goo.gl/forms/y9MzMUaA14v5lUOw2">Jelentkezz!</a>
+  </div>
+</div>
+</nav>
 
     <div class="container">
         <div class="jumbotron">
-            <h1>Web alapozó tanfolyam</h1>
-            <p>
-                Gyere el és ismerd meg a web alapjait! Több alkalmas előadássorozaton és workshopon keresztül
+            <h1>Web és mobil alapozó tanfolyam</h1>
+            <p class="lead">
+                Gyere el és ismerd meg a web- és a mobilfejlesztés alapjait! Több alkalmas előadássorozaton és workshopon keresztül
                 mutatjuk be, hogy mi van a motorháztető alatt.
             </p>
             <p>
-                <a href="https://goo.gl/forms/3CzRNuVpp5YJTXVQ2" class="btn btn-lg btn-success">Jelentkezz most!</a>
+                <a href="https://goo.gl/forms/y9MzMUaA14v5lUOw2" class="btn btn-lg btn-primary">Jelentkezz most!</a>
             </p>
             <p>
-                <small>Jelentkezési határidő: <b>2017. március 1.</b></small>
+                Jelentkezési határidő: <b>2018. február 11. 23:59</b>
             </p>
         </div>
         <div class="row" id="coord">
-            <div class="col-md-12">
-                <h2 class="featurette-heading">Koordináták</h2>
-                <p class="lead">Március 4.-én és március 11.-én, egy-egy szombati alkalom</p>
-                <p class="lead">Helyszín: Schönherz Zoltán Kollégium 103-as terem</p>
-            </div>
+            <h2 class="featurette-heading">Helyszínek és időpontok</h2>
+
+            <table class="table">
+                <tr>
+                    <td class="align-middle">
+                        Bevezető (hogyan működik a web), HTML és CSS
+                    </td>
+                    <td>
+                        <b>Február 13. 17:45 - 20:00</b>
+                    </td>
+                    <td>
+                        SCH 103
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="align-middle">
+                        JavaScript alapozó
+                    </td>
+                    <td>
+                        <b>Február 18. 17:00 - 20:00</b>
+                    </td>
+                    <td>
+                        SCH 103
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="align-middle">
+                        NodeJS
+                    </td>
+                    <td>
+                        <b>
+                            Február 19. 18:00 - 21:00 <br>
+                            Február 26. 18:00 - 21:00
+                        </b>
+                    </td>
+                    <td>
+                        Egyetemi terem<br>
+                        Egyetemi terem
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="align-middle">
+                        Crossplatformos mobilfejlesztés
+                    </td>
+                    <td>
+                        <b>
+                            Február 21. 20:00 - 23:00<br>
+                            Február 28. 20:00 - 23:00
+                        </b>
+                    </td>
+                    <td>
+                        SCH 103<br>
+                        SCH 103
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="align-middle">
+                        Ruby on Rails
+                    </td>
+                    <td>
+                        <b>
+                            Február 20. 18:00 - 21:00<br>
+                            Február 27. 18:00 - 21:00
+                        </b>
+                    </td>
+                    <td>
+                        Egyetemi terem<br>
+                        Egyetemi terem
+                    </td>
+                </tr>
+
+            </table>
         </div>
         <div class="row" id="details">
             <div class="col-md-12">
                 <h2 class="featurette-heading">Részletek</h2>
                 <p class="lead">
-                    A tanfolyamon megtanulhatod a web alapjait. A végére elegendő eszköz lesz a kezedben, hogy
-                    egy egyszerűbb, de már funkcionális oldal teljes egészét elkészítsd, mind a
+                    A tanfolyamon megtanulhatod a  web- és a mobilfejlesztés alapjait. A végére elegendő eszköz lesz a kezedben, hogy
+                    egy egyszerűbb, de már funkcionális oldal / mobil alkalmazás teljes egészét elkészíts, mind a
                     <a href="http://en.wikipedia.org/wiki/Front_and_back_ends">frontendet és backendet</a> is.
                     Ez <strong>nem</strong> egy dizájner tanfolyam, a programozáson lesz a hangsúly. Több
                     technológia is terítékre kerül majd, főleg Javascript és Node.js, de a szükséges HTML és
                     CSS tudást is összeszedheted itt.
                 </p>
                 <p class="lead">
-                    A tanfolyam felépítését tekintve négy előadás lesz sok gyakorlati résszel tarkítva. Ezek a
+                    A tanfolyam felépítését tekintve négy csoportra bontható, melyek sok gyakorlati résszel lesznek tarkítva. Ezek a
                     következő témákat ölelik fel:
                 </p>
                 <ol class="lead">
-                    <li>Bevezető (hogyan működik a web), HTML és CSS</li>
-                    <li>JavaScript alapok, Ajax és jQuery</li>
-                    <li>Node.js (express) bevezetés</li>
-                    <li>MongoDB és advanced Node.js</li>
+                    <li>Bevezető</li>
+                        <ul>
+                            <li>Bevezető (hogyan működik a web), HTML és CSS</li>
+                            <li>Javascript alapozó</li>
+                        </ul>
+                    <li>Node.js (express, mongo)</li>
+                        <ul>
+                            <li>Node.js bevezetés</li>
+                            <li>MongoDB és advanced Node.js</li>
+                        </ul>
+                    <li>Mobilalkalmazás fejlesztés</li>
+                        <ul>
+                            <li>Bevezetés a crossplatformos mobilfejlesztesbe</li>
+                            <li>A crossplatformos mobilfejlesztes fortejai</li>
+                        </ul>
+                    <li>Ruby on Rails</li>
+                        <ul>
+                            <li>Ruby nyelvi elemek, rails alapok</li>
+                            <li>Advanced Ruby on Rails</li>
+                        </ul>
                 </ol>
                 <p class="lead">
                     Minden előadást követően lesz egy workshop alkalom is. Itt az adott napi témával kapcsolatban
-                    lesznek kisebb feladatok amiken önálló munkaként párokban fogtok dolgozni.
+                    lesznek kisebb feladatok amiken önállón / párokban fogtok dolgozni.
                 </p>
             </div>
         </div>
@@ -117,22 +197,19 @@
             <div class="col-md-12">
                 <h2 class="featurette-heading">Kik vagyunk?</h2>
                     <p class="lead">
-                        A <b>Kir-Dev</b> kör, vagyis a Kollégiumi Információs Rendszer Fejlesztői
-                        a BME VIK hallgatóiból álló webfejlesztő csapat. Feladatunk a Villanykar
-                        hallgatói számára hasznos webes alkalmazások készítése és üzemeletetése.
+                        Mi vagyunk a <b>Kir-Dev</b>, azaz a Kollégiumi Információs Rendszer Fejlesztői, kicsit
+                        egyszerűbben a BME VIK hallgatóiból álló webfejlesztő csapat. Feladatunk a Villanykar
+                        hallgatói számára hasznos webes és - ősz óta - mobilos alkalmazások készítése és üzemeletetése.
                     </p>
                     <p class="lead">
-                        A kör 2001-ben alakult, azóta foglalkozunk különféle webes technológiák alkalmazásával
-                        és oktatásával. A fő tevékenységünk a
-                        <a href="https://korok.sch.bme.hu">Villanykari Információs Rendszer</a> folyamatos
-                        fejlesztése és karbantartása. Ez a rendszer már több generációt is megélt az aktív
-                        körtagoknak köszönhetően. Sok változáson ment át az idő múlásával. Jelenleg ezen az
-                        alkalmazáson keresztül folyik a kar közösségi pontozása. A felhasználók száma eléri a
-                        7000-et és több mint 10 évre visszamenőleg tartalmaz információkat a kar közösségi életéről.</p>
-                    <p class="lead">
-                       Jelenleg mindenféle webes technológiákkal foglalkozunk, mint például a node.js, a Ruby on Rails,
-                       a go, de a legnagyobb alkalmazásunk JavaEE-ben van írva. Tevékenységeinkről és futó projektjeinkről
-                       bővebben a <a href="http://kir-dev.sch.bme.hu">blogunkon</a> olvashatsz.
+                        Ahogy a nevünk is következtetni enged, fő feladata a körnek, a Villanykari Információs
+                        Rendszer - VIR - folyamatos fejlesztése és karbantartása. Ez a rendszer már több generációt
+                        is megélt az aktív körtagoknak köszönhetően. Jelenleg több mint 25 000 felhasználóval rendelkezik
+                        és több mint 15 évre visszamenőleg tartalmazza a ház közösségi életét.
+                        A rendszer az elmúlt néhány hónapban esett át második nagy, teljes körű újra építésén, és ez
+                        alkalomból új nevet is kapott, ami nem más, mint a Profil és Körök, azaz PéK.
+                        Tevékenységeinkről és futó projektjeinkről
+                        bővebben a <a href="http://kir-dev.sch.bme.hu">blogunkon</a> olvashatsz.
                     </p>
             </div>
         </div>
@@ -140,21 +217,23 @@
             <div class="col-md-12">
                 <h2 class="featurette-heading">Jelentkezés</h2>
                 <p class="lead">
-                    Minden, a web iránt érdeklődő hallgató jelentkezését várjuk. Némi programozói alaptudáson kívül
-                    másra nem lesz szükséged, teljesen az alapoktól indulunk.
+                    A tanfolyamokra minden, a web és a mobil iránt érdeklődő hallgató jelentkezését várjuk.
+                    Némi programozói alaptudáson kívül csak egy laptopra lesz szükségetek ugyanis néhány tanfolyam
+                    nem gépteremben lesz megtartva. Aki nem tudja megoldani, hogy saját gépet hozzon az jelezze a formon
+                    (korlátozott számban mi is tudunk biztosítani). A szükséges anyagokat a tanfolyam előtt mindenkihez
+                    eljuttatjuk. Kérlek figyeljétek az e-mail fiókotokat.
                 </p>
                 <p class="lead">
-                    Sajnos a férőhelyek száma korlátos, így csak az <strong>első 20 jelentkező</strong> számára tudunk
-                    helyet biztosítani. Nehogy lemaradj, jelentkezz gyorsan! Jelentkezni az alábbi linken található form
-                    kitöltésével lehet.
+                    Sajnos a férőhelyek száma korlátos, így a tanfolyam résztvevőinek listáját, a formon beküldött
+                    motivációs levél és a jelentkezési sorrend alapján alakítjuk ki.
                 </p>
                 <p class="lead">
-                    <a href="https://goo.gl/forms/3CzRNuVpp5YJTXVQ2" class="btn btn-lg btn-success">
+                    <a href="https://goo.gl/forms/y9MzMUaA14v5lUOw2" class="btn btn-lg btn-primary">
                         Jelentkezz most!
                     </a>
                 </p>
                 <p class="lead">
-                    Jelentkezési határidő: <b>2017. március 1.</b>
+                    Jelentkezési határidő: <b>2018. február 11. 23:59</b>
                 </p>
             </div>
         </div>
@@ -175,7 +254,7 @@
         <footer>
             <p class="pull-right"><a href="#">Vissza a tetejére</a></p>
             <p>
-                &copy; 2017 Kir-Dev
+                &copy; 2018 Kir-Dev
                 &middot;
                 <span>kir-dev [kukac] sch.bme.hu</span>
                 &middot;
@@ -192,8 +271,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript">
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
