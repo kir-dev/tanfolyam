@@ -170,9 +170,9 @@ A kérés törzse legyen JSON és tartalmazza a következő adatokat:
             "count": 6,
             "taste": "5a8941df5dd36f31f4e6a9d4"  //Egyedi ID
     }
-~~~javascript
+~~~
 ### Új íz hozzáadása
-
+~~~javascript
     POST /iz
 
     {
