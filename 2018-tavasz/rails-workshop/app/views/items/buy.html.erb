@@ -1,0 +1,8 @@
+<div class="container">
+  <h2 class="header">Vásárlás</h2>
+  <h3 class="header"><%= @item.description %></h3>
+  <h3 class="header">Maximum <%= @item.quantity %> db</h3>
+  <%= form_tag(confirm_path(@item.id)) do %>
+    <%= number_field_tag('quantity', 0, min: 0, max: @item.quantity) %>
+  <% end %>
+</div>
