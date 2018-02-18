@@ -64,128 +64,132 @@ Használt státusz kódok:
 
 Egy példaválasz:
 
-[
-    {
-        "_id": "5a8977b571af7e1c58bb69d9",
-        "owner": "Fenyike",
-        "roomNumber": 916,
-        "taste": {
-            "_id": "5a86c1e95d721520bc9f8867",
-            "name": "Almás",
-            "createdAt": "2018-02-16T11:35:05.249Z",
-            "updatedAt": "2018-02-16T11:35:05.249Z",
+~~~javascript
+    [
+        {
+            "_id": "5a8977b571af7e1c58bb69d9",
+            "owner": "Fenyike",
+            "roomNumber": 916,
+            "taste": {
+                "_id": "5a86c1e95d721520bc9f8867",
+                "name": "Almás",
+                "createdAt": "2018-02-16T11:35:05.249Z",
+                "updatedAt": "2018-02-16T11:35:05.249Z",
+                "__v": 0
+            },
+            "price": 499,
+            "count": 10,
+            "createdAt": "2018-02-18T12:55:17.970Z",
+            "updatedAt": "2018-02-18T13:07:54.352Z",
             "__v": 0
         },
-        "price": 499,
-        "count": 10,
-        "createdAt": "2018-02-18T12:55:17.970Z",
-        "updatedAt": "2018-02-18T13:07:54.352Z",
-        "__v": 0
-    },
-    {
-        "_id": "5a8977b871af7e1c58bb69da",
-        "owner": "Zsoltika",
-        "roomNumber": 1605,
-        "taste": {
-            "_id": "5a86c1e95d721520bc9f8867",
-            "name": "Mentás",
-            "createdAt": "2018-02-16T11:35:05.249Z",
-            "updatedAt": "2018-02-16T11:35:05.249Z",
+        {
+            "_id": "5a8977b871af7e1c58bb69da",
+            "owner": "Zsoltika",
+            "roomNumber": 1605,
+            "taste": {
+                "_id": "5a86c1e95d721520bc9f8867",
+                "name": "Mentás",
+                "createdAt": "2018-02-16T11:35:05.249Z",
+                "updatedAt": "2018-02-16T11:35:05.249Z",
+                "__v": 0
+            },
+            "price": 399,
+            "count": 5,
+            "createdAt": "2018-02-18T12:55:20.676Z",
+            "updatedAt": "2018-02-18T14:55:19.648Z",
             "__v": 0
-        },
-        "price": 399,
-        "count": 5,
-        "createdAt": "2018-02-18T12:55:20.676Z",
-        "updatedAt": "2018-02-18T14:55:19.648Z",
-        "__v": 0
-    }
-]
-
+        }
+    ]
+~~~
 ### Dohányízek listázása
 
     GET /iz
 
 Egy példaválasz:
 
-[
-    {
-        "_id": "5a898f395b59a6657cff1371",
-        "name": "Almás",
-        "createdAt": "2018-02-18T14:35:37.349Z",
-        "updatedAt": "2018-02-18T14:35:37.349Z",
-        "__v": 0
-    },
-    {
-        "_id": "5a898f405b59a6657cff1372",
-        "name": "Citromos",
-        "createdAt": "2018-02-18T14:35:44.585Z",
-        "updatedAt": "2018-02-18T14:35:44.585Z",
-        "__v": 0
-    }
-]
-
+~~~javascript
+    [
+        {
+            "_id": "5a898f395b59a6657cff1371",
+            "name": "Almás",
+            "createdAt": "2018-02-18T14:35:37.349Z",
+            "updatedAt": "2018-02-18T14:35:37.349Z",
+            "__v": 0
+        },
+        {
+            "_id": "5a898f405b59a6657cff1372",
+            "name": "Citromos",
+            "createdAt": "2018-02-18T14:35:44.585Z",
+            "updatedAt": "2018-02-18T14:35:44.585Z",
+            "__v": 0
+        }
+    ]
+~~~
 ### Szenek listázása
 
     GET /szen
 
 Egy példaválasz:
 
-[
-    {
-        "_id": "5a8967348be64e19a830d6d2",
-        "owner": "Fenyike",
-        "roomNumber": 916,
-        "price": 400,
-        "count": 10,
-        "createdAt": "2018-02-18T11:44:52.837Z",
-        "updatedAt": "2018-02-18T11:44:52.837Z",
-        "__v": 0
-    },
-    {
-        "_id": "5a8968bb8be64e19a830d6d4",
-        "owner": "Zsolika",
-        "roomNumber": 1605,
-        "price": 250,
-        "count": 10,
-        "createdAt": "2018-02-18T11:51:23.043Z",
-        "updatedAt": "2018-02-18T11:51:23.043Z",
-        "__v": 0
-    }
-]
-
+~~~javascript
+    [
+        {
+            "_id": "5a8967348be64e19a830d6d2",
+            "owner": "Fenyike",
+            "roomNumber": 916,
+            "price": 400,
+            "count": 10,
+            "createdAt": "2018-02-18T11:44:52.837Z",
+            "updatedAt": "2018-02-18T11:44:52.837Z",
+            "__v": 0
+        },
+        {
+            "_id": "5a8968bb8be64e19a830d6d4",
+            "owner": "Zsolika",
+            "roomNumber": 1605,
+            "price": 250,
+            "count": 10,
+            "createdAt": "2018-02-18T11:51:23.043Z",
+            "updatedAt": "2018-02-18T11:51:23.043Z",
+            "__v": 0
+        }
+    ]
+~~~
 ### Új szén hozzáadása
 
     POST /dohany
 
 A kérés törzse legyen JSON és tartalmazza a következő adatokat:
 
-{
-        "name": "Fenyike",
-        "roomNumber": 1605,
-        "price": 350,
-        "count": 6,
-        "taste": "5a8941df5dd36f31f4e6a9d4"  //Egyedi ID
-}
-
+~~~javascript
+    {
+            "name": "Fenyike",
+            "roomNumber": 1605,
+            "price": 350,
+            "count": 6,
+            "taste": "5a8941df5dd36f31f4e6a9d4"  //Egyedi ID
+    }
+~~~javascript
 ### Új íz hozzáadása
 
     POST /iz
 
-{
-        "tasteName": "Almás-Fahéjas",
-}
-
+    {
+            "tasteName": "Almás-Fahéjas",
+    }
+~~~
 ### Új szén hozzáadása
 
     POST /szen
-
-{
-        "name": "Fenyike",
-        "roomNumber": 1605,
-        "price": 350,
-        "count": 6,
-}
-
+~~~javascript
+    {
+            "name": "Fenyike",
+            "roomNumber": 1605,
+            "price": 350,
+            "count": 6,
+    }
+~~~
 ### Dohány vásárlás
 
     POST /dohany/{id}/vasarlas
