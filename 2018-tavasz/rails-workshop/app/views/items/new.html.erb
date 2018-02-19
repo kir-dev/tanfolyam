@@ -1,0 +1,67 @@
+<div class="container">
+  <h2 class="header">Új áru felvétele</h2>
+  <div class="container" id="form-container">
+    <div class="row">
+
+      <div class="col-md-9">
+        <% @item = Item.new %>
+        <% @item.name = cookies[:name] %>
+        <% @item.room = cookies[:room_number] %>
+        <%= form_for @item do |f| %>
+
+          <div class="row form-group">
+            <div class="col-md-2">
+              <label for="name" class="pull-right">Neved</label>
+            </div>
+            <div class="col-md-10">
+              <%= f.text_field :name, required: true, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-2">
+              <label for="room" class="pull-right">Szobaszámod</label>
+            </div>
+            <div class="col-md-10">
+              <%= f.number_field :room, required: true, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-2">
+              <label for="flavor" class="pull-right">Típus</label>
+            </div>
+            <div class="col-md-8">
+              <%= f.select :product,
+                      options_for_select(Rails.configuration.x.item_types.invert), {}, {onchange: 'newItemTypeChange()'} %>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-2">
+              <label for="flavor" class="pull-right">Dohány íze</label>
+            </div>
+            <div class="col-md-8">
+              <%= f.text_field :flavor, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-2">
+              <label for="quantity" class="pull-right">Mennyiség (gramm v. db)</label>
+            </div>
+            <div class="col-md-10">
+              <%= f.text_field :quantity, required: true, class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-2">
+              <label for="price" class="pull-right">Ár</label>
+            </div>
+            <div class="col-md-10">
+              <%= f.text_field :price, required: true, class: 'form-control' %>
+            </div>
+          </div>
+          <%= f.submit 'Áru felvétele', class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

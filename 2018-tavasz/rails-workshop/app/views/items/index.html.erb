@@ -1,0 +1,27 @@
+<div class="container">
+  <h2 class="header">Árulista</h2>
+  <table class="table table-striped table-hover">
+    <thead>
+      <td>Név</td>
+      <td>Szobaszám</td>
+      <td>Típus</td>
+      <td>Dohány íze</td>
+      <td>Mennyiség</td>
+      <td>Ár</td>
+      <td>Vásárlás</td>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+        <tr class="<%= 'danger' if item.quantity <= 0 %>">
+          <td><%= item.name %></td>
+          <td><%= item.room %></td>
+          <td><%= item.product %></td>
+          <td><%= item.flavor %></td>
+          <td><%= item.quantity %></td>
+          <td><%= item.price %></td>
+          <td><%= button_to('Vásárlás', '/items/buy/' + item.id.to_s, {method: :get, class: 'btn btn-primary'}) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
