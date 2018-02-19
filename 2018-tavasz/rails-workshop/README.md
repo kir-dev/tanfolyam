@@ -16,4 +16,4 @@ Mentéskor jegyezze meg (cookie-ban `:name` és `:room_number`) a nevedet és a 
 Legyen egy `/items/buy/:id` route ami renderkor egy @item változóban adja tovább az aktuálisan vásárolandó itemet a view-nak. Az Item modelnek legyen egy description függvénye ami emberi formában írja le a terméket (pl.: Geritől a 1320 szobából Kétalmás íző dohány).
 
 ## 5. Vásárlás megerősítése
-Hozzatok létre egy `/items/buy/:id` route-ot `confirm` névvel, ami egy quantity paramétert vár, és az adott itemből levesz a quantitynek megfelelő mennyiséget
+Hozzatok létre egy `POST /items/buy/:id` route-ot `confirm` névvel, ami egy quantity paramétert vár, és az adott itemből levesz a quantitynek megfelelő mennyiséget
