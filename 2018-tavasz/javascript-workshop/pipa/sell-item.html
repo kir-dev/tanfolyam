@@ -26,7 +26,7 @@
         crossorigin="anonymous"></script>
 
         <link href="stylesheets/style.css" rel="stylesheet">
-        <script src="javascripts/loadForm.js"></script>
+        
 </head>
 
 <body>
@@ -36,20 +36,133 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="list-group">
-                        <button id="tobaccoButton" onclick="" class="list-group-item active">Dohány</button>
-                        <button id="coalButton" onclick="" class="list-group-item">Szén</button>
+                        <button id="tobaccoButton" onclick="onTabaccoButtonClicked()" class="list-group-item active">Dohány</button>
+                        <button id="coalButton" onclick="onCoalButtonClicked()" class="list-group-item">Szén</button>
                     </div>
-                    <a class="btn btn-danger btn-block" href="#" style="margin: 15px 0">Veszek</a>
+                    <a class="btn btn-danger btn-block" href="/" style="margin: 15px 0">Veszek</a>
                 </div>
 
                 <div class="col-md-9">
-                    <form id="" action="" method="">
+                    <form id="tobaccoForm" action="/dohany" method="post">
+                        <div class="row form-group">
+                            <div class="col-md-2">
+                                <label for="name" class="pull-right">Neved</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input id="name" name="name" class="form-control" type="text">
+                                </input>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-2">
+                                <label for="roomNumber" class="pull-right">Szobaszámod</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input id="roomNumber" name="roomNumber" class="form-control" type="text" required>
+                                </input>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-2">
+                                <label for="taste" class="pull-right">Dohány íze</label>
+                            </div>
+                            <div class="col-md-8">
+                                <select id="taste" name="taste" class="form-control" type="text">
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <a id="newTaste" class="form-control btn btn-success">Új íz felvétele</a>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-2">
+                                <label for="count" class="pull-right">Mennyiség</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input id="count" name="count" class="form-control" type="text">
+                                </input>
+                            </div>
+                        </div>
 
+                        <div class="row form-group">
+                            <div class="col-md-2">
+                                <label for="price" class="pull-right">Ár</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input id="price" name="price" class="form-control" type="text">
+                                </input>
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-success" />
+                    </form>
+
+                    <form id="coalForm" action="/szen" method="post" hidden>
+                        <div class="row form-group">
+                            <div class="col-md-2">
+                                <label for="name" class="pull-right">Neved</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input id="name" name="name" class="form-control" type="text">
+                                </input>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-2">
+                                <label for="roomNumber" class="pull-right">Szobaszámod</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input id="roomNumber" name="roomNumber" class="form-control" type="text">
+                                </input>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-2">
+                                <label for="count" class="pull-right">Mennyiség</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input id="count" name="count" class="form-control" type="text">
+                                </input>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-md-2">
+                                <label for="price" class="pull-right">Ár</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input id="price" name="price" class="form-control" type="text">
+                                </input>
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-success" />
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
+    <script>
+        function onTabaccoButtonClicked() {
+            document.getElementById('tobaccoForm').removeAttribute('hidden');
+            document.getElementById('coalForm').setAttribute('hidden', '');
+            $('.active').removeClass('active');
+            $('#tobaccoButton').addClass('active');
+        }
 
+        function onCoalButtonClicked() {
+            document.getElementById('coalForm').removeAttribute('hidden');
+            document.getElementById('tobaccoForm').setAttribute('hidden', '');
+            $('.active').removeClass('active');
+            $('#coalButton').addClass('active');
+        }
+
+        var s = document.getElementById('taste');
+
+        $.get('/iz').then(data => {
+            data.forEach(taste => {
+                s.options[s.options.length] = new Option(taste.name, taste._id);
+
+            })
+        })
+    </script>
 </body>
