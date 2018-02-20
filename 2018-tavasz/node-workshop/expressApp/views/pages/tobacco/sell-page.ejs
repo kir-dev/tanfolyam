@@ -1,0 +1,55 @@
+<% layout('../../layout/main') -%>
+
+
+        <form id="tobaccoForm" action="/dohany" method="post">
+            <div class="row form-group">
+                <div class="col-md-2">
+                    <label for="name" class="pull-right">Neved</label>
+                </div>
+                <div class="col-md-10">
+                    <input id="name" name="name" class="form-control" type="text">
+                    </input>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-2">
+                    <label for="roomNumber" class="pull-right">Szobaszámod</label>
+                </div>
+                <div class="col-md-10">
+                    <input id="roomNumber" name="roomNumber" class="form-control" type="text" required>
+                    </input>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-2">
+                    <label for="taste" class="pull-right">Dohány íze</label>
+                </div>
+                <div class="col-md-8">
+                    <select id="taste" name="taste" class="form-control" type="text">
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <a id="newTaste" class="form-control btn btn-success">Új íz felvétele</a>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-2">
+                    <label for="count" class="pull-right">Mennyiség</label>
+                </div>
+                <div class="col-md-10">
+                    <input id="count" name="count" class="form-control" type="text">
+                    </input>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-md-2">
+                    <label for="price" class="pull-right">Ár</label>
+                </div>
+                <div class="col-md-10">
+                    <input id="price" name="price" class="form-control" type="text">
+                    </input>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-success" />
+        </form>

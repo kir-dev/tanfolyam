@@ -1,0 +1,25 @@
+<% layout('../../layout/main') -%>
+
+<% tobaccos.forEach(function(item){ %>
+    <div class="caption-full">
+        <h4 class="pull-right">
+            <%= item.price %> HUF/tömés</h4>
+        <h4>
+            <a href="#">
+                <%= item.taste.name %>
+            </a>
+        </h4>
+        <a id="" href="/dohany/<%= item._id %>/vasarlas" class="btn btn-success pull-right">Veszek egyet</a>
+        <p>
+            <%= item.owner %>
+                </a>
+        </p>
+        <p>
+            Szobaszám:
+            <%= item.roomNumber %>
+        </p>
+        <p>Készleten:
+            <%= item.count %> tömés</p>
+    </div>
+    <hr />
+    <% }); %>
