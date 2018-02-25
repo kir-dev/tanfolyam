@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   post '/items/confirm/:id', to: 'items#confirm', as: 'confirm'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'items#index'
 end
