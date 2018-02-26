@@ -16,7 +16,7 @@
           <td><%= item.name %></td>
           <td><%= item.room %></td>
           <td><%= item.product %></td>
-          <td><%= item.flavor %></td>
+          <td><%= item.flavor ? item.flavor.name : '' %></td>
           <td><%= item.quantity %></td>
           <td><%= item.price %></td>
           <td><%= button_to('Vásárlás', '/items/buy/' + item.id.to_s, {method: :get, class: 'btn btn-primary'}) %></td>
