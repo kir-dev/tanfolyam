@@ -17,3 +17,30 @@ Legyen egy `/items/buy/:id` route ami renderkor egy `@item` változóban adja to
 
 ## 5. Vásárlás megerősítése
 Hozzatok létre egy `POST /items/buy/:id` route-ot `confirm` [névvel](http://guides.rubyonrails.org/routing.html#overriding-the-named-helpers), ami egy quantity paramétert vár, és az adott itemből levesz a quantitynek megfelelő mennyiséget
+
+-----
+
+## 6. Uj dohany felvetele
+Adj hozza az application.html.erb-hez egy uj menupontot, ami a new_falvor_path-re mutat.
+Hozz letre egy formot (form_helper) a , ahol megadhatod a felvetendo uj dohany izt.
+A formot POST method-dal a /flavors cimre kuld el.
+
+## 7. Dohany izek listazasa
+A view-ban kilistazzuk az osszes dohany izt.
+
+## 8. Elfogyott termekek listazasa
+A .. fajlban listazd ki az elfogyott termekeket (`@out_of_items`)
+Legyen az oldalon egy gomb (mini form) ami meghivja a /flavors/delete cimet, es kitorli az osszes olyan termeket, aminek a darabszama 0.
+
+## 9. Dohany iz torlese
+Legyen az izek listazasa tablazat minden soranak egy torles gombja, amit megnyomva toroljuk az adatbazisbol a kivalasztott izt, ha azt a dohanyt nem aruljak.
+
+## 10. Kaminari gem hasznalálata
+Állítsd be, hogy a termekek listazasakor, alapbol 3 termek jelenjen meg, es lehessen lapozni a tovabbi termekek kozott.
+URL parameterben meg lehessen adni, hogy egy oldalon mennyi termek jelenjen meg.
+
+## 11.
+Futasd parancssorban a `rake test` parancsot.
+Nezd meg a ... tesztet. Jelenleg epp el szall. Javitsd ki a tesztet, hogy
+
+
