@@ -4,6 +4,7 @@ class FlavorsController < ApplicationController
   end
 
   def create
-    raise
+    Flavor.create(params.require(:flavor).permit(:name, :brand))
+    redirect_to root_path, notice: 'Sikeres létrehozás!'
   end
 end
