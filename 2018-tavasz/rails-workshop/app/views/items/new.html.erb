@@ -39,7 +39,7 @@
               <label for="flavor" class="pull-right">Dohány íze</label>
             </div>
             <div class="col-md-8">
-              <%= f.text_field :flavor, class: 'form-control' %>
+              <%= collection_select(:post, :product, Flavor.all, :id, :name, {:promt => 'Valassz egy izt'}) %>
             </div>
           </div>
           <div class="row form-group">

@@ -23,4 +23,14 @@ class ItemsController < ApplicationController
     redirect_to items_path, notice: 'Sikeres Vásárlás!'
   end
 
+  def unavaliable
+    @out_of_stock = Item.where(quantity: 0)
+  end
+
+  def delete_unavaliable
+    Item.where(quantity: 0).each do |i|
+      i.destroy
+    end
+    redirect_to items_path, notice: 'Sikeres torles'
+  end
 end

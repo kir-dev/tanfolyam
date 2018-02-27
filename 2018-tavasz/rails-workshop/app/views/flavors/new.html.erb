@@ -8,7 +8,7 @@
 
           <div class="row form-group">
             <div class="col-md-2">
-              <label for="name" class="pull-right">Neve</label>
+              <%=label_tag 'name', 'Neve', class: 'pull-right' %>
             </div>
             <div class="col-md-10">
               <%= f.text_field :name, required: true, class: 'form-control' %>
@@ -16,7 +16,7 @@
           </div>
           <div class="row form-group">
             <div class="col-md-2">
-              <label for="name" class="pull-right">Márkája</label>
+              <%=label_tag 'brand', 'Márkája', class: 'pull-right' %>
             </div>
             <div class="col-md-10">
               <%= f.text_field :brand, class: 'form-control' %>
