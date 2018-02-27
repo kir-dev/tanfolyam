@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+	# 9. feladat root-jai:
   get '/items/unavaliable', to: 'items#unavaliable', as: 'unavaliable_items'
   delete '/items/unavaliable', to: 'items#delete_unavaliable', as: 'delete_unavaliable_items'
 

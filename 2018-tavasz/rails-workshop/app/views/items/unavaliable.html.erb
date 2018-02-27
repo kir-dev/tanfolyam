@@ -1,27 +1,4 @@
 <div class="container">
   <h2 class="header">Elfogyott aruk</h2>
-  <table class="table table-striped table-hover">
-    <thead>
-      <td>Név</td>
-      <td>Szobaszám</td>
-      <td>Típus</td>
-      <td>Dohány íze</td>
-      <td>Mennyiség</td>
-      <td>Ár</td>
-    </thead>
-    <tbody>
-      <% @out_of_stock.each do |item| %>
-        <tr class="<%= 'danger' if item.quantity <= 0 %>">
-          <td><%= item.name %></td>
-          <td><%= item.room %></td>
-          <td><%= item.product %></td>
-          <td><%= item.flavor ? item.flavor.name : '' %></td>
-          <td><%= item.quantity %></td>
-          <td><%= item.price %></td>
-          <td></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= button_to('Elfogyott item-ek torlese', delete_unavaliable_items_path, {method: :delete, class: 'btn btn-primary'}) %>
+<!-- 9. feladat -->
 </div>

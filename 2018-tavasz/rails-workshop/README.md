@@ -22,7 +22,7 @@ Hozzatok létre egy `POST /items/buy/:id` route-ot `confirm` [névvel](http://gu
 
 ## 6. Uj dohany felvetele
 Adj hozza az application.html.erb-hez egy uj menupontot, ami a new_falvor_path-re mutat.
-Hozz letre egy formot (form_helper) a , ahol megadhatod a felvetendo uj dohany izt.
+Hozz letre egy formot (form_helper), ahol megadhatod a felvetendo uj dohany izt.
 A formot POST method-dal a /flavors cimre kuld el.
 
 ## 7. Dohany izek listazasa
@@ -33,8 +33,9 @@ Jelenleg nem lehet uj termeket felvenni, mert korabban a dohany iz nevet szovege
 A feladat az, hogy modositsuk az /item/new view-t ugy, hogy az iznel, a beviteli mezo helyett, egy legordulo lista szerepeljen az osszes dohanny izzel.
 
 ## 9. Elfogyott termekek listazasa
-A views/items/outof_htm fajlban listazd ki az elfogyott termekeket (`@out_of_items`)
+A views/items/unavaliable fajlban listazd ki az elfogyott termekeket (`@out_of_items`)
 Legyen az oldalon egy gomb ami meghivja a `DELETE /items/unavaliable` cimet, es kitorli az osszes olyan termeket, aminek a darabszama 0.
+(a view-t es a controller fv-t is neked kell megirni)
 
 ## 10. Kaminari gem hasznalálata
 Állítsd be, hogy a termekek listazasakor, alapbol 3 termek jelenjen meg, es lehessen lapozni a tovabbi termekek kozott.

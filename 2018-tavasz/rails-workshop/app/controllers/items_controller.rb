@@ -24,13 +24,10 @@ class ItemsController < ApplicationController
   end
 
   def unavaliable
-    @out_of_stock = Item.where(quantity: 0)
+# 9. feladat
   end
 
   def delete_unavaliable
-    Item.where(quantity: 0).each do |i|
-      i.destroy
-    end
-    redirect_to items_path, notice: 'Sikeres torles'
+# 9. feladat
   end
 end
