@@ -40,8 +40,4 @@ Legyen az oldalon egy gomb ami meghivja a `DELETE /items/unavaliable` cimet, es 
 Állítsd be, hogy a termekek listazasakor, alapbol 3 termek jelenjen meg, es lehessen lapozni a tovabbi termekek kozott.
 URL parameterben meg lehessen adni, hogy egy oldalon mennyi termek jelenjen meg.
 
-## 11.
-Futasd parancssorban a `rake test` parancsot.
-Nezd meg a ... tesztet. Jelenleg epp el szall. Javitsd ki a tesztet, hogy
-
 
