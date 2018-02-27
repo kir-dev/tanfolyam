@@ -1,0 +1,30 @@
+<div class="container">
+  <h2 class="header">Új dohany felvétele</h2>
+  <div class="container" id="form-container">
+    <div class="row">
+
+      <div class="col-md-9">
+        <%= form_for Flavor.new do |f| %>
+
+          <div class="row form-group">
+            <div class="col-md-2">
+              <%=label_tag 'name', 'Neve', class: 'pull-right' %>
+            </div>
+            <div class="col-md-10">
+              <%= f.text_field :name, required: true, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-2">
+              <%=label_tag 'brand', 'Márkája', class: 'pull-right' %>
+            </div>
+            <div class="col-md-10">
+              <%= f.text_field :brand, class: 'form-control' %>
+            </div>
+          </div>
+          <%= f.submit 'Dohány felvétele', class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -17,3 +17,27 @@ Legyen egy `/items/buy/:id` route ami renderkor egy `@item` változóban adja to
 
 ## 5. Vásárlás megerősítése
 Hozzatok létre egy `POST /items/buy/:id` route-ot `confirm` [névvel](http://guides.rubyonrails.org/routing.html#overriding-the-named-helpers), ami egy quantity paramétert vár, és az adott itemből levesz a quantitynek megfelelő mennyiséget
+
+-----
+
+## 6. Uj dohany felvetele
+Adj hozza az application.html.erb-hez egy uj menupontot, ami a new_falvor_path-re mutat.
+Hozz letre egy formot (form_helper) a , ahol megadhatod a felvetendo uj dohany izt.
+A formot POST method-dal a /flavors cimre kuld el.
+
+## 7. Dohany izek listazasa
+A /view/flavors/index.html.erb-ben hozz letre egy tablazatot ahol megjelenited a megkapott dohanyok (@flavors) neveit es markajukat.
+
+## 8. Uj termek felvetele FIX
+Jelenleg nem lehet uj termeket felvenni, mert korabban a dohany iz nevet szovegesen taroltuk, most pedig a Dohany iz tablaban hivatkozunk egy elemre.
+A feladat az, hogy modositsuk az /item/new view-t ugy, hogy az iznel, a beviteli mezo helyett, egy legordulo lista szerepeljen az osszes dohanny izzel.
+
+## 9. Elfogyott termekek listazasa
+A views/items/outof_htm fajlban listazd ki az elfogyott termekeket (`@out_of_items`)
+Legyen az oldalon egy gomb ami meghivja a `DELETE /items/unavaliable` cimet, es kitorli az osszes olyan termeket, aminek a darabszama 0.
+
+## 10. Kaminari gem hasznalálata
+Állítsd be, hogy a termekek listazasakor, alapbol 3 termek jelenjen meg, es lehessen lapozni a tovabbi termekek kozott.
+URL parameterben meg lehessen adni, hogy egy oldalon mennyi termek jelenjen meg.
+
+
