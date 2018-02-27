@@ -27,6 +27,7 @@ A formot POST method-dal a /flavors cimre kuld el.
 
 ## 7. Dohany izek listazasa
 A /view/flavors/index.html.erb-ben hozz letre egy tablazatot ahol megjelenited a megkapott dohanyok (@flavors) neveit es markajukat.
+Hozz letre ennek is egy linket, az application.html.erb-be, ami a `flavors_path`-re mutat
 
 ## 8. Uj termek felvetele FIX
 Jelenleg nem lehet uj termeket felvenni, mert korabban a dohany iz nevet szovegesen taroltuk, most pedig a Dohany iz tablaban hivatkozunk egy elemre.
@@ -35,6 +36,9 @@ A feladat az, hogy modositsuk az /item/new view-t ugy, hogy az iznel, a beviteli
 ## 9. Elfogyott termekek listazasa
 A views/items/unavaliable fajlban listazd ki az elfogyott termekeket (`@out_of_items`)
 Legyen az oldalon egy gomb ami meghivja a `DELETE /items/unavaliable` cimet, es kitorli az osszes olyan termeket, aminek a darabszama 0.
+
+Hozz letre ennek is egy linket az application.html.erb-be, ami a `unavaliable_items_path`-re mutat
+
 (a view-t es a controller fv-t is neked kell megirni)
 
 ## 10. Kaminari gem hasznalálata
