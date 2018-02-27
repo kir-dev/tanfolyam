@@ -26,14 +26,15 @@ Hozz letre egy formot (form_helper) a , ahol megadhatod a felvetendo uj dohany i
 A formot POST method-dal a /flavors cimre kuld el.
 
 ## 7. Dohany izek listazasa
-A view-ban kilistazzuk az osszes dohany izt.
+A /view/flavors/index.html.erb-ben hozz letre egy tablazatot ahol megjelenited a megkapott dohanyok (@flavors) neveit es markajukat.
 
-## 8. Elfogyott termekek listazasa
-A .. fajlban listazd ki az elfogyott termekeket (`@out_of_items`)
-Legyen az oldalon egy gomb (mini form) ami meghivja a /flavors/delete cimet, es kitorli az osszes olyan termeket, aminek a darabszama 0.
+## 8. Uj termek felvetele FIX
+Jelenleg nem lehet uj termeket felvenni, mert korabban a dohany iz nevet szovegesen taroltuk, most pedig a Dohany iz tablaban hivatkozunk egy elemre.
+A feladat az, hogy modositsuk az /item/new view-t ugy, hogy az iznel, a beviteli mezo helyett, egy legordulo lista szerepeljen az osszes dohanny izzel.
 
-## 9. Dohany iz torlese
-Legyen az izek listazasa tablazat minden soranak egy torles gombja, amit megnyomva toroljuk az adatbazisbol a kivalasztott izt, ha azt a dohanyt nem aruljak.
+## 9. Elfogyott termekek listazasa
+A views/items/outof_htm fajlban listazd ki az elfogyott termekeket (`@out_of_items`)
+Legyen az oldalon egy gomb ami meghivja a `DELETE /items/unavaliable` cimet, es kitorli az osszes olyan termeket, aminek a darabszama 0.
 
 ## 10. Kaminari gem hasznalálata
 Állítsd be, hogy a termekek listazasakor, alapbol 3 termek jelenjen meg, es lehessen lapozni a tovabbi termekek kozott.
