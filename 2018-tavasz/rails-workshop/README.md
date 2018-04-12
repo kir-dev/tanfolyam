@@ -1,3 +1,9 @@
+# !! 2018-as tapasztalatok
+
+- Nem jó, hogy minden mezőt ki kell tölteni hogy tesztelni lehessen az 1. feladatot, legyen nullable minél több
+- Az 1. feladat create-jéhez nagyon sok a mező hogyha nem `.includes(...).permit(...)`-et használunk, ami nem elvárás, így mindet kézzel kell begépelni. Bőven elég fele ennyi.
+- A 2. feladat első részének nincs értelme, a disabled mezőket alapból nem POST-olja be a böngésző. Gyors megoldás: `app/assets/javascripts/item.js` törlése.
+
 # Feladatok
 
 ## 0. Termékek kilistázása
