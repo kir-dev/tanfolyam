@@ -1,7 +1,14 @@
 
 ## Feladatok:
 
-### 1. feladat:
+### 0.feladat:
+Generáld le az üres appot
+`rails new MyApp --database=postgresql`
+
+Hozd létre az adatbázis is:
+`rake db:create`
+
+### 1.feladat:
 Generálj **User** modelt, controllert es view-kat scaffold-dal, a következő mezőkkel: _name_: string, _date_of_birth_: date, _introduce_: text
 
 
