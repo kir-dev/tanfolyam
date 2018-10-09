@@ -2,35 +2,37 @@
 ## Feladatok:
 
 ### 1. feladat:
-Generalj **User** modelt, controllert es view-kat scaffold-dal, a kovetkezo
-mezokkel: name: string, date_of_birth: date, introduce: text
+Generálj **User** modelt, controllert es view-kat scaffold-dal, a következő mezőkkel: _name_: string, _date_of_birth_: date, _introduce_: text
 
 
 ### 2.feladat:
-Keszits egy helper metodust az application controller-be `current_user` nevvel, ahol egy osztaly szintu valtozoban tarold el az adatbazisban tarolt elso User-t
-Helyezz fel a menube a bejelentkezes gombot, aminek a megnyomasara sutiben tarold el, hogy melyik user-rel vagy bejelentkezve.
+Készíts egy helper metódust az application controller-be `current_user` névvel, ahol egy osztály szintű változoban tárold el az adatbazisban tárolt első User-t
+Helyezz fel a menübe a bejelentkezés gombot, aminek a megnyomására sütiben tárold el, hogy melyik user-rel vagy bejelentkezve.
 
 ### 3.feladat:
-Generalj le egy **Group** modelt, controllert es view-kat scaffold-dal, a kovetkezo mezokkel:
+Generálj le egy **Group** modelt, controllert es view-kat scaffold-dal, a következő mezőkkel:
 name: string, description: text
-Generalj le egy **Membership** modelt es controllert ami legyen egy kapcsolo tabla a **User** es a **Groups** tablak kozott es a kovetkezo mezoi legyenek: admin: boolean,
+Generálj le egy **Membership** modelt es controllert ami legyen egy kapcsoló tábla a **User** es a **Groups** táblák között és a következő mezője legyen: _admin_: boolean
 
 ### 4.feladat:
-Modositsd a route file-t ugy, hogy a membership a group-ba agyazott resource legyen. (Nested resource)
+Módosítsd a route file-t úgy, hogy a membership a group-ba ágyazott resource legyen. (Nested resource)
 
 ### 5.feladat:
-Modositsd a Group controller megfelelo metodusat ugy, hogy amikor letrejon egy kor, akkor az aktualis user tagja legyen adminkent a kornek (Membership)
+Módosítsd a Group controller megfelelo metódusát úgy, hogy amikor létrejön egy group, akkor az aktuális user tagja legyen adminként a group-nak (Membership)
 
 ### 6.feladat:
-Hozz letre egy Csatlakozas gombot a Group oldalon.
-A gombra kattintva hozz letre egy Membership-et a Group es a User kozott ugy az ne legyen admin.
+Hozz létre egy Csatlakozás gombot a Group oldalon.
+A gombra kattintva hozz látre egy Membership-et a Group es a User között úgy, hogy az ne legyen admin.
 
 ### 7.feladat:
-A Group oldalan, a jelentkezes gomb csak akkor jelenjen meg, ha az aktualis user meg nem tagja annak.
+A Group oldalán, a jelentkezés gomb csak akkor jelenjen meg, ha az aktuális user még nem tagja annak.
 
 ### 8.feladat:
-Generalj egy Article-t scaffold-dal, ami a Grouphoz tartozzon.
+Generálj egy Post-ot scaffold-dal, ami a Grouphoz tartozzon.
 
 ### 9.feladat:
-Egy Article-t csak a hozza tartozo Group adminja torolhessen.
+Post-ot csak ahoz a Group-hoz hozzhass létre aminek a tagja vagy.
+
+### 10.feladat:
+Egy Post-ot csak a hozzá tartozó Group adminja törölhessen.
 
