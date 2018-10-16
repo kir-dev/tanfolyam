@@ -14,6 +14,7 @@
 
 <% @group.posts.each do |post| %>
   <p><%= post.content %></p>
+  <%= link_to 'Törlés', group_post_path(@group, post), method: "delete" if post.can_destroy?(current_user) %>
   <hr>
 <% end %>
 

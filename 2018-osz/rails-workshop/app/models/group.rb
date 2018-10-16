@@ -6,6 +6,10 @@ class Group < ApplicationRecord
     Membership.create(group: self, user: user, admin: false)
   end
 
+  def admin?(user)
+    memberships.find { |m| m.user == user && m.admin }
+  end
+
   def can_join?(user)
       user && !member?(user)
   end
