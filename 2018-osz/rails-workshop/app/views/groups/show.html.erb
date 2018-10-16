@@ -10,6 +10,24 @@
   <%= @group.description %>
 </p>
 
+<h2>Bejegyzések</h2>
+
+<% @group.posts.each do |post| %>
+  <p><%= post.content %></p>
+  <hr>
+<% end %>
+<%= form_for @post, url: group_posts_path(@group) do |form| %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
 <%= link_to 'Csatalakozas', group_memberships_path(@group), method: :POST if @group.can_join?(current_user) %> |
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

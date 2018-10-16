@@ -1,5 +1,6 @@
 class Group < ApplicationRecord
   has_many :memberships
+  has_many :posts
 
   def join!(user)
     Membership.create(group: self, user: user, admin: false)
