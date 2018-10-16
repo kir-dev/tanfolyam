@@ -10,5 +10,6 @@
   <%= @group.description %>
 </p>
 
+<%= link_to 'Csatalakozas', group_memberships_path(@group), method: :POST %> |
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

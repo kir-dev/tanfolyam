@@ -24,17 +24,9 @@ class MembershipsController < ApplicationController
   # POST /memberships
   # POST /memberships.json
   def create
-    @membership = Membership.new(membership_params)
-
-    respond_to do |format|
-      if @membership.save
-        format.html { redirect_to @membership, notice: 'Membership was successfully created.' }
-        format.json { render :show, status: :created, location: @membership }
-      else
-        format.html { render :new }
-        format.json { render json: @membership.errors, status: :unprocessable_entity }
-      end
-    end
+    @group = Group.find(params[:group_id])
+    @group.join!(current_user)
+    redirect_to groups_path(@group), notice: 'Membership was successfully created.'
   end
 
   # PATCH/PUT /memberships/1
@@ -69,6 +61,6 @@ class MembershipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def membership_params
-      params.require(:membership).permit(:admin, :group_id, :user_id)
+      params.require(:group_id)
     end
 end
