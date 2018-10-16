@@ -28,11 +28,14 @@ class PostsController < ApplicationController
     @group = Group.find(params[:group_id])
     @post.user = current_user
     @post.group = @group
-
-    if @post.save
-      redirect_to @group, notice: 'Post was successfully created.'
+    if @group.can_create_post?(current_user)
+      if @post.save
+        redirect_to @group, notice: 'Post was successfully created.'
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to @group, notice: 'Csak csoporttag hozhat létre bejegyzést'
     end
   end
 

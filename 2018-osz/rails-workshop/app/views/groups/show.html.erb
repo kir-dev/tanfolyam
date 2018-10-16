@@ -16,16 +16,19 @@
   <p><%= post.content %></p>
   <hr>
 <% end %>
-<%= form_for @post, url: group_posts_path(@group) do |form| %>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
+<% if @group.can_create_post?(current_user) %>
+  <%= form_for @post, url: group_posts_path(@group) do |form| %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.text_area :content %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
 <% end %>
 
 <%= link_to 'Csatalakozas', group_memberships_path(@group), method: :POST if @group.can_join?(current_user) %> |

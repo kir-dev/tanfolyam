@@ -13,4 +13,8 @@ class Group < ApplicationRecord
   def member?(user)
     memberships.find { |m| m.user == user }
   end
+
+  def can_create_post?(user)
+    self.member?(user)
+  end
 end
