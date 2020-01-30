@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b9d73d83-2d2e-4b01-99a9-0538f9bd0640" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../app/views/foods/_form.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/views/foods/about.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/views/foods/edit.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/views/foods/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/views/foods/new.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/views/foods/show.html.erb" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/../.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Y2MI12AQZv6zbsu92UcOiSxIf9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b9d73d83-2d2e-4b01-99a9-0538f9bd0640" name="Default Changelist" comment="" />
+      <created>1582136151676</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582136151676</updated>
+      <workItem from="1582136154359" duration="6000" />
+      <workItem from="1582136184069" duration="4859000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1582145940098">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768/0.0.1366.768@0.0.1366.768" timestamp="1582145940098" />
+  </component>
+</project>

@@ -1,0 +1,441 @@
+---
+- !ruby/object:Kutya
+  name: Oscar
+  age: 1
+  owner: &1 !ruby/object:Owner
+    name: Charles
+- !ruby/object:Kutya
+  name: Henry
+  age: 6
+  owner: &18 !ruby/object:Owner
+    name: Lisa
+- !ruby/object:Kutya
+  name: Bailey
+  age: 3
+  owner: !ruby/object:Owner
+    name: Thomas
+- !ruby/object:Kutya
+  name: Abby
+  age: 7
+  owner: &10 !ruby/object:Owner
+    name: Daniel
+- !ruby/object:Cica
+  name: Dakota
+  age: 2
+  owner: &2 !ruby/object:Owner
+    name: Richard
+- !ruby/object:Cica
+  name: Cody
+  age: 6
+  owner: &29 !ruby/object:Owner
+    name: Donna
+- !ruby/object:Cica
+  name: Angel
+  age: 8
+  owner: &3 !ruby/object:Owner
+    name: Jessica
+- !ruby/object:Cica
+  name: Buster
+  age: 7
+  owner: &16 !ruby/object:Owner
+    name: James
+- !ruby/object:Kutya
+  name: Dixie
+  age: 7
+  owner: &5 !ruby/object:Owner
+    name: Donald
+- !ruby/object:Cica
+  name: Ruby
+  age: 1
+  owner: *1
+- !ruby/object:Kutya
+  name: Bella
+  age: 8
+  owner: *2
+- !ruby/object:Cica
+  name: Annie
+  age: 5
+  owner: &14 !ruby/object:Owner
+    name: David
+- !ruby/object:Kutya
+  name: Lulu
+  age: 12
+  owner: &24 !ruby/object:Owner
+    name: Christopher
+- !ruby/object:Cica
+  name: Sandy
+  age: 5
+  owner: &23 !ruby/object:Owner
+    name: Mary
+- !ruby/object:Kutya
+  name: Samantha
+  age: 10
+  owner: 
+- !ruby/object:Kutya
+  name: Rocco
+  age: 11
+  owner: !ruby/object:Owner
+    name: William
+- !ruby/object:Cica
+  name: Zoe
+  age: 15
+  owner: *3
+- !ruby/object:Kutya
+  name: Bandit
+  age: 8
+  owner: 
+- !ruby/object:Kutya
+  name: Bailey
+  age: 2
+  owner: &8 !ruby/object:Owner
+    name: Jennifer
+- !ruby/object:Kutya
+  name: Coco
+  age: 15
+  owner: &22 !ruby/object:Owner
+    name: John
+- !ruby/object:Cica
+  name: Oliver
+  age: 4
+  owner: *3
+- !ruby/object:Kutya
+  name: Murphy
+  age: 6
+  owner: &12 !ruby/object:Owner
+    name: Kimberly
+- !ruby/object:Cica
+  name: Duke
+  age: 7
+  owner: 
+- !ruby/object:Kutya
+  name: Lola
+  age: 1
+  owner: &11 !ruby/object:Owner
+    name: Karen
+- !ruby/object:Kutya
+  name: Samson
+  age: 11
+  owner: &28 !ruby/object:Owner
+    name: Barbara
+- !ruby/object:Cica
+  name: Sasha
+  age: 3
+  owner: &6 !ruby/object:Owner
+    name: Betty
+- !ruby/object:Cica
+  name: Casey
+  age: 4
+  owner: &9 !ruby/object:Owner
+    name: Kenneth
+- !ruby/object:Kutya
+  name: Heidi
+  age: 8
+  owner: &15 !ruby/object:Owner
+    name: Anthony
+- !ruby/object:Cica
+  name: Lady
+  age: 7
+  owner: &7 !ruby/object:Owner
+    name: Joseph
+- !ruby/object:Cica
+  name: Brandy
+  age: 8
+  owner: &4 !ruby/object:Owner
+    name: Emily
+- !ruby/object:Cica
+  name: Buddy
+  age: 1
+  owner: *4
+- !ruby/object:Kutya
+  name: Bruno
+  age: 13
+  owner: &13 !ruby/object:Owner
+    name: Ashley
+- !ruby/object:Kutya
+  name: Max
+  age: 3
+  owner: 
+- !ruby/object:Cica
+  name: Maximus
+  age: 4
+  owner: *5
+- !ruby/object:Cica
+  name: Sparky
+  age: 2
+  owner: 
+- !ruby/object:Cica
+  name: Katie
+  age: 16
+  owner: 
+- !ruby/object:Kutya
+  name: Penny
+  age: 3
+  owner: *6
+- !ruby/object:Kutya
+  name: Dakota
+  age: 2
+  owner: *7
+- !ruby/object:Kutya
+  name: Winston
+  age: 7
+  owner: &26 !ruby/object:Owner
+    name: Andrew
+- !ruby/object:Cica
+  name: Charlie
+  age: 13
+  owner: *8
+- !ruby/object:Kutya
+  name: Zoey
+  age: 12
+  owner: &21 !ruby/object:Owner
+    name: Sarah
+- !ruby/object:Cica
+  name: Sam
+  age: 14
+  owner: *9
+- !ruby/object:Cica
+  name: Maggie
+  age: 8
+  owner: !ruby/object:Owner
+    name: Linda
+- !ruby/object:Kutya
+  name: Jack
+  age: 13
+  owner: *10
+- !ruby/object:Kutya
+  name: Princess
+  age: 12
+  owner: *11
+- !ruby/object:Cica
+  name: Madison
+  age: 3
+  owner: 
+- !ruby/object:Kutya
+  name: Beau
+  age: 3
+  owner: 
+- !ruby/object:Cica
+  name: Tucker
+  age: 2
+  owner: 
+- !ruby/object:Kutya
+  name: Rosie
+  age: 6
+  owner: *12
+- !ruby/object:Cica
+  name: Lucky
+  age: 14
+  owner: !ruby/object:Owner
+    name: Paul
+- !ruby/object:Cica
+  name: Casey
+  age: 8
+  owner: !ruby/object:Owner
+    name: Steven
+- !ruby/object:Cica
+  name: Louie
+  age: 5
+  owner: *13
+- !ruby/object:Cica
+  name: Zeus
+  age: 4
+  owner: &19 !ruby/object:Owner
+    name: Nancy
+- !ruby/object:Cica
+  name: Harley
+  age: 5
+  owner: *14
+- !ruby/object:Kutya
+  name: Luna
+  age: 8
+  owner: &30 !ruby/object:Owner
+    name: Patricia
+- !ruby/object:Cica
+  name: Sadie
+  age: 6
+  owner: 
+- !ruby/object:Kutya
+  name: Baxter
+  age: 9
+  owner: &17 !ruby/object:Owner
+    name: Margaret
+- !ruby/object:Cica
+  name: Rusty
+  age: 14
+  owner: *15
+- !ruby/object:Kutya
+  name: Shadow
+  age: 16
+  owner: 
+- !ruby/object:Cica
+  name: Jasmine
+  age: 4
+  owner: *16
+- !ruby/object:Kutya
+  name: Roxy
+  age: 3
+  owner: &25 !ruby/object:Owner
+    name: Susan
+- !ruby/object:Kutya
+  name: Teddy
+  age: 3
+  owner: !ruby/object:Owner
+    name: Michael
+- !ruby/object:Kutya
+  name: Missy
+  age: 16
+  owner: *17
+- !ruby/object:Cica
+  name: Lexi
+  age: 9
+  owner: !ruby/object:Owner
+    name: Sandra
+- !ruby/object:Cica
+  name: Bentley
+  age: 15
+  owner: &27 !ruby/object:Owner
+    name: Dorothy
+- !ruby/object:Kutya
+  name: Boomer
+  age: 13
+  owner: 
+- !ruby/object:Kutya
+  name: Jake
+  age: 12
+  owner: 
+- !ruby/object:Cica
+  name: Roxie
+  age: 8
+  owner: &20 !ruby/object:Owner
+    name: Matthew
+- !ruby/object:Kutya
+  name: Belle
+  age: 2
+  owner: *18
+- !ruby/object:Kutya
+  name: Ginger
+  age: 9
+  owner: *19
+- !ruby/object:Cica
+  name: Pepper
+  age: 9
+  owner: *14
+- !ruby/object:Kutya
+  name: Sammy
+  age: 14
+  owner: *20
+- !ruby/object:Kutya
+  name: Sophie
+  age: 1
+  owner: *7
+- !ruby/object:Kutya
+  name: Molly
+  age: 1
+  owner: !ruby/object:Owner
+    name: Robert
+- !ruby/object:Kutya
+  name: Gus
+  age: 12
+  owner: *21
+- !ruby/object:Kutya
+  name: Cooper
+  age: 4
+  owner: *22
+- !ruby/object:Cica
+  name: Lucy
+  age: 5
+  owner: *5
+- !ruby/object:Cica
+  name: Mia
+  age: 10
+  owner: *10
+- !ruby/object:Cica
+  name: Shelby
+  age: 9
+  owner: !ruby/object:Owner
+    name: Elizabeth
+- !ruby/object:Cica
+  name: Riley
+  age: 12
+  owner: *4
+- !ruby/object:Cica
+  name: Toby
+  age: 10
+  owner: *23
+- !ruby/object:Cica
+  name: Jackson
+  age: 1
+  owner: *22
+- !ruby/object:Kutya
+  name: Bear
+  age: 16
+  owner: *24
+- !ruby/object:Cica
+  name: Milo
+  age: 15
+  owner: *25
+- !ruby/object:Kutya
+  name: Hunter
+  age: 8
+  owner: *26
+- !ruby/object:Kutya
+  name: Daisy
+  age: 11
+  owner: *27
+- !ruby/object:Cica
+  name: Rudy
+  age: 12
+  owner: *28
+- !ruby/object:Cica
+  name: Holly
+  age: 16
+  owner: *2
+- !ruby/object:Kutya
+  name: Emma
+  age: 9
+  owner: *12
+- !ruby/object:Kutya
+  name: Stella
+  age: 8
+  owner: *16
+- !ruby/object:Kutya
+  name: Romeo
+  age: 5
+  owner: *11
+- !ruby/object:Cica
+  name: Lilly
+  age: 6
+  owner: *23
+- !ruby/object:Cica
+  name: Gracie
+  age: 9
+  owner: *21
+- !ruby/object:Cica
+  name: Honey
+  age: 8
+  owner: *26
+- !ruby/object:Cica
+  name: Chloe
+  age: 14
+  owner: *29
+- !ruby/object:Kutya
+  name: Rocky
+  age: 9
+  owner: *1
+- !ruby/object:Kutya
+  name: Gizmo
+  age: 15
+  owner: *8
+- !ruby/object:Cica
+  name: Lily
+  age: 7
+  owner: *30
+- !ruby/object:Cica
+  name: Joey
+  age: 2
+  owner: !ruby/object:Owner
+    name: Mark
+- !ruby/object:Kutya
+  name: Luke
+  age: 8
+  owner: *27
