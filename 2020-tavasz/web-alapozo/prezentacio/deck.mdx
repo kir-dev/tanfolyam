@@ -1,0 +1,606 @@
+import { prism, poppins } from 'mdx-deck/themes'
+import { Invert } from 'mdx-deck'
+import myTheme from './theme'
+
+export const themes = [prism, myTheme]
+
+<Invert>
+
+# Webes alapozó
+## Kir - Dev
+
+Király Bálint
+
+</Invert>
+
+---
+
+# Agenda
+- Kir-Dev
+- World Wide Web
+- HTML
+- Demo
+- CSS
+- Workshop
+
+---
+
+<Invert>
+
+# Kir - Dev
+
+</Invert>
+
+---
+
+- 2001 óta működő kör
+- Web és Mobil fejlesztés
+- Profil és Körök (PéK)
+- Üzemeltetés
+- Meetupok, konferenciák
+
+---
+
+<Invert>
+
+# World Wide Web
+
+</Invert>
+
+---
+
+# Web != Internet
+
+---
+
+import { Split } from 'mdx-deck'
+
+<Split>
+
+![](http://localhost:8081/assets/tim.jpg)
+
+# Web 
+
+1991
+
+Tim Berners-Lee
+
+</Split>
+
+---
+
+![](http://localhost:8081/assets/cern.png)
+
+---
+
+<Invert>
+
+# Web működése
+
+</Invert>
+
+---
+
+# Kapcsolatfelépítés
+
+ - Host név feloldása IP címre
+ - TCP Kapcsolodás az IP címre (80/443-as porton)
+ - HTTP üzenetek
+
+---
+
+# HTTP
+
+- Egyszerű szöveges protokoll
+- Kliens-server architecture
+  - Kliens kezdeményez, szerver válaszol
+- Független kérések
+ 
+---
+ 
+# HTTP kérés
+
+- Kérés (kérés célja, URL)
+- Fejléc
+  - Preferált nyelv, kliens információk
+  - Host mező: a kért oldal hosztneve
+- Opcionális adat (űrlap, feltöltött fájl)
+ 
+---
+ 
+# HTTP kérés fajták
+ 
+- GET
+- POST
+- PUT
+- DELETE
+- ...
+
+---
+
+# GET
+- Egyszerű kérés, adatküldés nélkül
+- URL-ben küldhetünk paramétereket
+
+```/search?query=kir-dev```
+
+---
+
+# POST
+- Adatküldés (bejelentkezés, feltöltés)
+
+---
+
+# HTTP válaszok
+
+- Három rész
+  - Státuszkód
+  - Fejléc (legutóbbi módosítás, szerver információk)
+  - Opcionális adat (HTML oldal, letöltött fájl)
+
+---
+
+# Státuszkódok
+
+---
+
+![](http://localhost:8081/assets/500.png)
+
+---
+
+![](http://localhost:8081/assets/404.png)
+
+---
+
+- 1xx - tájékoztató információk
+- 2xx - sikeres kérés
+- 3xx - átirányítás
+- 4xx - klienshiba
+- 5xx - szerverhiba
+
+---
+
+# REST
+
+- CRUD műveletek
+
+---
+
+![](http://localhost:8081/assets/rest.png)
+
+---
+
+# REST alternativa
+## GraphQL
+- Egyetlen végpont
+- Adatmező dönti el mit kapunk
+
+---
+ 
+
+# Request
+```GraphQL
+{
+  users {
+    id
+    name
+    email
+  }
+}
+```
+
+---
+
+# Response
+```GraphQL
+{
+  data: [
+    {
+      1,
+      "Király Bálint",
+      "kiraly.balint@simonyi.bme.hu"
+    }
+  ]
+}
+```
+
+---
+
+# HTTP állapottartás
+
+- Állapotmentes, minden kérés független
+- Bejelentkezés?
+
+---
+
+# Cookie
+- A szerver a HTTP válasz fejlécében küld egy azonosítót
+- A kliens ezek után ezt mindig csatolja a HTTP kéréshez
+ 
+---
+
+```
+HTTP/1.1 200 OK
+Set-Cookie: user=123
+
+<html></html>
+```
+
+```
+GET / HTTP/1.1
+Host: example.org
+Cookie: user=123
+```
+---
+
+# Local storage
+
+- Több adatot tárolhatunk benne mint Cookie-ban
+- Nem küldi el minden HTTP request-nél
+
+---
+
+# Biztonság
+
+- Egyszerű, szöveges protokoll
+- A forgalmat bárki láthatja és módosíthatja
+- Jelszavak?
+- Banki adatok?
+
+---
+ 
+# HTTPS
+
+- Titkosított kapcsolat a kliens és a szerver között
+- Ezen belül HTTP
+
+---
+
+<Invert>
+
+# Backend és frontend?!
+## Server és kliens?!
+
+</Invert>
+
+---
+
+# Server Side Rendering
+
+![](http://localhost:8081/assets/ssr.png)
+
+---
+
+# Client Side Rendering
+
+![](http://localhost:8081/assets/csr.png)
+
+---
+
+<Invert>
+
+# HTML
+
+</Invert>
+
+---
+
+# Mi az a HTML?
+
+- Előre definiált tag-ekből álló dokumentum
+- A HTML dokumentum a weboldal.
+
+---
+
+# HTML Tag
+```html
+<tag attributum='ertek' />
+<tag attributum='ertek'>...tartalom</tag>
+```
+---
+
+# HTML dokumentum
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+---
+
+# HTML DOM 
+
+---
+
+![](http://localhost:8081/assets/dom.svg)
+
+---
+
+# Egy-két fontosabb tag
+
+```html
+<h1>Header 1</h1>
+<h6>Header 6</h6>
+
+<img src="kepek/cica.jpg" alt="Cica" />
+
+<a href="https://google.com">Link</a>
+
+<p>Lorem <u><b>ipsum</b> dolor <i>set</i></u> amet</p>
+
+<div>Valami</div>
+
+<input type="password" />
+```
+
+---
+# Egy-két fontosabb tag
+
+```html
+<table>
+  <tr>
+    <td>1/1</td>
+    <td>1/2</td>
+  </tr>
+  <tr>
+    <td>2/1</td>
+    <td>2/2</td>
+  </tr>
+</table>
+<ul>
+  <li>Felsorolás</li>
+  <li>Felsorolás</li>
+</ul>
+```
+
+---
+
+# Szemantikus Web
+
+```html
+<header>
+</header>
+<nav>
+</nav>
+<section>
+  <aside></aside>
+  <article></article>
+</section>
+<footer>
+</footer>
+```
+
+---
+
+# HTML Class és ID
+
+```
+<tag id="azonosito"/>
+<tag class="osztaly"/>
+```
+---
+
+<Invert>
+
+# DEMO 
+### Fejlesztői eszközök & W3C
+
+</Invert>
+
+---
+
+<Invert>
+
+# CSS
+
+</Invert>
+
+---
+
+# Mi az a css?
+
+- Stílusleíró nyelv
+
+---
+
+# CSS felépítése
+
+```
+selektor {
+  kulcs: "érték";
+  masik-kulcs: "Masik ertek";
+}
+```
+
+---
+
+# CSS selectorok
+
+```
+#azonosito { ... }
+.osztaly { ... }
+tag { ... }
+tag[attributum="érték"] { }
+```
+
+HTML ID, class és tag
+
+---
+
+# CSS selectorok
+
+```
+div, p { }                //div és p
+div p { }                 //div-ben p
+div > p { }               //p közvetlen szülője egy div
+div + p { }               //div utáni p (közvetlen testvér)
+div ~ p { }               //div utáni p (testvér)
+```
+
+---
+
+# CSS pszeudo osztályok
+
+```
+:link, :visited, :active
+:hover
+:first-child, :last-child
+:before, :after
+```
+
+```
+div:hover {
+  color: red;
+}
+```
+
+---
+
+# Színkezelés
+
+- #ff00aa
+- #f0a
+- rgb(0, 125, 255)
+- rgba(0, 125, 255, 0.5)
+- #ff00aaab
+- white, black, blue, red ...
+
+---
+
+# Display
+
+- inline
+- block
+- none
+- flex
+- és még 19 további...
+
+---
+
+<Invert>
+
+# Példák
+
+</Invert>
+
+---
+
+# Szöveg formázás
+
+```css
+color: #000000; /*a betűk színe, hexadecimálisan, rgb(), rgba(), szín-neve-angolul*/
+font-family: Arial, Helvetica; /*a betű típusa (font-face)*/
+font-size: 15px; /*a betű mérete*/
+font-weight: 400; /*a betű vastagsága 100-tól, 900-ig hasonló a boldhoz*/
+font-style: italic; /*a betű stílusa, bold*/
+letter-spacing: 15px; /*betűköz*/
+line-height: 15px; /*sorköz*/
+text-align: center; /*szöveg kizárása, left, right, center, justify*/
+text-decoration: underline; /*szöveg dekorálása*/
+text-shadow: 0px 1px 2px #000000; /*árnyék, left, top, blur, color*/
+text-transform: uppercase; /*csupa nagy betű, kis betű, kapitalizált stb.*/
+```
+
+---
+
+# Háttér és keret
+
+```css
+background-attachment: fixed; /*görgethető legyen a háttér vagy ne*/
+background-color: red; /*háttér színe*/
+background-image: url(‘images/ pic.png’); /*háttérkép*/
+background-position: left top; /*a háttér pozicioja*/
+background-repeat: no-repeat; /*a hatter ismetlese*/
+background: transparent url(‘../images/pic_holder.png’) top left norepeat;
+
+border-width: 2px; /*border vastagsága*/
+border-color: #234f8a; /*border színe*/
+border-style: solid; /*stílusa*/
+border: 3px solid dashed; /*megadható egyszerre itt is*/
+border-top: 3px solid dashed; /*csak felső keret az elemre*/
+border-radius: 2px; /*a sarkok lekerekítése bizonyos sugárral*/
+box-shadow: 0px 3px 4px #000000; /*árnyéka az elemnek*/
+```
+
+---
+
+# Méretek margók
+
+```css
+width: 500px; /*elem szélessége*/
+height: 10px; /*elem magassága*/
+margin-top: 5px; /*felső margó*/
+margin-bottom: 5px; /*alsó margó*/
+margin-right: 5px; /*jobb margó*/
+margin-left: 5px; /*bal margó*/
+margin: 5px; /*összes margó 5 px*/
+margin: 5px 10px; /*felső és alsó margó 5 px, két szélső 10px*/
+margin: 5px 10px 4px 1px; /*fent jobbra lent balra*/
+padding: 10px; /*belső margó*/
+```
+
+---
+
+# 520 DB CSS property
+
+![](http://localhost:8081/assets/howmuch.webp)
+
+---
+
+# CSS Box model
+
+---
+
+![](http://localhost:8081/assets/boxmodel.png)
+
+---
+
+# Media Query
+
+```css
+@media screen and (max-width : 768px) {
+ #navigation a {
+   width: 100%;
+ }
+}
+```
+
+---
+
+# Flex
+
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+---
+
+# CSS keretrendszerek
+
+---
+
+![](http://localhost:8081/assets/tailwind.png)
+
+---
+
+```html
+<div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <img class="w-full" src="/img/card-top.jpg">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
+    <p class="text-gray-700 text-base">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </p>
+  </div>
+</div>
+```
+
+---
+
+<Invert>
+
+# Workshop
+
+</Invert>
