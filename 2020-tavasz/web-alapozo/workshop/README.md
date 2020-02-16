@@ -21,7 +21,7 @@ A szüksgéges file-okat hozd létre!
 <details><summary>:question: Segítség</summary>
 <p>
 
-Az `a` HTML tag `href` attributuma segístégével adható meg a link.
+Az `a` HTML tag `href` attributuma segítségével adható meg a link.
 
 Például:
 ```html
@@ -61,7 +61,7 @@ OpenStreetMap -> Megosztás gomb -> HTML
 
 ## 6. IMSC Feladat :thinking: 
 
-Az elkészített form ténylegesen küldön egy email-t a megadott paraméterekkel az e-mail címedre!
+Az elkészített form ténylegesen küldjön egy email-t a megadott paraméterekkel az e-mail címedre!
 
 
 <details><summary>:question: Segítség</summary>
