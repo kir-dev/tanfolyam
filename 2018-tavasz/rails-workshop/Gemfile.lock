@@ -91,7 +91,7 @@ GEM
       mini_portile2 (~> 2.3.0)
     pg (1.0.0)
     public_suffix (3.0.2)
-    puma (3.11.2)
+    puma (3.12.2)
     rack (2.0.4)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
@@ -181,7 +181,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg
-  puma (~> 3.7)
+  puma (~> 3.12)
   rails (~> 5.1.5)
   sass-rails (~> 5.0)
   selenium-webdriver
