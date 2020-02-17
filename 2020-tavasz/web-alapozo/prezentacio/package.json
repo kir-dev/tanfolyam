@@ -1,0 +1,16 @@
+{
+  "name": "web-basics",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "concurrently \"yarn run serve:mdx\" \"yarn run serve:static\"",
+    "serve:mdx": "mdx-deck deck.mdx",
+    "build": "mdx-deck build deck.mdx",
+    "serve:static": "python -m SimpleHTTPServer 8081"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "mdx-deck": "3.1.0"
+  }
+}
