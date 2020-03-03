@@ -1,0 +1,372 @@
+import { swiss, highlight } from '@mdx-deck/themes'
+
+export const theme = {
+  ...swiss,
+  ...highlight
+}
+
+<img src="https://simonyi.bme.hu/resources/groups/kirdev.svg" style={{height: 300 + 'px'}} />
+
+# TypeScript + Node.js
+
+Fehér János
+
+---
+
+# JavaScript
+
+- 10 nap alatt lett megalkotva
+- gyengén típusos nyelv: `number`, `string`, `boolean`, `object`, `undefined`, `null`
+- nem kell memóriakezeléssel foglalkozni (GC)
+- JIT (Just In Time) compilation
+
+
+```js
+let foo = 5
+foo = 'öt'
+
+function bar(param) {
+  console.log(param)
+}
+```
+
+---
+
+# TypeScript
+
+- statikusan típusos
+- új funkciók korai implementálása
+- JavaScript-re "fordítható"
+- bugok fejlesztési időben történő elkapása
+- jobb autocomplete az IDE-ben
+
+```ts
+let foo = 5
+foo = 'öt' // Error: Type '"öt"' is not assignable to type 'number'
+
+function bar(param: string) {
+  console.log(param)
+}
+```
+---
+
+# TS nyelvi elemek
+
+- `if - else`, `switch`, `while`, `<`, `>`, `<=`, `>=`, `&&`, `||`: mint C-ben
+- `==` és `===`: érték szerint / típus és érték szerinti egyenlőség
+```js
+const a = '5'
+const b = 5
+
+(a == b) // true
+(a === b) // false
+```
+- `+`, `-` és `*`: mint C-ben
+- `/`: mindig lebegőpontos a végeredmény -> `Math.floor()`
+
+---
+
+# Változók
+
+- `var`: globális változó, ne használjuk
+- `let`: block scope-ra korlátozódik az elérése
+- `const`: láthatóságban mint a `let`, de csak egyszer lehet értéket adni neki
+
+```js
+if (true) {
+  var aVar = 5
+  let aLet = 'hi'
+  const aConst = false
+  aConst = true // Cannot assign to 'aConst' because it is a constant.
+}
+
+console.log(aVar) // 5
+console.log(aLet) // Error: aLet is not defined
+console.log(aConst) // Error: aConst is not defined
+```
+- Primitív típusok érték szerint adódnak át, összetettek (object, array) referencia szerint
+
+---
+
+# Típusok
+
+- statikusan típusos: kód írása közben ismerjük
+- `variableName: variableType`
+```ts
+const aNumber: number = 5
+const aString = 'Hello World'
+
+interface User {
+  name: string
+  age: number
+  married?: boolean
+  address: Address
+  pets?: string[]
+  sayHi: () => void
+}
+
+function print(input?: string) {
+  console.log(input)
+}
+```
+
+---
+
+# Típusok
+
+- enum
+```ts
+enum Color {Red, Green, Blue}
+let c: Color = Color.Green;
+```
+- any
+```ts
+let a: any = 5
+a = false // no error
+```
+- union
+```ts
+let b: string | number // b is string or number, but not else
+```
+
+---
+
+# Null & undefined
+
+- null: "semmi" kifejezése, ritkán használjuk
+- undefined: még nem inicializált változó ezt kapja értékül
+```js
+typeof null // "object"
+typeof undefined // "undefined"
+null == undefined // true
+null === undefined // false
+
+if (someVariable != null) {
+  // do amazing things
+}
+```
+
+---
+
+# Boolean
+
+- `true` és `false`
+- 'truthy' és 'falsy' értékek
+- `''`, `0`, `false`, `undefined`, `null` falsy értékek, minden más truthy
+- `if`-be nem csak bool értéket írhatunk
+```js
+const boolValue = true
+const str = ''
+if (str) { // if (Boolean(str)) vagy if (str !=== '')
+  // this won't run
+} else {
+  // this will run
+}
+```
+- `!!` operátor: boolean-né konvertálás
+```js
+const boolValue = !!someVariable
+// vagy
+const boolValue = Boolean(someVariable)
+```
+
+---
+
+# String
+
+- `''` vagy `""`
+- string methods
+```ts
+"Hello world!".toUpperCase()
+              .split()
+              .substring()
+```
+- string literal
+```ts
+const a = 'hello' | 'world'
+```
+- template string
+```ts
+// old school :(
+const newString = 'Hello' + ' ' + userName + '!'
+// new school :)
+const newString = `Hello ${userName}!`
+```
+
+---
+
+# Object
+
+- key-value pair (Map)
+```js
+const myObject = {
+  foo: 'bar',
+  baz: true,
+  asd: {
+    hello: 'world'
+  }
+}
+```
+- `Object.keys()`, `Object.assign()`, stb.
+- object destructuring
+```js
+// old way
+const foo = myObject.foo
+const baz = myObject.baz
+//new way
+const { foo, baz } = myObject
+```
+
+---
+
+# Array
+
+```ts
+const myArray = [1, 2, 3, 4]
+```
+- array methods: a tömbön meghívható (tag)függvények
+  - használjuk, rövid, jól olvasható kódot eredményeznek
+  - pl. `forEach`, `filter`, `map`, `reduce`, `some`, `every`
+  ```ts
+  const lessThanThree = myArray.filter(it => it < 3)
+- tuple
+```ts
+let x: [string, number];
+```
+- destructuring
+```js
+const [first, second] = myArray
+```
+---
+
+# Függvények
+
+- function declaration
+```ts
+function foo(array: number[]): void {
+  // cool code comes here
+}
+```
+- fuction expression (arrow function)
+```ts
+const plusOne = (input: number) => {
+  return input + 1
+}
+```
+- a függvények változóban is tárolhatóak és átadhatóak paraméterként
+```js
+const newArray = [1, 2, 3, 4, 5].map(plusOne)
+const newArray = [1, 2, 3, 4, 5].map(item => item + 1)
+```
+
+---
+
+# Függvények
+
+- implicit return
+```ts
+const double = (n: number) => n * 2
+// vagy
+const doulbe = (n: number) => { return n * 2 }
+```
+- callback: függvény, amit egy másik függvény hív meg
+```js
+const newArray = [1, 2, 3, 4, 5].map(plusOne)
+```
+- default parameter
+```ts
+function foo(param = 4) {
+  // do things
+}
+```
+
+---
+
+# Spread & rest
+
+```js
+function sum(x: number, y: number, z: number) {
+  return x + y + z;
+}
+
+const numbers = [1, 2, 3];
+
+console.log(sum(...numbers));
+// expected output: 6
+```
+
+```js
+function sum(...args: number[]) {
+  let result = 0
+  args.forEach(it => result += it)
+  return result
+}
+
+console.log(sum(1, 2, 3));
+// expected output: 6
+
+const { foo, ...rest } = { foo: 'bar', baz: 'hello', asd: 'ghj' }
+```
+
+---
+
+# Optional chaining
+
+- "mélyen" lévő property-k elérésére, amik nem biztos, hogy léteznek
+```js
+// old school
+let foo
+if (someVar && someVar.someAttribute && someVar.someAttribute.someSubattribute) {
+  foo = someVar.someAttribute.someSubattribute
+}
+// new school
+const foo = someVar?.someAttribute?.someSubattribute
+```
+
+---
+
+# Nullish coalescing operator
+
+- default értékadás egy másik változó alapján
+```js
+// old and ugly way
+let foo
+if (someValue) {
+  foo = someValue
+} else {
+  foo = defaultValue
+}
+// or
+const foo = (someValue) ? someValue : defaultValue
+// old way
+// will assign defaultValue if `someValue` is falsy
+const foo = someValue || defaultValue
+// new way
+// will assign defaultValue if `someValue` is null or undefined
+const foo = someValue ?? defaultValue
+```
+
+---
+
+# Functional programming
+
+- osztályok helyett függvények
+- immutable data
+- pure function
+
+---
+# Resources
+
+- https://developer.mozilla.org
+- https://fireship.io
+- https://typescriptlang.org
+
+---
+
+# Kérdések
+
+---
+
+# Workshop
+
+- github.com/OmTheTurtle/node-ws-1

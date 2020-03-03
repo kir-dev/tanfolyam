@@ -1,0 +1,14 @@
+{
+  "name": "node-tanfolyam",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "build": "mdx-deck build deck.mdx"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@mdx-deck/export": "^2.5.1",
+    "mdx-deck": "^4.0.0"
+  }
+}
