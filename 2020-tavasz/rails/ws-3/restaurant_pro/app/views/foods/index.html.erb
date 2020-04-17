@@ -1,0 +1,15 @@
+<h1>Foods Index</h1>
+
+<table>
+  <% @foods.each do |food| %>
+    <tr>
+      <td> <%= food.name %></td>
+      <td> <%= food.price %> JMF</td>
+      <td> <%= link_to 'Show', food_path(food) %> </td>
+      <td> <%= link_to 'Edit', edit_food_path(food) %> </td>
+      <td> <%= link_to 'Delete', food_path(food), method: :delete, data: {confirm: 'Are you sure?'} %> </td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "New food", new_food_path %>
+<%= link_to 'Ingredients', ingredients_path %>

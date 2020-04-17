@@ -1,0 +1,27 @@
+<% if @food.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@food.errors.count, "error") %> prohibited
+      this food from being saved:
+    </h2>
+    <ul>
+      <% @food.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @food do |f| %>
+  <p>
+    <%= f.label :name %>:
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :price%>:
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= submit_tag 'Create' %>
+  </p>
+<% end %>
