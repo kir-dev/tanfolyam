@@ -1,0 +1,57 @@
+html, body{
+    height: 100%;
+    background-color:#304e7d;
+}
+
+#content{
+    height: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 1000px) {
+    #content{
+        width: 40%;
+    }
+}
+
+.section{
+    background-color:white;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+
+.section > *{
+    margin: 20px;
+    width: calc(100% - 40px);
+    font-size: 1.2em;
+    font-family: sans-serif;
+}
+
+.section > h3{
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #1c4c97;
+    color: white;
+    font-size: 2em;
+    margin:0;
+}
+
+#image{
+    height: 200px;
+    background-image: url("https://simonyi.bme.hu/resources/footer/vik.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+table {
+    border-collapse: collapse;  
+}
+
+td {
+    padding: 3px;
+    border: 2px grey solid;
+}
