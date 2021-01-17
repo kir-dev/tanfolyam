@@ -4,7 +4,7 @@
     </head>
     <body>
         <div id="content">
-            <div id="image" class="section"></div>
+            <img src="https://simonyi.bme.hu/resources/footer/vik.svg" height="200px" id="image" class="section"></img>
 
             <div class="section">
                 <h3>Milyen volt az előadás?</h3>
@@ -25,27 +25,24 @@
                     <tr>
                         <td>Felejthető</td><td>1</td>
                     </tr>
-                    <tr>
-                        <td>Pocsék</td><td>1</td>
-                    </tr>
                 </table>
             </div>
 
             <div class="section">
                 <h3>Saját válaszom</h3>
-                <form>
+                <form id="form">
                     <input type="radio" name="respnonse">
-                    <label>Kiváló</label><br/>
+                    <label>Fantasztikus</label><br/>
                     <input type="radio" name="respnonse">
                     <label>Jó</label><br/>
                     <input type="radio" name="respnonse">
                     <label>Közepes</label><br/>
                     <input type="radio" name="respnonse">
                     <label>Felejthető</label><br/>
-                    <input type="radio" name="respnonse">
-                    <label>Pocsék</label><br/>
                 </form>
             </div>
+
+            <input class="submit" type="submit" form="form"/>     
         </div>
     </body>
 </html>

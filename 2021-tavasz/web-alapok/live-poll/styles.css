@@ -1,10 +1,8 @@
-html, body{
-    height: 100%;
-    background-color:#304e7d;
+html, body {
+    background-color: rgb(59, 103, 141);    
 }
 
-#content{
-    height: 100%;
+#content {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -15,43 +13,46 @@ html, body{
         width: 40%;
     }
 }
-
-.section{
+.section {
+    width: 100%;
     background-color:white;
     border-radius: 15px;
     margin-bottom: 20px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 
-.section > *{
+.section > h3 {
+    margin: 0;
+    background-color: rgb(5,42,75);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 20px;
+    font-size: 2em;
+    color: white;
+}
+
+.section > * {
     margin: 20px;
     width: calc(100% - 40px);
     font-size: 1.2em;
-    font-family: sans-serif;
-}
-
-.section > h3{
-    padding: 20px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: #1c4c97;
-    color: white;
-    font-size: 2em;
-    margin:0;
-}
-
-#image{
-    height: 200px;
-    background-image: url("https://simonyi.bme.hu/resources/footer/vik.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-table {
-    border-collapse: collapse;  
+    font-family: Arial;
 }
 
 td {
     padding: 3px;
     border: 2px grey solid;
+} 
+
+table {
+    border-collapse: collapse;  
+}
+
+.submit {
+    border: 0px;
+    background-color: rgb(5,42,75);
+    color: white;
+    font-size: 1.4em;
+    margin-left: 15px;
+    padding: 5;
+    border-radius: 5px;
 }
