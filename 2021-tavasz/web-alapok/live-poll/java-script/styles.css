@@ -47,7 +47,7 @@ table {
     border-collapse: collapse;  
 }
 
-.submit {
+.button {
     border: 0px;
     background-color: rgb(5,42,75);
     color: white;
@@ -55,4 +55,51 @@ table {
     margin-left: 15px;
     padding: 5;
     border-radius: 5px;
+}
+
+#create-form{
+    /* display: none; */
+}
+
+#create-form label{
+    /* display: block; */
+    font-size: 1.2em;
+
+}
+*{
+    /* border: 2px red dashed; */
+}
+
+.input-text{
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 2px grey solid;
+    font-size: 1.1em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#add-button{
+    margin: 0;
+    margin-top: 10px;
+    font-size: 1em;
+    background-color: rgb(106, 189, 81);
+}
+
+#cancel-button{
+    margin: 0;
+    margin-top: 10px;
+    font-size: 1em;
+    background-color: rgb(231, 19, 118);
+    float: right;
+}
+
+#save-button{
+    margin: 0;
+    margin-top: 10px;
+    font-size: 1em;
+    background-color: rgb(19, 164, 231);
+    float: right;
+    margin-left: 10px;
 }

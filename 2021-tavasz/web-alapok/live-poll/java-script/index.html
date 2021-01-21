@@ -1,7 +1,6 @@
 <html>
     <head>
         <link rel="stylesheet" href="styles.css"> 
-        <script src="script.js"></script>
     </head>
     <body>
         <div id="content">
@@ -11,7 +10,7 @@
                 <h3>Milyen volt az előadás?</h3>
             </div>
 
-            <div class="section">
+            <!-- <div class="section">
                 <h3>Beérkezett válaszok</h3>
                 <table>
                     <tr>
@@ -27,11 +26,11 @@
                         <td>Felejthető</td><td>1</td>
                     </tr>
                 </table>
-            </div>
+            </div> -->
 
             <div class="section">
                 <h3>Saját válaszom</h3>
-                <form id="form">
+                <form>
                     <input type="radio" name="response">
                     <label>Fantasztikus</label><br/>
                     <input type="radio" name="response">
@@ -43,7 +42,29 @@
                 </form>
             </div>
 
-            <input class="submit" type="submit" form="form"/>     
+            <div id="create-form" class="section"> 
+               <h3>Kérdés léterhozása</h3>
+
+               <div id=""></div>
+
+               <form>
+                <label>Kérdés</label><br/>
+                <input id="question" type="text" name="question" class="input-text" placeholder="...">
+
+                <label> Válaszok</label>
+                <div id="answer-container"></div>
+                <input id="new-answer" type="text" name="new-answer" class="input-text" placeholder="...">
+
+                <button id="add-button" class="button" type="button"> Hozzáad</button>
+
+                <button id="save-button" class="button" type="button"> Mentés</button>
+                <button id="cancel-button" class="button" type="button"> Mégesem</button>
+               </form>
+            </div>
+            
+            <input class="button" type="submit" form="form"/>     
+
         </div>
+        <script src="script.js"></script>
     </body>
 </html>
