@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css"> 
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div id="content">
+            <img class="section" src="https://simonyi.bme.hu/resources/footer/vik.svg" height="200px"></img>
+
+            <div class="section">
+                <h3>Milyen volt az előadás?</h3>
+            </div>
+
+            <div class="section">
+                <h3>Beérkezett válaszok</h3>
+                <table>
+                    <tr>
+                        <td>Fantasztikus</td><td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Jó</td><td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Közepes</td><td>12</td>
+                    </tr>
+                    <tr>
+                        <td>Felejthető</td><td>1</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3>Saját válaszom</h3>
+                <form id="form">
+                    <input type="radio" name="response">
+                    <label>Fantasztikus</label><br/>
+                    <input type="radio" name="response">
+                    <label>Jó</label><br/>
+                    <input type="radio" name="response">
+                    <label>Közepes</label><br/>
+                    <input type="radio" name="response">
+                    <label>Felejthető</label><br/>
+                </form>
+            </div>
+
+            <input class="submit" type="submit" form="form"/>     
+        </div>
+    </body>
+</html>
