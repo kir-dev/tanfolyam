@@ -57,11 +57,11 @@ table {
     border-radius: 5px;
 }
 
-#create-form{
-    /* display: none; */
+#question-form{
+    display: none;
 }
 
-#create-form label{
+#question-form label{
     /* display: block; */
     font-size: 1.2em;
 
@@ -102,4 +102,10 @@ table {
     background-color: rgb(19, 164, 231);
     float: right;
     margin-left: 10px;
+}
+#open-button{
+    background-color: rgb(19, 164, 231);
+}
+#submit-button{
+    float: right;
 }
