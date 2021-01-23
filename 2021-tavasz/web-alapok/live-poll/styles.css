@@ -1,37 +1,33 @@
-html, body {
-    background-color: rgb(59, 103, 141);    
+body{
+    background-color: rgb(59, 103, 141);
 }
 
-#content {
+#content{
     width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
 
-@media (min-width: 1000px) {
-    #content{
-        width: 40%;
-    }
-}
-.section {
+.section{
     width: 100%;
-    background-color:white;
+    background-color: white;
     border-radius: 15px;
-    margin-bottom: 20px;
+    /* padding: 5px; */
+    margin-bottom: 10px;
     padding-bottom: 10px;
 }
 
 .section > h3 {
-    margin: 0;
     background-color: rgb(5,42,75);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 20px;
-    font-size: 2em;
     color: white;
+    padding: 20px;
+    margin: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    font-size: 2em;
 }
 
-.section > * {
+.section > *{
     margin: 20px;
     width: calc(100% - 40px);
     font-size: 1.2em;
@@ -39,20 +35,19 @@ html, body {
 }
 
 td {
-    padding: 3px;
     border: 2px grey solid;
-} 
-
+    padding: 3px;
+}
 table {
-    border-collapse: collapse;  
+    border-collapse: collapse;
 }
 
-.submit {
+.submit{
     border: 0px;
     background-color: rgb(5,42,75);
     color: white;
-    font-size: 1.4em;
-    margin-left: 15px;
-    padding: 5;
-    border-radius: 5px;
+    border-radius: 15px;
+    padding: 10px;
+    margin-left: 20px;
+    font-size: 1.2em;
 }
