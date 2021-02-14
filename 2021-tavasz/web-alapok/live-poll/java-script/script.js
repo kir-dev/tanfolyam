@@ -52,33 +52,33 @@ function createQuestion(){
 }
 
 function renderQuestion(question){
-    const section = document.createElement("div")
-    section.className = "section"
-    content.insertBefore(section, createForm )
+   let section = document.createElement("div")
+   section.className ="section"
+   content.insertBefore(section,createForm)
 
-    const header = document.createElement("h3")
-    header.innerText = question.text
-    section.appendChild(header)
+   let header = document.createElement("h3")
+   header.innerText = question.text
+   section.appendChild(header)
 
-    const form = document.createElement("form")
-    section.appendChild(form)
+   let form = document.createElement("form")
+   section.appendChild(form)
 
-    let answers = question.answers
-    for (let index = 0; index < answers.length; index++) {
-        const answer = answers[index]
+   let answers = question.answers
+   for (let index = 0; index < answers.length; index++) {
+       const answer = answers[index];
 
-        let checkbox = document.createElement("input")
-        checkbox.type="radio"
-        checkbox.name="answer-"+answerCnt
-        form.appendChild(checkbox)
+       let radiobutton = document.createElement("input")
+       radiobutton.type="radio"
+       form.appendChild(radiobutton)
 
-        let label = document.createElement("label")
-        label.innerText = answer
-        form.appendChild(label)
-        
-        let lineBreak = document.createElement("br")
-        form.appendChild(lineBreak)
-    }
+       let label = document.createElement("label")
+       label.innerText = answer
+       form.appendChild(label)
+
+       let lineBreak = document.createElement("br")
+       form.appendChild(lineBreak)
+       
+   }
 }
 
 let openButton = document.getElementById("open-button")
@@ -98,3 +98,10 @@ function openQuestionForm(){
     openButton.style.display="none"
 }
 
+
+document.getElementById("remove-button").addEventListener("click", deleteAll)
+
+function deleteAll(){
+    localStorage.removeItem("questions")
+    content.innerHTML = ""
+}
