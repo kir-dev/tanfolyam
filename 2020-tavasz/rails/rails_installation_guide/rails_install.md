@@ -19,7 +19,7 @@
   
 **Telepítés Linuxra**
 
-Az alábbi parancsok Ubuntu 18.04-en semmilyen előzetes konfiguráció nélkül lefuttathatók.
+Az alábbi parancsok Ubuntu 20.04-en semmilyen előzetes konfiguráció nélkül lefuttathatók.
 
 **Telepítés Windows10-re**
 
@@ -28,6 +28,14 @@ A parancsok egy Windows Subsystem for Linux (WSL) alkalmazásban használhatók.
 - Ubuntu 18.04 LTS: https://www.microsoft.com/store/productId/9N9TNGVNDL3Q
 
 **Parancsok:**
+```sh
+sudo apt update
+```
+
+```sh
+sudo apt install curl
+```
+
 ```sh
 \curl -sSL https://get.rvm.io | bash
 ```
@@ -40,8 +48,7 @@ betölti az új csomag funkcióit a nyitott terminálba
 ![alt text](images/1.png "Image")
 
 ```sh
-
-rvm install ruby 2.6.3
+rvm install ruby 2.7.1
 ```
 a telepítés során meg kell adni a felhasználóhoz tartozó jelszót
 ha megakad, akkor enter spamelésével (többszöri lenyomásával) lehet továbbhaladni
@@ -62,7 +69,7 @@ betölti az új csomag funkcióit a nyitott terminálba
 ![alt text](images/3.png "Image")
 
 ```sh
-nvm install 12
+nvm install 14
 ```
 telepíti a kiválasztott NodeJS-verziót
 
@@ -112,5 +119,36 @@ elinditja a Rails servert, ami a böngészőben a localhost:3000 -es címen teki
 
 ![alt text](images/8.png "Image")
 
+# Postgres telepítése
 
+```sh
+sudo apt install postgresql postgresql-contrib libpq-dev
+```
 
+## Felhasználó létrehozása
+
+```sh
+sudo -u postgres createuser -s kir -P
+```
+
+# Docker és docker-compose teleptítése
+```sh
+sudo apt  install docker.io
+```
+
+```sh
+sudo apt  install docker-compose 
+```
+
+# Docker és docker-compose engedélyezése sudo nélkül
+
+Alapvetőne a csak a root felhasználó fér hozzá ezekhez a parancsokhoz. Ez alábbi módon tudjuk beállítani, hogy mindenki számára elérhetők legyenek.
+
+```sh
+sudo usermod -aG docker kir
+```
+
+```sh
+sudo chmod 666 /var/run/docker.sock
+```
+Lépjünk ki a felhasznlói fiókból, majd újra vissza, hogy betöltődjenek az új beállítások.
