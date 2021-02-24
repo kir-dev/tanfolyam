@@ -1,8 +1,12 @@
 # 2021 tavaszi Ruby on Rails tanfolyam
 Ebben a dokumentumban gyűjtjük, a tanfolyhoz kapcsolatos segédanyagokat.
 
-## Rails setup
+## Idei tanfolyam anyagok
+- **Első előadás** (Ruby + Rails Demó)
+  - [prezentáció](https://bmeedu-my.sharepoint.com/:p:/g/personal/laszlo_sepsi_edu_bme_hu/ESi2JYyJxhNGnLqKmyDPm7QB8mbnn8Mwk5UeJ7dr0K1Kqw?e=pY2nWi)
+  - [Ajánlott gyakorló feladat](https://guides.rubyonrails.org/getting_started.html)
 
+## Rails setup
 - **VM-Ware virtuális gép**
 Készítettünk egy virutális gépet, amiben minden szükséges szoftver telepítve van, hogy el tudj kezdeni Rails alkalmazásokat fejleszteni. 
   - [VMWare Player 16](https://my.vmware.com/en/web/vmware/downloads/details?downloadGroup=PLAYER-1610&productId=1039&rPId=55792) (**Csak 16-os verzióval működik!**)
@@ -11,11 +15,6 @@ Készítettünk egy virutális gépet, amiben minden szükséges szoftver telep�
 
 - **Telepítési útmutató** a Rails és egyéb hasznos szoftverek telepítéséhez.
   - [link](https://github.com/kir-dev/tanfolyam/tree/master/2020-tavasz/rails/rails_installation_guide)
-
-## Idei tanfolyam anyagok
-- Első előadás (Ruby + Rails Demó)
-  - [prezentáció](https://bmeedu-my.sharepoint.com/:p:/g/personal/laszlo_sepsi_edu_bme_hu/ESi2JYyJxhNGnLqKmyDPm7QB8mbnn8Mwk5UeJ7dr0K1Kqw?e=pY2nWi)
-  - [Ajánlott gyakorló feladat](https://guides.rubyonrails.org/getting_started.html)
 
 ## Korábbi tanfolyam anyagok
 - 2020-as Rails tanfolyam:
