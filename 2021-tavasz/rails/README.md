@@ -1,5 +1,5 @@
 # 2021 tavaszi Ruby on Rails tanfolyam
-Ebben a dokumentumban gyűjtjük, a tanfolyhoz kapcsolatos segédanyagokat.
+Ebben a dokumentumban gyűjtjük, a tanfolyamhoz kapcsolódó segédanyagokat.
 
 ## Idei tanfolyam anyagok
 - **Első előadás** (Ruby + Rails Demó)
@@ -15,6 +15,12 @@ Készítettünk egy virutális gépet, amiben minden szükséges szoftver telep�
 
 - **Telepítési útmutató** a Rails és egyéb hasznos szoftverek telepítéséhez.
   - [link](https://github.com/kir-dev/tanfolyam/tree/master/2020-tavasz/rails/rails_installation_guide)
+
+## Hasznos források
+- [Rails Guides](https://guides.rubyonrails.org/)
+  - Jól struktúrált, gyakorlati megközelítésű dokumentáció a Rails keretrendszer minden fontos eleméről.
+- [Ruby Docs](https://ruby-doc.org/core-2.7.1/)
+  - A Ruby hivatalos dokumentációja. A gyakran használt osztályok függvényeit, érdemes átnézni itt.
 
 ## Korábbi tanfolyam anyagok
 - 2020-as Rails tanfolyam:
