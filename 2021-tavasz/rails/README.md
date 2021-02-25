@@ -13,7 +13,7 @@ Készítettünk egy virutális gépet, amiben minden szükséges szoftver telep�
   - [Virtuális Gép](https://bmeedu-my.sharepoint.com/:f:/g/personal/laszlo_sepsi_edu_bme_hu/EnnQHo6UyaJKpZ2vcRHzGWoBOvv1tXKaijRmCy0w89iNMg?e=MgncfQ)
 
 
-- **Telepítési útmutató** a Rails és egyéb hasznos szoftverek telepítéséhez.
+- **Telepítési útmutató** a Rails és egyéb szükséges szoftverek telepítéséhez. A virtuális gépre is ezeket a szoftvereket telepítettük.
   - [link](https://github.com/kir-dev/tanfolyam/tree/master/2020-tavasz/rails/rails_installation_guide)
 
 ## Hasznos források
