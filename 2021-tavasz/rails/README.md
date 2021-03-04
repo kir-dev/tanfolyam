@@ -25,7 +25,7 @@ Erre egy nagyon jó lehetőséget ad a hivatalos útmutó alábbi feladata:
 Készítettünk egy virutális gépet, amiben minden szükséges szoftver telepítve van, hogy el tudj kezdeni Rails alkalmazásokat fejleszteni. A VMWare-be ne felejtsd el átállítani a **memória és processzor erőforrásokat az ajánlottra**!
   - [VMWare Player 16](https://my.vmware.com/en/web/vmware/downloads/details?downloadGroup=PLAYER-1610&productId=1039&rPId=55792) (**Csak 16-os verzióval működik!**)
   - [Virtuális Gép](https://bmeedu-my.sharepoint.com/:f:/g/personal/laszlo_sepsi_edu_bme_hu/EnnQHo6UyaJKpZ2vcRHzGWoBOvv1tXKaijRmCy0w89iNMg?e=MgncfQ)
-
+    - A KIR felhasználó jelszava: **dev**
 
 - **Telepítési útmutató** a Rails és egyéb szükséges szoftverek beszerzéséhez. A virtuális gépre is ezeket a szoftvereket telepítettük.
   - [link](https://github.com/kir-dev/tanfolyam/tree/master/2020-tavasz/rails/rails_installation_guide)
