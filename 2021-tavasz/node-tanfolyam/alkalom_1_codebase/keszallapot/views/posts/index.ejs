@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+<!--Content-->
+<div class="row justify-content-center my-5">
+  <div class="col-lg-8 col-md-10 col-12">
+    <a href="/posts/new" class="btn btn-primary float-end">
+      New post
+    </a>
+  </div>
+</div>
+
+<% posts.forEach(function(post){ %>
+  <div class="row justify-content-center mb-3">
+    <div class="col-lg-8 col-md-10 col-12">
+      <div class="card bg-light">
+        <div class="card-body p-2 p-md-4">
+          <img src="https://via.placeholder.com/200" class="thumbnail m-1 float-end" alt="...">
+          <a class="card-title" href="/posts/<%= post.id %>">
+            <span class="fs-5 title">
+              <%= post.title %>
+            </span>
+          </a>
+          <div class="card-text">
+            <p><%= new Intl.DateTimeFormat('hu-HU', { year: 'numeric', month: '2-digit', day: '2-digit'}).format(post.createdAt) %></p>
+            <p><%= post.content.substr(0, 20) %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% }); %>
+<!--End of Content-->
+<%- include('../partials/footer', { needJS: false }) %>

@@ -1,0 +1,12 @@
+version: "3.3"
+   
+services:
+  db:
+    image: postgres
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_DB=node_workshop
+      - POSTGRES_USER=workshop
+      - POSTGRES_PASSWORD=123456
+
