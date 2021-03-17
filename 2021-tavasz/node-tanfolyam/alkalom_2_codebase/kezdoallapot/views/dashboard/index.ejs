@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+<!-- Jumbotron Header -->
+<header class="my-4">
+  <h1 class="fs-3">Üdvözlünk, <%= (typeof user !== "undefined")? user.name : "jelentkezz be" %>!</h1>
+  <h3 class="fs-5"><%= (typeof user !== "undefined")? user.email : "" %></h3>
+  <p class="lead">Válassz a funkciók közül!</p>
+  <a class="nav-link" class="btn btn-primary" href="/films">Filmek</a>
+  <a class="nav-link" class="btn btn-primary" href="/partners">Partnerkeresés</a>
+</header>
+
+<%- include('../partials/footer') %>
