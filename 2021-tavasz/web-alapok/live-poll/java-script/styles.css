@@ -1,0 +1,111 @@
+html, body {
+    background-color: rgb(59, 103, 141);    
+}
+
+#content {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 1000px) {
+    #content{
+        width: 40%;
+    }
+}
+.section {
+    width: 100%;
+    background-color:white;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.section > h3 {
+    margin: 0;
+    background-color: rgb(5,42,75);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 20px;
+    font-size: 2em;
+    color: white;
+}
+
+.section > * {
+    margin: 20px;
+    width: calc(100% - 40px);
+    font-size: 1.2em;
+    font-family: Arial;
+}
+
+td {
+    padding: 3px;
+    border: 2px grey solid;
+} 
+
+table {
+    border-collapse: collapse;  
+}
+
+.button {
+    border: 0px;
+    background-color: rgb(5,42,75);
+    color: white;
+    font-size: 1.4em;
+    margin-left: 15px;
+    padding: 5;
+    border-radius: 5px;
+}
+
+#question-form{
+    display: none;
+}
+
+#question-form label{
+    /* display: block; */
+    font-size: 1.2em;
+
+}
+*{
+    /* border: 2px red dashed; */
+}
+
+.input-text{
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 2px grey solid;
+    font-size: 1.1em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#add-button{
+    margin: 0;
+    margin-top: 10px;
+    font-size: 1em;
+    background-color: rgb(106, 189, 81);
+}
+
+#cancel-button{
+    margin: 0;
+    margin-top: 10px;
+    font-size: 1em;
+    background-color: rgb(231, 19, 118);
+    float: right;
+}
+
+#save-button{
+    margin: 0;
+    margin-top: 10px;
+    font-size: 1em;
+    background-color: rgb(19, 164, 231);
+    float: right;
+    margin-left: 10px;
+}
+#open-button{
+    background-color: rgb(19, 164, 231);
+}
+#submit-button{
+    float: right;
+}
