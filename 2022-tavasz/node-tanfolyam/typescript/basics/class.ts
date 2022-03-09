@@ -1,4 +1,3 @@
-// classes
 interface ITimeInterval {
   startDate: Date
   endDate: Date
@@ -22,14 +21,10 @@ class TimeInterval implements ITimeInterval {
   }
 
   toFunnyString(): string {
-    return this._startDate.toString() +
-      ' 🤡 ' + this._endDate.toString()
+    return `Hihi: ${this._startDate.toISOString()}
+      ${this._endDate.toISOString()}`
   }
 }
 
 const interval = new TimeInterval(new Date(), 10)
 console.log(interval.toFunnyString())
-
-// promise
-
-
