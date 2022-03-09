@@ -1,0 +1,15 @@
+@startuml asd
+
+folder "DI Container" as dicont {
+  [Dependency Resolver] as res
+  folder "Service instances" as serv {
+    [TicketService] as ts
+    [LabelService] as ls
+    [BoardService] as bs
+  }
+}
+
+res -right-> serv
+serv -left-> res
+
+@enduml
