@@ -4,28 +4,28 @@ export const getFruit = async name => {
     pineapple: '🍍',
     peach: '🍑',
     strawberry: '🍓'
-  };
+  }
 
-  return fruits[name];
-};
+  return fruits[name]
+}
 
-getFruit('peach').then(console.log);
+getFruit('peach').then(console.log)
 
 // Async + Await
 
 export const makeSmoothie = async () => {
-  const a = await getFruit('pineapple');
-  const b = await getFruit('strawberry');
+  const a = await getFruit('pineapple')
+  const b = await getFruit('strawberry')
 
-  return [a, b];
-};
+  return [a, b]
+}
 
 const makeSmoothie2 = () => {
-  let a;
+  let a
   return getFruit('pineapple')
     .then(v => {
-      a = v;
-      return getFruit('strawberry');
+      a = v
+      return getFruit('strawberry')
     })
-    .then(v => [a, v]);
-};
+    .then(v => [a, v])
+}

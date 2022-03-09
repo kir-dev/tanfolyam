@@ -19,8 +19,8 @@ const fruitRace = async() => {
     return winner;
 }
 
-// fruitRace().then(log)
-// fruitRace().then(log)
-// fruitRace().then(log)
-// fruitRace().then(log)
-// fruitRace().then(log)
+fruitRace().then(console.log)
+fruitRace().then(console.log)
+fruitRace().then(console.log)
+fruitRace().then(console.log)
+fruitRace().then(console.log)
