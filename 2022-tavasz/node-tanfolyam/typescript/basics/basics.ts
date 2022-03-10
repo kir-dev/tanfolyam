@@ -2,10 +2,11 @@
 interface Kitty {
   name: string
   age: number
+  color?: string
 }
 
 const array: Kitty[] = [
-  { name: "Cirmos", age: 1 },
+  { name: "Cirmos", age: 1, color: 'brown' },
   { name: "Foltos", age: 3 }
 ]
 
@@ -31,5 +32,6 @@ array.forEach((element, index) => {
 
 console.log('\nMapping way: (common method in React!)')
 const newArray = array.map((element, index) => {
-  funnyLog(element, index)
+  return funnyConvert(element, index)
 })
+console.log(newArray)

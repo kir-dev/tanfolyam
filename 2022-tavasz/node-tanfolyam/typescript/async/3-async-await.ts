@@ -1,5 +1,5 @@
 // Basic
-export const getFruit = async name => {
+export const getFruit = async (name) => {
   const fruits = {
     pineapple: '🍍',
     peach: '🍑',

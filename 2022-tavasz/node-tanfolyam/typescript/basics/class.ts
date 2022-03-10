@@ -1,8 +1,15 @@
 interface ITimeInterval {
   startDate: Date
   endDate: Date
-  toFunnyString(): string
 }
+
+const timeInterval: ITimeInterval = {
+  startDate: new Date(),
+  endDate: new Date()
+}
+
+console.log(`Hihi: ${timeInterval.startDate.toISOString()}
+${timeInterval.endDate.toISOString()}`)
 
 class TimeInterval implements ITimeInterval {
   private _startDate: Date = new Date()
@@ -27,4 +34,5 @@ class TimeInterval implements ITimeInterval {
 }
 
 const interval = new TimeInterval(new Date(), 10)
-console.log(interval.toFunnyString())
+// console.log(interval.toFunnyString())
+
