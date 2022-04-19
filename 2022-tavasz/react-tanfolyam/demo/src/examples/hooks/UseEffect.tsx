@@ -8,10 +8,7 @@ export const UseEffect: React.FC = () => {
     useEffect(() => {
         console.log(count)
         setValue(`Itt tart: ${count}`)
-    }, [count])
-    useEffect(() => {
-        console.log('hello')
-    }, [count])
+    }, [count]);
     console.log(value)
     return (
         <Box>
