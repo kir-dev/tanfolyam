@@ -1,0 +1,36 @@
+@startuml v2
+
+object Library {
+  name: string
+  nationality: string
+}
+
+  object Book {
+  title: string
+  isbn: string
+  year: integer
+}
+
+object Author{
+  name: string
+  birthdate: date
+  nationality: string
+}
+
+
+object Acquisition{
+  year: integer
+}
+
+
+Book "1"-d-"*" Acquisition
+
+Acquisition "*"-l-"1" Library
+
+Author "1"-r-"*" Book
+
+note right of Acquisition
+  Kapcsolótáblaként működik
+end note
+
+@enduml

@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="404.1667px" preserveAspectRatio="none" style="width:987px;height:404px;background:#00000000;" version="1.1" viewBox="0 0 987 404" width="987.5px" zoomAndPan="magnify"><defs><linearGradient id="g1avxw6ex7ac7l0" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#F18E3E"/><stop offset="100%" stop-color="#EC7211"/></linearGradient></defs><g><!--MD5=[435e64922e10cef510e3209aa945e0a7]
+class Jam--><rect codeLine="6" fill="url(#g1avxw6ex7ac7l0)" height="147.3633" id="Jam" rx="4.1667" ry="4.1667" style="stroke:#EC7211;stroke-width:1.0416666666666667;" width="211.4583" x="285.4167" y="7.2917"/><rect fill="url(#g1avxw6ex7ac7l0)" height="40.4867" rx="4.1667" ry="4.1667" style="stroke:url(#g1avxw6ex7ac7l0);stroke-width:1.0416666666666667;" width="211.4583" x="285.4167" y="7.2917"/><rect fill="url(#g1avxw6ex7ac7l0)" height="4.1667" style="stroke:url(#g1avxw6ex7ac7l0);stroke-width:1.0416666666666667;" width="211.4583" x="285.4167" y="43.6117"/><rect codeLine="6" fill="none" height="147.3633" id="Jam" rx="4.1667" ry="4.1667" style="stroke:#EC7211;stroke-width:1.0416666666666667;" width="211.4583" x="285.4167" y="7.2917"/><text fill="#FFFFFF" font-family="&quot;Verdana&quot;" font-size="15.625" lengthAdjust="spacing" textLength="29.1667" x="376.5625" y="33.9284">Jam</text><line style="stroke:#EC7211;stroke-width:1.0416666666666667;" x1="286.4583" x2="495.8333" y1="47.7783" y2="47.7783"/><ellipse cx="296.875" cy="59.2367" rx="3.125" ry="3.125" style="stroke:#038048;stroke-width:1.0416666666666667;fill:none;"/><text fill="#FFFFFF" font-family="&quot;Verdana&quot;" font-size="15.625" lengthAdjust="spacing" textLength="31.25" x="310.4167" y="73.3734">int id</text><ellipse cx="296.875" cy="89.3066" rx="3.125" ry="3.125" style="stroke:#038048;stroke-width:1.0416666666666667;fill:none;"/><text fill="#FFFFFF" font-family="&quot;Verdana&quot;" font-size="15.625" lengthAdjust="spacing" textLength="175" x="310.4167" y="103.4434">datetime date_of_creation</text><ellipse cx="296.875" cy="119.3766" rx="3.125" ry="3.125" style="stroke:#038048;stroke-width:1.0416666666666667;fill:none;"/><text fill="#FFFFFF" font-family="&quot;Verdana&quot;" font-size="15.625" lengthAdjust="spacing" textLength="145.8333" x="310.4167" y="133.5134">string recipient_name</text><line style="stroke:#EC7211;stroke-width:1.0416666666666667;" x1="286.4583" x2="495.8333" y1="146.3216" y2="146.3216"/><!--MD5=[5272719a1a68db8d783042bd445af4a0]
+class JamType--><rect codeLine="12" fill="url(#g1avxw6ex7ac7l0)" height="117.2933" id="JamType" rx="4.1667" ry="4.1667" style="stroke:#EC7211;stroke-width:1.0416666666666667;" width="116.6667" x="332.8125" y="280.2083"/><rect fill="url(#g1avxw6ex7ac7l0)" height="40.4867" rx="4.1667" ry="4.1667" style="stroke:url(#g1avxw6ex7ac7l0);stroke-width:1.0416666666666667;" width="116.6667" x="332.8125" y="280.2083"/><rect fill="url(#g1avxw6ex7ac7l0)" height="4.1667" style="stroke:url(#g1avxw6ex7ac7l0);stroke-width:1.0416666666666667;" width="116.6667" x="332.8125" y="316.5283"/><rect codeLine="12" fill="none" height="117.2933" id="JamType" rx="4.1667" ry="4.1667" style="stroke:#EC7211;stroke-width:1.0416666666666667;" width="116.6667" x="332.8125" y="280.2083"/><text fill="#FFFFFF" font-family="&quot;Verdana&quot;" font-size="15.625" lengthAdjust="spacing" textLength="62.5" x="359.8958" y="306.8451">JamType</text><line style="stroke:#EC7211;stroke-width:1.0416666666666667;" x1="333.8542" x2="448.4375" y1="320.695" y2="320.695"/><ellipse cx="344.2708" cy="332.1533" rx="3.125" ry="3.125" style="stroke:#038048;stroke-width:1.0416666666666667;fill:none;"/><text fill="#FFFFFF" font-family="&quot;Verdana&quot;" font-size="15.625" lengthAdjust="spacing" textLength="31.25" x="357.8125" y="346.2901">int id</text><ellipse cx="344.2708" cy="362.2233" rx="3.125" ry="3.125" style="stroke:#038048;stroke-width:1.0416666666666667;fill:none;"/><text fill="#FFFFFF" font-family="&quot;Verdana&quot;" font-size="15.625" lengthAdjust="spacing" textLength="80.2083" x="357.8125" y="376.3601">string name</text><line style="stroke:#EC7211;stroke-width:1.0416666666666667;" x1="333.8542" x2="448.4375" y1="389.1683" y2="389.1683"/><path d="M533.3333,34.375 L533.3333,48.2208 L346.875,66.98 L533.3333,56.5542 L533.3333,70.4 A0,0 0 0 0 533.3333,70.4 L980.2083,70.4 A0,0 0 0 0 980.2083,70.4 L980.2083,44.7917 L969.7917,34.375 L533.3333,34.375 A0,0 0 0 0 533.3333,34.375 " fill="#0073BB" style="stroke:#A80036;stroke-width:1.0416666666666667;"/><path d="M969.7917,34.375 L969.7917,44.7917 L980.2083,44.7917 L969.7917,34.375 " fill="#0073BB" style="stroke:#A80036;stroke-width:1.0416666666666667;"/><text fill="#FFFFFF" font-family="Verdana" font-size="12.5" lengthAdjust="spacing" textLength="414.5833" x="544.7917" y="57.3588">Belső használatú id, a lekvárok egyszerű megkülömbözetésére</text><path d="M533.3333,80.8167 L533.3333,94.6625 L461.4583,127.12 L533.3333,102.9958 L533.3333,116.8416 A0,0 0 0 0 533.3333,116.8416 L818.75,116.8416 A0,0 0 0 0 818.75,116.8416 L818.75,91.2333 L808.3333,80.8167 L533.3333,80.8167 A0,0 0 0 0 533.3333,80.8167 " fill="#0073BB" style="stroke:#A80036;stroke-width:1.0416666666666667;"/><path d="M808.3333,80.8167 L808.3333,91.2333 L818.75,91.2333 L808.3333,80.8167 " fill="#0073BB" style="stroke:#A80036;stroke-width:1.0416666666666667;"/><text fill="#FFFFFF" font-family="Verdana" font-size="12.5" lengthAdjust="spacing" textLength="253.125" x="544.7917" y="103.8005">Annak a neve akinek a lekvárt szánják</text><path d="M6.25,57.2917 L6.25,93.3167 A0,0 0 0 0 6.25,93.3167 L248.9583,93.3167 A0,0 0 0 0 248.9583,93.3167 L248.9583,79.4708 L289.5833,97.05 L248.9583,71.1375 L248.9583,67.7083 L238.5417,57.2917 L6.25,57.2917 A0,0 0 0 0 6.25,57.2917 " fill="#0073BB" style="stroke:#A80036;stroke-width:1.0416666666666667;"/><path d="M238.5417,57.2917 L238.5417,67.7083 L248.9583,67.7083 L238.5417,57.2917 " fill="#0073BB" style="stroke:#A80036;stroke-width:1.0416666666666667;"/><text fill="#FFFFFF" font-family="Verdana" font-size="12.5" lengthAdjust="spacing" textLength="210.4167" x="17.7083" y="80.2755">A lekvár elkészítésének az ideje</text><path d="M485.9375,315.625 L485.9375,329.4708 L443.2292,369.9666 L485.9375,337.8042 L485.9375,351.65 A0,0 0 0 0 485.9375,351.65 L694.2708,351.65 A0,0 0 0 0 694.2708,351.65 L694.2708,326.0417 L683.8542,315.625 L485.9375,315.625 A0,0 0 0 0 485.9375,315.625 " fill="#0073BB" style="stroke:#A80036;stroke-width:1.0416666666666667;"/><path d="M683.8542,315.625 L683.8542,326.0417 L694.2708,326.0417 L683.8542,315.625 " fill="#0073BB" style="stroke:#A80036;stroke-width:1.0416666666666667;"/><text fill="#FFFFFF" font-family="Verdana" font-size="12.5" lengthAdjust="spacing" textLength="176.0417" x="497.3958" y="338.6088">A típus neve, Pl: 'Barackos'</text><!--MD5=[2116e1bca89c491c7b60c0aa1a5b6bdf]
+link Jam to JamType--><path codeLine="17" d="M391.1458,154.1771 C391.1458,193.9896 391.1458,242.7083 391.1458,280 " fill="none" id="Jam-JamType" style="stroke:#EC7211;stroke-width:3.125;"/><text fill="#4E5D6C" font-family="&quot;Verdana&quot;" font-size="13.5417" lengthAdjust="spacing" textLength="20.8333" x="363.4928" y="182.4073">0..*</text><text fill="#4E5D6C" font-family="&quot;Verdana&quot;" font-size="13.5417" lengthAdjust="spacing" textLength="7.2917" x="377.6221" y="263.8327">1</text><!--MD5=[bf46148d67422f910b3f03003f30a187]
+link Jam to Jam$$$RIGHT--><!--MD5=[1b9f51a7930510650aa8bb5335189438]
+link Jam$$$LEFT to Jam--><!--MD5=[3ae31d3ee971706912777b38ac245ed8]
+link JamType to JamType$$$RIGHT--><!--MD5=[4d424377005f6f63257487e45ca7ba93]
+@startuml modell
+!theme aws-orange
+
+skinparam classFontSize 15
+
+hide circle
+class Jam {
+    + int id
+    + datetime date_of_creation
+    + string recipient_name
+}
+
+class JamType {
+    + int id
+    + string name
+}
+
+Jam "0..*" - - - "1" JamType
+
+note right of Jam::id 
+ Belső használatú id, a lekvárok egyszerű megkülömbözetésére
+end note
+
+note left of Jam::date_of_creation
+    A lekvár elkészítésének az ideje
+end note
+
+note right of Jam::recipient_name
+    Annak a neve akinek a lekvárt szánják
+end note
+
+note right of JamType::name 
+    A típus neve, Pl: 'Barackos'
+end note
+
+@enduml
+
+@startuml modell
+skinparam BackgroundColor transparent
+skinparam useBetaStyle false
+    !assume transparent light
+skinparam defaultFontName       "Verdana"
+skinparam defaultFontSize       12
+skinparam dpi                   100
+skinparam shadowing             false
+skinparam roundcorner           8
+skinparam ParticipantPadding    40
+skinparam BoxPadding            40
+skinparam Padding               5
+skinparam ArrowColor            #4E5D6C
+skinparam stereotype {
+    CBackgroundColor ffffff
+    CBorderColor #BEBEBE
+    ABackgroundColor #239B02
+    ABorderColor #176702
+    IBackgroundColor #EC4624
+    IBorderColor #A7280E
+    EBackgroundColor #F18E3E
+    EBorderColor #BD5B0E
+    NBackgroundColor #008AE0
+    NBorderColor #005C96
+}
+skinparam title {
+	FontSize	    	         20
+	BorderRoundCorner            8
+	BorderThickness 	         1
+	BackgroundColor  ffffff-#eeeeee
+	FontColor #EC7211
+	BorderColor #eeeeee
+}
+
+skinparam legend {
+    		FontColor #4E5D6C
+		BorderColor #BEBEBE
+		BackgroundColor ffffff-#eeeeee
+    BackgroundColor transparent
+}
+
+skinparam swimlane {
+	BorderColor #0073bb
+	BorderThickness 2
+	TitleBackgroundColor  ffffff-#eeeeee
+	TitleFontColor #EC7211
+}
+
+
+skinparam activity {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+	BarColor #1D8102
+	StartColor #0073bb
+	EndColor #0073bb
+	DiamondBackgroundColor #eeeeee
+  	DiamondBorderColor #BEBEBE
+  	DiamondFontColor #4E5D6C
+}
+
+skinparam participant {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+	ParticipantBorderThickness 2
+}
+
+skinparam actor {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+	FontColor #4E5D6C
+}
+
+skinparam arrow {
+	Thickness 3
+	Color #EC7211
+	FontColor #4E5D6C
+}
+
+skinparam sequence {
+	ArrowThickness 3
+	BorderColor #EC7211
+	TitleFontColor #EC7211
+	BackgroundColor transparent
+	StartColor #EC7211
+	EndColor #EC7211
+	BoxBackgroundColor transparent
+	BoxBorderColor #4E5D6C
+	BoxFontColor #4E5D6C
+	DelayFontColor #4E5D6C
+	LifeLineBorderColor #abb6c2
+	LifeLineBorderThickness 2
+	LifeLineBackgroundColor #8191A3
+	GroupBorderColor #4E5D6C
+	GroupFontColor #4E5D6C
+	GroupHeaderFontColor #0073bb
+	GroupBackgroundColor #eeeeee
+	GroupBodyBackgroundColor transparent
+	GroupHeaderBackgroundColor transparent
+	DividerBackgroundColor #4E5D6C
+    DividerBorderColor #4E5D6C
+    DividerBorderThickness 2
+    DividerFontColor #abb6c2
+	ReferenceBackgroundColor transparent
+	ReferenceBorderColor #4E5D6C
+	ReferenceFontColor #4E5D6C
+	ReferenceHeaderFontColor #0073bb
+	ReferenceHeaderBackgroundColor #eeeeee
+	StereotypeFontColor #FFF
+	StereotypeFontSize 12
+}
+
+skinparam partition {
+	BorderColor #EC7211
+	FontColor #EC7211
+	BackgroundColor transparent
+}
+
+skinparam collections {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+}
+
+skinparam control {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+	FontColor #4E5D6C
+}
+
+skinparam entity {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+	FontColor #4E5D6C
+}
+
+skinparam boundary {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+	FontColor #4E5D6C
+}
+
+skinparam agent {
+	BackgroundColor #EC7211
+	BorderColor #F18E3E
+	FontColor #4E5D6C
+}
+
+skinparam note {
+	BorderThickness 1
+	BackgroundColor #0073bb
+	BorderColor #005C96
+	FontColor #FFF
+}
+
+skinparam artifact {
+	BackgroundColor #4E5D6C
+	BorderColor #3E4A56
+	FontColor #abb6c2
+}
+
+skinparam component {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+}
+
+skinparam interface {
+	BackgroundColor  #A7280E
+	BorderColor  #d13212
+	FontColor #4E5D6C
+}
+
+skinparam storage {
+	BackgroundColor #EC7211
+  	BorderColor #BD5B0E
+	FontColor #FFF
+}
+
+skinparam node {
+	BackgroundColor  transparent
+	BorderColor #abb6c2
+	FontColor #abb6c2
+}
+
+skinparam cloud {
+	BackgroundColor transparent
+	BorderColor #4E5D6C
+	FontColor #4E5D6C
+}
+
+skinparam database {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+	FontColor #4E5D6C
+	StereotypeFontColor #4E5D6C
+}
+
+skinparam class {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+	FontColor #FFF
+	HeaderBackgroundColor #F18E3E-#EC7211
+	StereotypeFontColor #4E5D6C
+	BorderThickness 1
+	AttributeFontColor #FFF
+	AttributeFontSize 11
+}
+
+skinparam object {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+	StereotypeFontColor #4E5D6C
+	BorderThickness 1
+	AttributeFontColor #FFF
+	AttributeFontSize 11
+}
+
+skinparam usecase {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+	BorderThickness 2
+	StereotypeFontColor #EC7211
+}
+
+skinparam rectangle {
+	BackgroundColor transparent
+	FontColor #4E5D6C
+	BorderColor #4E5D6C
+	BorderThickness 2
+	StereotypeFontColor #EC7211
+}
+
+skinparam package {
+	BackgroundColor transparent
+  	BorderColor #4E5D6C
+	FontColor #4E5D6C
+	BorderThickness 2
+}
+
+skinparam folder {
+	BackgroundColor #eeeeee
+  	BorderColor #EC7211
+	FontColor #EC7211
+	BorderThickness 2
+}
+
+skinparam frame {
+	BackgroundColor #eeeeee
+  	BorderColor #0073bb
+	FontColor #0073bb
+	BorderThickness 2
+}
+
+skinparam state {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+	StartColor #0073bb
+	EndColor #0073bb
+	AttributeFontColor #4E5D6C
+	AttributeFontSize 11
+}
+
+skinparam queue {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+}
+
+skinparam card {
+	BackgroundColor #0073bb
+	BorderColor #005C96
+	FontColor #FFF
+}
+
+skinparam file {
+	BackgroundColor #eeeeee
+	BorderColor #abb6c2
+	FontColor #4E5D6C
+}
+
+skinparam stack {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+}
+
+
+skinparam map {
+			FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+}
+
+<style>
+wbsDiagram, mindmapDiagram {
+  root {
+    BackgroundColor transparent
+    FontColor #FFF
+    HyperLinkColor #0073bb
+    LineColor #BD5B0E
+    LineThickness 1
+    Margin 10
+    Padding 6
+    Shadowing 0.0
+  }
+  node {
+    		FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+    Padding 15
+    RoundCorner 20
+  }
+  caption {
+    LineThickness 0
+  }
+  footer {
+    LineThickness 0
+  }
+  groupHeader {
+    BackgroundColor #eeeeee
+    FontColor #0073bb
+    FontStyle bold
+  }
+  header {
+    LineThickness 0
+  }
+  referenceHeader {
+    BackgroundColor transparent
+    FontColor #4E5D6C
+    FontStyle bold
+  }
+  separator {
+    BackgroundColor #4E5D6C
+    FontColor transparent
+    FontStyle bold
+  }
+  title {
+	FontSize 20
+	BorderRoundCorner            8
+	BorderThickness 	         1
+	BackgroundColor  ffffff-#eeeeee
+	FontColor #FFF
+	BorderColor #eeeeee
+  }
+}
+nwdiagDiagram {
+  network {
+    		FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211    
+    LineColor $PRIMARY_BG
+    LineThickness 1.0
+    FontColor #BD5B0E
+  }
+  server {
+    		FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+  }
+  arrow {
+    FontColor #BD5B0E
+    LineColor #BD5B0E
+  }
+  group {
+    BackGroundColor $LIGHT_BG
+    LineColor #8191A3
+    LineThickness 2.0
+    Margin 5
+    Padding 5
+  }
+}
+ganttDiagram {
+  task {
+    		FontColor #FFF
+		BorderColor #EC7211
+		BackgroundColor #F18E3E-#EC7211
+	LineColor $PRIMARY_BG
+    Margin 10
+    Padding 6
+  }
+  note {
+	FontColor #FFF
+	LineColor #005C96
+    BackGroundColor #0073bb
+  }
+  separator {
+	LineColor #eeeeee
+    BackGroundColor 		FontColor #4E5D6C
+		BorderColor #BEBEBE
+		BackgroundColor ffffff-#eeeeee
+    FontColor #4E5D6C
+  }
+  milestone {
+	FontColor #0073bb
+	FontSize 16
+	FontStyle italic
+	BackGroundColor $DIAMOND_BG
+	LineColor #BEBEBE
+  }
+  timeline {
+    BackgroundColor #eeeeee
+    FontColor #4E5D6C
+  }
+  closed {
+	BackgroundColor #BD5B0E
+	FontColor #FFF
+  }
+}
+</style>
+
+
+skinparam classFontSize 15
+
+hide circle
+class Jam {
+    + int id
+    + datetime date_of_creation
+    + string recipient_name
+}
+
+class JamType {
+    + int id
+    + string name
+}
+
+Jam "0..*" - - - "1" JamType
+
+note right of Jam::id 
+ Belső használatú id, a lekvárok egyszerű megkülömbözetésére
+end note
+
+note left of Jam::date_of_creation
+    A lekvár elkészítésének az ideje
+end note
+
+note right of Jam::recipient_name
+    Annak a neve akinek a lekvárt szánják
+end note
+
+note right of JamType::name 
+    A típus neve, Pl: 'Barackos'
+end note
+
+@enduml
+
+PlantUML version 1.2022.0(Tue Jan 11 17:16:42 CET 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

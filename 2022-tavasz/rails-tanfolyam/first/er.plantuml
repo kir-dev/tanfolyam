@@ -1,0 +1,36 @@
+@startuml modell
+!theme aws-orange
+
+skinparam classFontSize 15
+
+hide circle
+class Jam {
+    + int id
+    + datetime date_of_creation
+    + string recipient_name
+}
+
+class JamType {
+    + int id
+    + string name
+} 
+
+Jam "0..*" --- "1" JamType
+
+note right of Jam::id 
+ Belső használatú id, a lekvárok egyszerű megkülömbözetésére
+end note
+
+note left of Jam::date_of_creation
+    A lekvár elkészítésének az ideje
+end note
+
+note right of Jam::recipient_name
+    Annak a neve akinek a lekvárt szánják
+end note
+
+note right of JamType::name 
+    A típus neve, Pl: 'Barackos'
+end note
+
+@enduml

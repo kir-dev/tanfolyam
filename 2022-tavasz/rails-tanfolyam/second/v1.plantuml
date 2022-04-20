@@ -1,0 +1,31 @@
+@startuml v1
+
+object Library {
+  name: string
+  nationality: string
+}
+
+  object Book {
+  title: string
+  isbn: string
+  year: integer
+}
+
+object Author{
+  name: string
+  birthdate: date
+  nationality: string
+}
+
+
+
+
+
+Book "*"--l--"*" Library
+
+Author "1"--"*" Book
+note on link
+ Ez amúgy nem igaz, de most egyszerűsítünk
+end note
+
+@enduml
