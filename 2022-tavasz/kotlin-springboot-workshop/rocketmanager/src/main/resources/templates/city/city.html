@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${city == null ? 'New City' : city.name}">London</title>
+    <script type="text/javascript" th:src="@{/js/city.js}"></script>
+</head>
+<body>
+
+<div th:insert="fragment/header">
+
+</div>
+
+<div class="card p-5">
+    <form id="city-form">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" th:value="${city == null ? '' : city.name}">
+        </div>
+        <div class="mb-3">
+            <label for="country">City's country</label>
+            <select class="form-select" id="country" name="countryId">
+                <option th:each="country: ${countries}" th:text="${country.name}"
+                        th:selected="${city == null ? false : city.country.id == country.id}" th:value="${country.id}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+</body>
+</html>

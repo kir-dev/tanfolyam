@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  postgresql_rocketmanager:
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: postgres_admin
+      POSTGRES_PASSWORD: SECURE_PASSWORD
+      POSTGRES_DB: rocketmanager
+    ports:
+      - "5432"
+
+  rocketmanager:
+    image: openjdk:17
+    restart: always
+    volumes:
+      - C:\Work\bme\kir_dev\rocketmanager:/etc/rocketmanager:rw
+    command: sh -c "java -jar /etc/rocketmanager/target/rocketmanager-0.0.1-SNAPSHOT.jar --spring.profiles.active=docker"
+    ports:
+      - "8080"
