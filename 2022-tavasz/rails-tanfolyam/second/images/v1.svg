@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="250px" preserveAspectRatio="none" style="width:474px;height:250px;background:#FFFFFF;" version="1.1" viewBox="0 0 474 250" width="474px" zoomAndPan="magnify"><defs><filter height="300%" id="f1s7yc217aw445" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#f1s7yc217aw445)" height="64.8281" style="stroke:#A80036;stroke-width:1.5;" width="71" x="135" y="172"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="156.5" y="186.457">Book</text><line style="stroke:#A80036;stroke-width:1.5;" x1="136" x2="205" y1="191.0938" y2="191.0938"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="49" x="141" y="205.4746">title: string</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="50" x="141" y="218.0527">isbn: string</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="59" x="141" y="230.6309">year: integer</text><rect fill="#FEFECE" filter="url(#f1s7yc217aw445)" height="64.8281" style="stroke:#A80036;stroke-width:1.5;" width="93" x="135" y="7"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="35" x="164" y="21.457">Author</text><line style="stroke:#A80036;stroke-width:1.5;" x1="136" x2="227" y1="26.0938" y2="26.0938"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="58" x="141" y="40.4746">name: string</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="69" x="141" y="53.0527">birthdate: date</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="141" y="65.6309">nationality: string</text><rect fill="#FEFECE" filter="url(#f1s7yc217aw445)" height="52.25" style="stroke:#A80036;stroke-width:1.5;" width="93" x="7" y="178.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="37" x="35" y="192.957">Library</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="99" y1="197.5938" y2="197.5938"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="58" x="13" y="211.9746">name: string</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="13" y="224.5527">nationality: string</text><!--MD5=[0c91947a02ff16505adf8819081274fd]
+link Library to Book--><path codeLine="24" d="M100.12,204.5 C111.66,204.5 123.21,204.5 134.76,204.5 " fill="none" id="Library-Book" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="107.9485" y="200.7282">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="121.873" y="200.3991">*</text><!--MD5=[89e841161ed885f16c9661f1b533052d]
+link Author to Book--><path codeLine="26" d="M179.35,72.31 C177.41,101.04 174.58,143.07 172.64,171.77 " fill="none" id="Author-Book" style="stroke:#A80036;stroke-width:1.0;"/><path d="M181.5,107 L181.5,133 L465.5,133 L465.5,117 L455.5,107 L181.5,107 " fill="#FBFB77" filter="url(#f1s7yc217aw445)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M455.5,107 L455.5,117 L465.5,117 L455.5,107 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="263" x="187.5" y="125.4951">Ez amúgy nem igaz, de most egyszerűsítünk</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="171.3083" y="93.3777">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="167.5657" y="160.9185">*</text><!--MD5=[8eb998c6815ec965ea419bc9a010f37d]
+@startuml v1
+
+object Library {
+  name: string
+  nationality: string
+}
+
+together {
+  object Book {
+  title: string
+  isbn: string
+  year: integer
+}
+
+object Author{
+  name: string
+  birthdate: date
+  nationality: string
+}
+}
+
+
+
+
+Book "*"- -l- -"*" Library
+
+Author "1"- -"*" Book
+note on link
+ Ez amúgy nem igaz, de most egyszerűsítünk
+end note
+
+@enduml
+
+PlantUML version 1.2022.0(Tue Jan 11 17:16:42 CET 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>
