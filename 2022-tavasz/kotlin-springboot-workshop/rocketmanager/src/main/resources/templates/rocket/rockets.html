@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"><!-- CSS only -->
+<head>
+    <meta charset="UTF-8">
+    <title>Rockets</title>
+    <!-- JavaScript Bundle with Popper -->
+    <link rel="stylesheet"
+          th:href="@{/styles/rockets.css}">
+    <script type="text/javascript" th:src="@{/js/rockets.js}"></script>
+</head>
+<body>
+<div th:insert="fragment/header">
+
+</div>
+<div th:insert="fragment/table">
+
+</div>
+
+<table
+    id="rockets-table"
+    class="table table-hover">
+    <thead>
+    <tr>
+        <th data-field="id">Rocket ID</th>
+        <th data-field="cone-shape">Cone Shape</th>
+        <th data-field="radius">Radius</th>
+        <th data-field="city-name">City Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="rocket: ${rockets}">
+        <td>
+            <a th:text="|${rocket.id}|"
+               th:href="@{/rockets/{id}(id=${rocket.id})}">
+                50
+            </a>
+        </td>
+        <td th:text="|${rocket.coneShape}|">ROUNDED</td>
+        <td th:text="|${rocket.radius}|">1000</td>
+        <td th:text="|${rocket.silo.city.name}|">London</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

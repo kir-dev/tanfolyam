@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  postgresql_rocketmanager:
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: postgres_admin
+      POSTGRES_PASSWORD: SECURE_PASSWORD
+      POSTGRES_DB: rocketmanager
+    ports:
+      - "5432"
+
+  # Only works if the program was build using maven "jar" goal.
+  rocketmanager:
+    build:
+      context: .
+      dockerfile: Dockerfile 
+    image: rocketmanager:latest
+    restart: always
+    ports:
+      - "8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker

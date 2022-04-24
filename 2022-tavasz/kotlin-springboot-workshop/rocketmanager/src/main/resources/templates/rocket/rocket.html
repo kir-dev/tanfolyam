@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"><!-- CSS only -->
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${rocket == null ? 'New Rocket' : 'Rocket ' + rocket.id}">Rocket 1</title>
+    <script type="text/javascript" th:src="@{/js/rocket.js}"></script>
+</head>
+<body>
+<div th:insert="fragment/header">
+
+</div>
+
+<div class="card p-5">
+    <form id="rocket-form">
+        <div class="mb-3">
+            <label for="rocket-radius" class="form-label">Rocket radius</label>
+            <input type="number" class="form-control" id="rocket-radius" name="radius" th:value="${rocket == null ? 100 : rocket.radius}">
+        </div>
+        <div class="mb-3">
+            <label>Rocket cone shape</label>
+            <div class="ps-2 pt-1">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="coneShape"
+                           id="rounded" th:value="Rounded"
+                           th:checked="${rocket == null ? true : rocket.coneShape == rocket.coneShape.ROUNDED}">
+                    <label class="form-check-label" for="rounded">
+                        Rounded
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="coneShape"
+                           th:value="Pointy"
+                           id="pointy" th:checked="${rocket == null ? false : rocket.coneShape == rocket.coneShape.POINTY}">
+                    <label class="form-check-label" for="pointy">
+                        Pointy
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="rocket-silo">Rocket's silo</label>
+            <select class="form-select" id="rocket-silo" name="siloId">
+                <option th:each="someSilo: ${silos}" th:text="${someSilo.identifier}"
+                        th:selected="${rocket == null ? false : rocket.silo.id == someSilo.id}" th:value="${someSilo.id}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+
+</body>
+</html>
