@@ -8,7 +8,7 @@
 
 ## További anyagok
 
-* Videófelvétel: [link](https://www.youtube.com/watch?v=DPgjYITMjkA)
+* Videófelvétel: [link](https://youtu.be/CA1BC3I3DZA)
 * Előadásdiák a jelenlegi mappában `slides-kotlin-spring.html` névemn megtalálhatóak
 
 ### Összeállította [Kovács Bertalan](https://github.com/nemaberci)
