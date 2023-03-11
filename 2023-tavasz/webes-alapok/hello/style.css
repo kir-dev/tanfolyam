@@ -1,0 +1,45 @@
+html {
+    font-family: sans-serif;
+    --gray: #576066;
+    --kir-dev-orange: #dd6b20;
+}
+
+#title {
+    margin: 1rem;
+    color: black
+}
+
+#changeColorButton{
+    background-color: var(--kir-dev-orange);
+    color: white;
+    margin: auto;
+    padding: 1em 5em;
+    border-radius: 1em;
+    font-weight: bolder;
+    font-size: 1.1em;
+    border: 0;
+    display: block;
+}
+
+#changeColorButton:hover{
+    cursor: pointer;
+    transform: translate(-2px, -2px);
+}
+
+.section {
+    padding: 1rem;
+    border-radius: 1em;
+    background-color: var(--gray);
+    max-width: 600px;
+}
+
+.highlight {
+    display: block;
+    padding: 3em;
+    font-size: 2em;
+    margin: auto;
+}
+
+p, h2 {
+    color: white;
+}

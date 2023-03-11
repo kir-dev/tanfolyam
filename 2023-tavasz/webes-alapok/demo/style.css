@@ -1,0 +1,89 @@
+html {
+    font-family: sans-serif;
+    --kir-dev-orange: #dd6d20;
+}
+
+#heroWrapper {
+    height: 40em;
+    overflow: hidden;
+    position: relative;
+}
+
+#navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.5em;
+    margin: 1em;
+    z-index: 1;
+}
+
+#navbar a {
+    padding: 0.5em;
+}
+
+#navbar a:hover {
+    cursor: pointer;
+    color: var(--kir-dev-orange);
+    fill: var(--kir-dev-orange); 
+}
+
+#logo > a {
+    display: block;
+    width: 6em;
+}
+
+#logo:hover {
+    transform: skewX(-15deg);
+}
+
+#heroContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#heroHeader {
+    font-size: 4em;
+    transform: skewX(-15deg);
+}
+
+#heroButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+#heroButtonContainer > span {
+    font-size: 1.2em;
+    font-weight: 700;
+    padding: 1em 1.2em;
+    background-color: black;
+    color: white;
+    transform: skewX(-15deg);
+}
+
+#heroButtonContainer > span > a {
+    display: inline-block;
+    transform: skewX(15deg);
+}
+
+#heroButtonContainer > span:hover {
+    cursor: pointer;
+    transform: skewX(-15deg) translate(5px, -5px);
+}
+
+#heroButtonContainer > span:first-child {
+    background-color: var(--kir-dev-orange);
+}
