@@ -5,10 +5,11 @@ export const getFruit = async (name): Promise<string> => {
     peach: '🍑',
     strawberry: '🍓'
   }
-   throw Error("hiba")
+   //throw Error("hiba")
+   return fruits[name]
 }
 
-//getFruit('peach').then(console.log)
+getFruit('peach').then(console.log)
 
 
 // Promise
@@ -31,6 +32,4 @@ export const makeSmoothieAwait = async () => {
 
 }
 
-//makeSmoothiePromise().then(console.log)
-
-//console.log(await makeSmoothieAwait())
+makeSmoothiePromise().then(console.log)

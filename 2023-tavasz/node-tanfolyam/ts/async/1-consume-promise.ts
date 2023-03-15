@@ -8,7 +8,7 @@ promise
      // throw new Error('uh oh')
      return todo
   })
-  //.then(todo => console.log('😛', todo.title))
-  .catch(err => console.error('😭', err))
+  .then(todo => console.log('😛', todo.title))
+  //.catch(err => console.error('😭', err))
 
 console.log('🥪 Synchronous')
