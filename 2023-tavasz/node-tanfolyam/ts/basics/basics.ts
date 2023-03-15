@@ -1,23 +1,21 @@
 // interfaces
 interface Kitty {
   name: string
-  age: number
-  color?: string
+  age?: number
 }
 
 const array: Kitty[] = [
-  { name: "Cirmos", age: 1, color: 'brown' },
-  { name: "Foltos", age: 3 }
+  { name: "Cirmos", age: 1 },
+  { name: "Foltos" }
 ]
 
 // functions
 function funnyLog(element: Kitty, index: number): void {
-  const logText = `${index} - ${element.name}: ${element.age}.`
-  console.log(logText)
+  console.log(`${index} - ${element.name}: ${element.age ?? 'Újszülött'}.`)
 }
 
 const funnyConvert = (element: Kitty, index: number): string => {
-  return `${index} - ${element.name}: ${element.age}.`
+  return `${index} - ${element.name}: ${element.age ?? 'Újszülött'}.`
 }
 
 console.log('Old way:')
