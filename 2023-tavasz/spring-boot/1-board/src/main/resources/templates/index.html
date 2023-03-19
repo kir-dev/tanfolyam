@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>kir-dev course 1</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #fff;
+            background-color: #1a1a1a;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #222;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #ff8c00;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ff8c00;
+        }
+
+        section p {
+            color: #fff;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 0;
+        }
+
+        footer a {
+            color: #ff8c00;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <h1 th:text="${appName ?: 'Attibute `appName` is not set'}">Website Header</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Index</a></li>
+            <li><a href="/board">Board</a></li>
+            <li><a href="/form">Form</a></li>
+            <li><a href="/example">Examples</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Current date</h2>
+        <p th:text="${time ?: 'Attibute `time` is not set'}">2023-01-01 01:00:00</p>
+    </section>
+    <section>
+        <h2 th:text="|Page loaded ${n ?: '¯\_(ツ)_/¯'} times|">Page loaded n times</h2>
+        <p>Increases every time you request it</p>
+    </section>
+</main>
+
+<footer>
+    <p>
+        <a href="https://kir-dev.sch.bme.hu/">kir-dev</a> | 2023 Course 1
+    </p>
+</footer>
+</body>
+</html>

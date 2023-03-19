@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>kir-dev course 1</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #fff;
+            background-color: #1a1a1a;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #222;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #ff8c00;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ff8c00;
+        }
+
+        section p {
+            color: #fff;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 0;
+        }
+
+        footer a {
+            color: #ff8c00;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        form {
+            background-color: #222;
+            padding: 20px;
+            margin-top: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ff8c00;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="password"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            font-family: sans-serif;
+            font-size: 18px;
+        }
+
+        textarea {
+            height: 200px;
+        }
+
+        button[type="submit"] {
+            background-color: #ff8c00;
+            color: #222;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            color: #fff;
+            background-color: #000000;
+        }
+
+        .highlighted {
+            color: #ff8c00;
+        }
+
+    </style>
+    <script>
+        function sendExample6(formName) {
+            const form = document.forms[formName]
+            fetch("/example/example-6", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        item: form['item'].value,
+                        price: form['price'].value
+                    })
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    document.getElementById('example6-response').innerText = data;
+                })
+                .catch(error => console.error(error));
+        }
+    </script>
+</head>
+<body>
+<header>
+    <h1 th:text="${appName}">Website Header</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Index</a></li>
+            <li><a href="/board">Board</a></li>
+            <li><a href="/form">Form</a></li>
+            <li><a href="/example">Examples</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Example 1: Print request param</h2>
+        <p>GET /example/example-1?param1=x&amp;param2=y</p>
+        <form method="get" action="/example/example-1">
+            <label for="param1">param1</label>
+            <input type="text" id="param1" name="param1" value="x" required autocomplete="off">
+
+            <label for="param2">param2</label>
+            <input type="text" id="param2" name="param2" value="y" required autocomplete="off">
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Example 2: Show IP Address</h2>
+        <p>GET /example/example-2</p>
+        <form method="get" action="/example/example-2">
+            <button type="submit">Open</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Example 3: Show a dummy DTO</h2>
+        <p>GET /example/example-3</p>
+        <form method="get" action="/example/example-3">
+            <button type="submit">Open</button>
+        </form>
+    </section>
+
+    <section id="example4">
+        <h2>Example 4: Dummy login (post params)</h2>
+        <p>POST /example/example-4 body: Username and Password as form fields</p>
+        <p class="highlighted" th:text="${message ?: ''}"></p>
+        <form method="post" action="/example/example-4">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required autocomplete="off">
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required autocomplete="off">
+
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Example 5: Post form params and map to a DTO</h2>
+        <p>POST /example/example-5 body: ItemDto as form fields</p>
+        <form method="post" action="/example/example-5">
+            <label for="item">item</label>
+            <input type="text" id="item" name="item" required autocomplete="off">
+
+            <label for="price">price</label>
+            <input type="number" id="price" name="price" required autocomplete="off">
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Example 6: Post form params and map to a DTO</h2>
+        <p>POST /example/example-6 body: ItemDto as Json</p>
+        <p class="highlighted" id="example6-response"></p>
+        <form name="example6" method="post" action="#" onsubmit="sendExample6('example6'); return false">
+            <label for="item2">item</label>
+            <input type="text" id="item2" name="item" required autocomplete="off">
+
+            <label for="price2">price</label>
+            <input type="number" id="price2" name="price" required autocomplete="off">
+
+            <button type="submit">Send message (via fetch)</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Example 7: Upload an image</h2>
+        <p>POST /example/example-7 with multipart file</p>
+        <form method="post" action="/example/example-7" enctype="multipart/form-data">
+            <label for="file">Choose an image</label>
+            <input type="file" name="file" id="file"><br><br>
+
+            <button type="submit">Upload</button>
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    <p>
+        <a href="https://kir-dev.sch.bme.hu/">kir-dev</a> | 2023 Course 1
+    </p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>kir-dev course 1</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #fff;
+            background-color: #1a1a1a;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #222;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #ff8c00;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ff8c00;
+        }
+
+        section p {
+            color: #fff;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 0;
+        }
+
+        footer a {
+            color: #ff8c00;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        form {
+            background-color: #222;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ff8c00;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            font-family: sans-serif;
+            font-size: 18px;
+        }
+
+        textarea {
+            height: 200px;
+        }
+
+        button[type="submit"] {
+            background-color: #ff8c00;
+            color: #222;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            color: #fff;
+            background-color: #000000;
+        }
+
+        .message {
+            background-color: #222;
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .message h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ff8c00;
+        }
+
+        .message p {
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .message p:last-child {
+            margin-bottom: 0;
+        }
+
+        .message .date {
+            color: #888;
+            text-align: right;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <h1 th:text="${appName ?: 'Attibute `appName` is not set'}">Website Header</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Index</a></li>
+            <li><a href="/board">Board</a></li>
+            <li><a href="/form">Form</a></li>
+            <li><a href="/example">Examples</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>My form</h2>
+
+        <form method="POST" action="/form" th:action="@{/form}">
+
+            <!-- Extra Task 1.1: Create a form with some inputs. -->
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>
+        <a href="https://kir-dev.sch.bme.hu/">kir-dev</a> | 2023 Course 1
+    </p>
+</footer>
+</body>
+</html>
