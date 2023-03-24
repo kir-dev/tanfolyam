@@ -14,3 +14,12 @@
 * Az `examples` és `typescript` mappában elérhető az előadáshoz használt példakód bázisa.
 * Visszanézhető [itt](https://youtu.be/JC_vwfie2LQ).
 * A prezentáció a `slides-node-1.html` fájllal is elérhető.
+
+## 2. alkalom: [NestJS live coding part 1](https://slides.com/samuelfekete/node-2)
+
+* Összeállította: [Fekete Sámuel](https://github.com/Tschonti) és [Piller Trisztán](https://github.com/triszt4n)
+* Előadta: Fekete Sámuel
+* A kódbázis elérhető [ezen a címen](https://github.com/kir-dev/ticketing-api-next/tree/1.0.0).
+* Visszanézhető [itt](https://www.youtube.com/watch?v=Rktjn0PYyBM).
+* Sajnos egy váratlan kék halál miatt a felvétel megállt 67 percnél, de mivel utána sem éledt fel a gépem, nem haladtunk sokkal tovább.
+* A prezentáció a `slides-node-2.html` fájllal is elérhető.
