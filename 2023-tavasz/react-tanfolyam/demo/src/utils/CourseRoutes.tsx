@@ -20,6 +20,7 @@ import { QueryParams } from '../examples/routing/QueryParams';
 import { RouteParams } from '../examples/routing/RouteParams';
 import { Router } from '../examples/routing/Router';
 import { RouterFunctions } from '../examples/routing/RouterFunctions';
+import { TodoApp } from '../examples/todoapp/TodoApp';
 import { CourseSection } from './CourseRouting';
 
 const CourseRoutes: CourseSection[] = [
@@ -75,6 +76,7 @@ const CourseRoutes: CourseSection[] = [
       { name: 'Útvonal Paraméterek', path: 'url-params/:text', element: <RouteParams /> },
     ],
   },
+  { name: 'Nagy Példa', parts: [{ name: 'TodoApp', path: 'todo', element: <TodoApp /> }] },
   {
     name: 'Egyéb',
     parts: [
