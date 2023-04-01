@@ -1,0 +1,9 @@
+*.css
+*.svg
+*.png
+*.jpg
+*.jpeg
+/out/*
+/dist/*
+/build/*
+/rules
