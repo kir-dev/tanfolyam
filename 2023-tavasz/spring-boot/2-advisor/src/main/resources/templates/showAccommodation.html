@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>kir-dev course 2</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" th:href="@{/style.css}">
+</head>
+<body>
+<header>
+    <h1>Advisor Example</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Index</a></li>
+            <li><a href="/accommodations">Accommodations</a></li>
+            <li th:if="${user == null}"><a href="/login/authsch">Login</a></li>
+            <li th:unless="${user == null}"><a href="/user/profile">Profile</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section th:unless="${accommodation}">
+        <h2>Accommodation not found!</h2>
+    </section>
+
+    <section th:if="${accommodation}">
+        <h2 th:text="${accommodation.name}"></h2>
+        <img th:if="${accommodation.imageUrl}" th:src="${accommodation.imageUrl}" alt="Accommodation Image" width="560">
+        <hr>
+        <p><strong>Address:</strong> <span th:text="${accommodation.address}"></span></p>
+        <p><strong>Description:</strong> <span th:text="${accommodation.description}"></span></p>
+        <hr>
+        <h2>Ratings</h2>
+        <div th:each="rating : ${accommodation.ratings}" class="rating">
+            <div class="rating-header" th:text="${rating.userName}"></div>
+            <div class="rating-body" th:text="${rating.comment}"></div>
+            <div class="rating-footer">
+                <div th:each="i : ${#numbers.sequence(1, rating.rating)}" th:remove="tag">
+                    <img width="24" src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="orange" d="M12 2.637l2.928 7.156h7.516l-6.077 4.954 1.832 7.277L12 18.37l-4.199 3.654 1.832-7.277L2.556 9.793h7.516L12 2.637z"/%3E%3C/svg%3E'>
+                </div>
+            </div>
+        </div>
+        <p th:if="${#lists.isEmpty(accommodation.ratings)}">There is not ratings yet.</p>
+    </section>
+
+    <!-- TODO: Part 2 Restrict access to logged in users -->
+    <section th:if="${accommodation != null}">
+        <h2>Rate this accommodation</h2>
+        <form method="post" th:object="${rating}" th:action="|@{/accommodation}/${accommodationId}/rate|">
+            <input type="hidden" th:field="${accommodation.id}">
+            <p><label>Comment <textarea th:field="*{comment}"></textarea></label></p>
+            <label for="rating">Rating</label><input type="range" min="1" max="5" step="1" id="rating" name="rating" required />
+            <p><button type="submit">Rate</button></p>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>
+        <a href="https://kir-dev.sch.bme.hu/">kir-dev</a> | 2023 Course 2
+    </p>
+</footer>
+</body>
+</html>

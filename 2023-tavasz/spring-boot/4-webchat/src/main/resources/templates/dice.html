@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>kir-dev course 4</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{/style.css}">
+</head>
+<body>
+
+<div class="dice-container">
+    <div class="dice-header">
+        <h1>kir-dev dice example</h1>
+    </div>
+    <div class="dice-messages" id="dice-messages">
+        <img id="dice1" width="70" src="../static/d6_0.svg" th:src="@{/d6_0.svg}">
+        <img id="dice2" width="70" src="../static/d6_0.svg" th:src="@{/d6_0.svg}">
+        <img id="dice3" width="70" src="../static/d6_0.svg" th:src="@{/d6_0.svg}">
+        <img id="dice4" width="70" src="../static/d6_0.svg" th:src="@{/d6_0.svg}">
+        <img id="dice5" width="70" src="../static/d6_0.svg" th:src="@{/d6_0.svg}">
+        <img id="dice6" width="70" src="../static/d6_0.svg" th:src="@{/d6_0.svg}">
+    </div>
+    <div class="dice-messages">
+        <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+</div>
+
+<script src="../static/sockjs.min.js" th:src="@{/sockjs.min.js}"></script>
+<script src="../static/webstomp.min.js" th:src="@{/webstomp.min.js}"></script>
+
+<script>
+    let socket = new SockJS('http://127.0.0.1:8080/ws');
+    let stompClient = webstomp.over(socket);
+
+    let values = [0, 0, 0, 0, 0, 0];
+
+    function storeD6Value(value) {
+        values.push(value);
+
+        if (values.length > 6)
+            values.shift();
+    }
+
+    const onConnect = () => { stompClient.subscribe('/topic/dice', onMessageReceived); };
+
+    const onError = (error) => { console.error('WebSocket connection error:', error); };
+
+    const onDisconnect = () => document.querySelector(".loading-bar").style.backgroundColor = '#af4c4c';
+
+    stompClient.connect({}, onConnect, onError);
+    stompClient.ws.addEventListener('close', onDisconnect);
+
+    const onMessageReceived = (message) => {
+        const messageData = JSON.parse(message.body);
+
+        storeD6Value(messageData.value);
+        drawDices();
+    };
+
+    function drawDices() {
+        for (let id = 1; id <= 6; id++)
+            document.getElementById(`dice${id}`).src = `d6_${values[id - 1]}.svg`;
+
+        startLoadingBarAnimation();
+        const lastDice = document.getElementById('dice6');
+        lastDice.classList.add("animate");
+        setTimeout(() => {
+            lastDice.classList.remove("animate");
+        }, 2000);
+    }
+
+    function startLoadingBarAnimation() {
+        const loadingBar = document.querySelector(".loading-bar");
+        loadingBar.style.transition = "none";
+        loadingBar.style.width = "0%";
+        setTimeout(() => {
+            loadingBar.style.transition = "width 4.8s linear";
+            loadingBar.style.width = "100%";
+        }, 200);
+    }
+</script>
+
+
+</body>
+</html>

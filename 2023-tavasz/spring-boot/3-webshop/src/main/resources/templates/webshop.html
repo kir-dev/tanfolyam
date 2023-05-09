@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>kir-dev course 3</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{/style.css}">
+</head>
+<body>
+<header>
+    <h1>Minecraft Webshop</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li th:unless="${loggedIn}"><a href="/login/authsch">Login</a></li>
+            <li th:if="${loggedIn}"><a href="/user/webshop">Webshop</a></li>
+            <li th:if="${loggedIn}"><a href="/user/inventory">Inventory</a></li>
+            <li th:if="${loggedIn}"><a href="/user/profile">Profile</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Products</h2>
+    </section>
+    <section>
+        <b th:if="${message}" th:text="${message ?: ''}"></b>
+    </section>
+    <section>
+
+        <div th:each="product : ${products}">
+            <h3 th:text="${product.name}">Products name</h3>
+            <p th:text="${product.description}">description</p>
+            <form th:action="|@{/buy}/${product.id}|" method="post">
+                <button type="submit" th:text="|Buy (${product.price} coins)|">Buy (n coin)</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>
+        <a href="https://kir-dev.sch.bme.hu/">kir-dev</a> | 2023 Course 3
+    </p>
+</footer>
+</body>
+</html>

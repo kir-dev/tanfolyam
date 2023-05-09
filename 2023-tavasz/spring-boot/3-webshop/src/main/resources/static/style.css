@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --background-dark-color: #0D270F;
+    --background-color: #1f3e14;
+    --text-color: #FFFFFF;
+    --accent-color: #639D24;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text-color);
+    max-width: 600px;
+    margin: 40px auto;
+    background: #1a1a1a url(background.png) repeat;
+}
+
+header {
+    background-color: var(--background-dark-color);
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+    text-align: center;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+main {
+    padding: 20px;
+    background-color: var(--background-color);
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+section p {
+    color: var(--text-color);
+}
+
+footer {
+    background-color: var(--background-dark-color);
+    color: var(--text-color);
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+footer a {
+    color: var(--accent-color);
+}
+
+footer a:hover {
+    color: var(--text-color);
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: var(--text-color);
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+textarea {
+    height: 200px;
+}
+
+button[type="submit"] {
+    background-color: var(--accent-color);
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    color: var(--text-color);
+    background-color: #000000;
+}
+
+section div {
+    margin: 0 0 40px 0;
+    border: 2px solid var(--accent-color);
+    padding: 20px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-top: 2px solid var(--accent-color);
+    border-left: 2px solid var(--accent-color);
+    border-bottom: 1px solid var(--accent-color);
+    border-right: 1px solid var(--accent-color);
+}
+
+table tr th,
+table tr td {
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--accent-color);
+    border-right: 1px solid var(--accent-color);
+}
+
+table tr td:nth-of-type(3) {
+    text-align: center;
+}
+
+ul {
+    margin-left: 20px;
+}

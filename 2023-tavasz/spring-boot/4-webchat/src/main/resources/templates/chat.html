@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>kir-dev course 4</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{/style.css}">
+</head>
+<body>
+
+<div class="modal" id="username-modal">
+    <div class="modal-content">
+        <h2>Enter Your Name</h2>
+        <form id="username-form">
+            <input type="text" placeholder="Your name..." id="username-input" required autocomplete="off">
+            <button type="submit">Join</button>
+        </form>
+    </div>
+</div>
+
+<div class="chat-container">
+    <div class="chat-header">
+        <h1>kir-dev chat example</h1>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+
+    </div>
+    <form class="chat-form" id="chat-form">
+        <input type="text" placeholder="Type your message..." id="message-input" autocomplete="off">
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+
+<script src="../static/sockjs.min.js" th:src="@{/sockjs.min.js}"></script>
+<script src="../static/webstomp.min.js" th:src="@{/webstomp.min.js}"></script>
+
+<script>
+    let socket;
+    let stompClient;
+
+    const usernameModal = document.getElementById('username-modal');
+    const usernameForm = document.getElementById('username-form');
+    const usernameInput = document.getElementById('username-input');
+    const chatForm = document.getElementById('chat-form');
+    const chatMessages = document.getElementById('chat-messages');
+    const messageInput = document.getElementById('message-input');
+
+    window.addEventListener('load', () => {
+        usernameModal.style.display = 'block';
+    });
+
+    usernameForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const username = usernameInput.value;
+
+        if (username.trim() !== '') {
+            sessionStorage.setItem('username', username);
+            usernameModal.style.display = 'none';
+
+            socket = new SockJS('http://127.0.0.1:8080/ws');
+            stompClient = webstomp.over(socket);
+            stompClient.connect({}, onConnect, onError);
+            stompClient.ws.addEventListener('close', onDisconnect);
+            messageInput.focus();
+        }
+    });
+
+    const onConnect = () => {
+        stompClient.subscribe('/topic/messages', onMessageReceived);
+        stompClient.subscribe('/user/topic/status', onUserMessageReceived);
+
+        stompClient.send('/app/join', JSON.stringify({
+            name: sessionStorage.getItem('username')
+        }));
+    };
+
+    const onDisconnect = () => {
+        drawMessage('error', 'Server disconnected!');
+    }
+
+    const onError = (error) => {
+        console.error('WebSocket connection error:', error);
+    };
+
+    chatForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const messageContent = messageInput.value;
+
+        if (messageContent.trim() !== '') {
+            stompClient.send('/app/send', JSON.stringify({
+                from: sessionStorage.getItem('username'),
+                content: messageContent
+            }));
+            messageInput.value = '';
+        }
+    });
+
+    const onMessageReceived = (message) => {
+        const messageData = JSON.parse(message.body);
+
+        const chatMessageElement = document.createElement('div');
+        chatMessageElement.classList.add('chat-message');
+
+        chatMessageElement.innerHTML = `<span>${messageData.from}:</span> ${messageData.content}`;
+        chatMessages.appendChild(chatMessageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
+
+    const onUserMessageReceived = (message) => {
+        const messageData = JSON.parse(message.body);
+        drawMessage('info', messageData.content);
+    }
+
+    function drawMessage(mode, message) {
+        const chatMessageElement = document.createElement('div');
+        chatMessageElement.classList.add('chat-message');
+        chatMessageElement.classList.add(mode);
+
+        chatMessageElement.innerHTML = `<span>${message}</span>`;
+        chatMessages.appendChild(chatMessageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+</script>
+
+</body>
+</html>

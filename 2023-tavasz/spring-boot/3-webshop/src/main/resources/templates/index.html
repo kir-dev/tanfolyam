@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>kir-dev course 3</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{/style.css}">
+</head>
+<body>
+<header>
+    <h1>Minecraft Webshop</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li th:unless="${loggedIn}"><a href="/login/authsch">Login</a></li>
+            <li th:if="${loggedIn}"><a href="/user/webshop">Webshop</a></li>
+            <li th:if="${loggedIn}"><a href="/user/inventory">Inventory</a></li>
+            <li th:if="${loggedIn}"><a href="/user/profile">Profile</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Welcome to the webshop!</h2>
+        <p>Join our minecraft server: <b>127.0.0.1:25565</b></p>
+    </section>
+</main>
+
+<footer>
+    <p>
+        <a href="https://kir-dev.sch.bme.hu/">kir-dev</a> | 2023 Course 3
+    </p>
+</footer>
+</body>
+</html>
