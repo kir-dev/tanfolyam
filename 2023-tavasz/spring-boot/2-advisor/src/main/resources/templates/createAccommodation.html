@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>kir-dev course 2</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" th:href="@{/style.css}">
+</head>
+<body>
+<header>
+    <h1>Advisor Example</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Index</a></li>
+            <li><a href="/accommodations">Accommodations</a></li>
+            <li th:if="${user == null}"><a href="/login/authsch">Login</a></li>
+            <li th:unless="${user == null}"><a href="/user/profile">Profile</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Create Accommodation</h2>
+        <form method="post" action="/accommodation" th:action="@{/accommodation}" th:object="${accommodation}">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" th:field="*{name}" required autocomplete="off"><br>
+
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" th:field="*{address}" required autocomplete="off"><br>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="4" cols="50" th:field="*{description}" required autocomplete="off"></textarea><br>
+
+            <label for="imageUrl">Image URL</label>
+            <input type="text" id="imageUrl" name="imageUrl" th:field="*{imageUrl}" value="/example/house5.png" autocomplete="off"><br>
+
+            <button type="submit">Create</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>
+        <a href="https://kir-dev.sch.bme.hu/">kir-dev</a> | 2023 Course 2
+    </p>
+</footer>
+</body>
+</html>

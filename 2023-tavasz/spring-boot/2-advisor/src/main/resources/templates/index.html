@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>kir-dev course 2</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" th:href="@{/style.css}">
+</head>
+<body>
+<header>
+    <h1>Advisor Example</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Index</a></li>
+            <li><a href="/accommodations">Accommodations</a></li>
+            <li th:if="${user == null}"><a href="/login/authsch">Login</a></li>
+            <li th:unless="${user == null}"><a href="/user/profile">Profile</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Hey <b th:text="${name ?: 'GUEST'}">RANDOM USER</b>!</h2>
+    </section>
+</main>
+
+<footer>
+    <p>
+        <a href="https://kir-dev.sch.bme.hu/">kir-dev</a> | 2023 Course 2
+    </p>
+</footer>
+</body>
+</html>

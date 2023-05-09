@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>kir-dev course 4</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style-minecraft.css" th:href="@{/style-minecraft.css}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+</head>
+<body>
+
+<div class="modal" id="username-modal">
+    <div class="modal-content">
+        <h2>Enter Your Name</h2>
+        <form id="username-form">
+            <input type="text" placeholder="Your name..." id="username-input" required autocomplete="off">
+            <button type="submit">Join</button>
+        </form>
+    </div>
+</div>
+
+<div class="chat-container">
+    <div class="chat-messages" id="chat-messages">
+
+    </div>
+    <form class="chat-form" id="chat-form">
+        <input type="text" placeholder="Type your message..." id="message-input" autocomplete="off">
+        <button type="submit">Send</button>
+        <button type="button" class="buttonA" onclick="sendZombie()"><span class="material-symbols-outlined">sentiment_very_dissatisfied</span></button>
+        <button type="button" class="buttonB" onclick="sendStrike()"><span class="material-symbols-outlined">electric_bolt</span></button>
+        <button type="button" class="buttonC" onclick="sendHeal()"><span class="material-symbols-outlined">ecg_heart</span></button>
+    </form>
+</div>
+
+
+<script src="../static/sockjs.min.js" th:src="@{/sockjs.min.js}"></script>
+<script src="../static/webstomp.min.js" th:src="@{/webstomp.min.js}"></script>
+
+<script>
+    let socket;
+    let stompClient;
+    let uuid = generateRandomString();
+
+    const usernameModal = document.getElementById('username-modal');
+    const usernameForm = document.getElementById('username-form');
+    const usernameInput = document.getElementById('username-input');
+    const chatForm = document.getElementById('chat-form');
+    const chatMessages = document.getElementById('chat-messages');
+    const messageInput = document.getElementById('message-input');
+
+    window.addEventListener('load', () => {
+        usernameModal.style.display = 'block';
+    });
+
+    usernameForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const username = usernameInput.value;
+
+        if (username.trim() !== '') {
+            sessionStorage.setItem('username', username);
+            usernameModal.style.display = 'none';
+
+            socket = new SockJS('http://127.0.0.1:8080/ws');
+            stompClient = webstomp.over(socket);
+            stompClient.connect({}, onConnect, onError);
+            stompClient.ws.addEventListener('close', onDisconnect);
+            messageInput.focus();
+        }
+    });
+
+    const onConnect = () => {
+        stompClient.subscribe('/topic/minecraft/web-messages', onMessageReceived);
+    };
+
+    const onDisconnect = () => {
+        drawMessage('error', 'Server disconnected!');
+    }
+
+    const onError = (error) => {
+        console.error('WebSocket connection error:', error);
+    };
+
+    chatForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const messageContent = messageInput.value;
+
+        if (messageContent.trim() !== '') {
+            stompClient.send('/app/minecraft/web-send', JSON.stringify({
+                from: sessionStorage.getItem('username'),
+                uuid: uuid,
+                content: messageContent,
+                messageType: 'MESSAGE'
+            }));
+            messageInput.value = '';
+        }
+    });
+
+    function sendZombie() {
+        // /app/minecraft/web-command: zombie -21.5 56.1 -112.5 world
+        stompClient.send('/app/minecraft/web-command', JSON.stringify({
+            type: 'zombie',
+            arg: '',
+            x: -21.5,
+            y: 56.1,
+            z: -112.5,
+            world: 'world'
+        }));
+    }
+
+    function sendStrike() {
+        // /app/minecraft/web-command: strike -15.5 56 -107.5 world
+        stompClient.send('/app/minecraft/web-command', JSON.stringify({
+            type: 'strike',
+            arg: '',
+            x: -15.5,
+            y: 56,
+            z: -107.5,
+            world: 'world'
+        }));
+    }
+
+    function sendHeal() {
+        // /app/minecraft/web-command: heal @all 0 0 0 world
+        stompClient.send('/app/minecraft/web-command', JSON.stringify({
+            type: 'heal',
+            arg: '@all',
+            x: 0,
+            y: 0,
+            z: 0,
+            world: 'world'
+        }));
+    }
+
+    const onMessageReceived = (message) => {
+        const messageData = JSON.parse(message.body);
+
+        if (messageData.messageType === "MESSAGE") {
+            sendPlayerMessage(messageData);
+        } else if (messageData.messageType === "STATUS") {
+            drawMessage('status', messageData.content);
+        } else if (messageData.messageType === "EVENT") {
+            drawMessage('event', messageData.content);
+        }
+
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
+
+    function drawMessage(mode, message) {
+        const chatMessageElement = document.createElement('div');
+        chatMessageElement.classList.add('chat-message');
+        chatMessageElement.classList.add(mode);
+
+        chatMessageElement.innerHTML = `<span>${message}</span>`;
+        chatMessages.appendChild(chatMessageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function generateRandomString() {
+        const characters = 'abcdef0123456789';
+        let result = '';
+
+        for (let i = 0; i < 32; i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            result += characters.charAt(randomIndex);
+        }
+        return result;
+    }
+
+    function sendPlayerMessage(messageData) {
+        const chatMessageElement = document.createElement('div');
+        chatMessageElement.classList.add('chat-message');
+        if (messageData.uuid === uuid)
+            chatMessageElement.classList.add('self-message');
+
+        const url = messageData.uuid.length === 32
+            ? `https://www.gravatar.com/avatar/${messageData.uuid}?d=retro&s=48`
+            : `https://crafatar.com/avatars/${messageData.uuid}?size=48&default=MHF_Steve&overlay`
+        if (messageData.uuid === uuid) {
+            chatMessageElement.innerHTML = `
+                <div class="message">
+                    <span>You:</span><br />
+                    ${messageData.content}
+                </div>
+                <img src="${url}" width="48" class="profile">
+            `;
+        } else {
+            chatMessageElement.innerHTML = `
+                <img src="${url}" width="48" class="profile">
+                <div class="message">
+                    <span>${messageData.from}:</span><br />
+                    ${messageData.content}
+                </div>
+            `;
+        }
+        chatMessages.appendChild(chatMessageElement);
+    }
+</script>
+
+</body>
+</html>

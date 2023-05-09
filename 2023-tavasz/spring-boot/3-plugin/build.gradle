@@ -1,0 +1,52 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.7.20'
+    id 'fr.il_totore.manadrop' version '0.4.2'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group = 'hu.kirdev'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+
+        content {
+            includeGroup 'org.bukkit'
+            includeGroup 'org.spigotmc'
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.spigotmc:spigot-api:1.19-R0.1-SNAPSHOT'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+    implementation 'org.hibernate:hibernate-core:6.1.7.Final'
+    implementation 'mysql:mysql-connector-java:8.0.32'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = '17'
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = '17'
+}
+
+spigot {
+    desc {
+        named 'kirdev'
+        version project.version
+        authors 'Gerviba'
+        main 'hu.kirdev.plugin.Plugin'
+
+        command {
+            named 'getkit'
+            description 'Get a kit'
+        }
+    }
+}
+
+processResources.finalizedBy(spigotPlugin)

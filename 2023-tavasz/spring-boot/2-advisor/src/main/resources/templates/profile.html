@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>kir-dev course 2</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" th:href="@{/style.css}">
+</head>
+<body>
+<header>
+    <h1>Advisor Example</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Index</a></li>
+            <li><a href="/accommodations">Accommodations</a></li>
+            <li th:if="${user == null}"><a href="/login/authsch">Login</a></li>
+            <li th:unless="${user == null}"><a href="/user/profile">Profile</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Profile</h2>
+        <div>
+            <p><strong>Name</strong> <span th:text="|${user.getSurname()} ${user.getGivenName()}|"></span></p>
+            <p><strong>Email</strong> <span th:text="${user.getEmail()}"></span></p>
+            <p><strong>Internal ID</strong> <span th:text="${user.getInternalId()}"></span></p>
+        </div>
+    </section>
+    <section>
+        <div>
+            <h2>Group Memberships</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Title</th>
+                    <th>Active</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${user.getEduPersonEntitlement()}" th:each="entitlement : ${user.getEduPersonEntitlement()}">
+                    <td th:text="${entitlement.name}"></td>
+                    <td th:text="${entitlement.status}"></td>
+                    <td th:text="${#strings.listJoin(entitlement.title, ', ')}"></td>
+                    <td th:text="${entitlement.end == null ? 'active' : 'inactive'}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>
+        <a href="https://kir-dev.sch.bme.hu/">kir-dev</a> | 2023 Course 2
+    </p>
+</footer>
+</body>
+</html>
