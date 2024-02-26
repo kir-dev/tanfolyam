@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: dodgerblue;
+    color: darkblue;
+    font-family: Helvetica;
+}
+
+
+.panel{
+    background-color: white;
+    width: 400px;
+    position: absolute;
+    top: 20%;
+    padding: 40px;
+    left: calc(50% - 200px);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
