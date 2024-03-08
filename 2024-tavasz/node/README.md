@@ -15,20 +15,20 @@
 - Visszanézhető [itt](https://youtu.be/9K7L8kqYnRE).
 - A prezentáció a `slides-node-1.html` fájllal is elérhető.
 
-<!-- ## 2. alkalom: [NestJS live coding part 1](https://slides.com/samuelfekete/node-2)
+## 2. alkalom: [NestJS live coding part 1](https://slides.com/samuelfekete-1/nodejs-2/)
 
-* Összeállította: [Fekete Sámuel](https://github.com/Tschonti) és [Piller Trisztán](https://github.com/triszt4n)
-* Előadta: Fekete Sámuel
-* A kódbázis elérhető [ezen a címen](https://github.com/kir-dev/ticketing-api-next/tree/1.0.0).
-* Visszanézhető [itt](https://www.youtube.com/watch?v=Rktjn0PYyBM).
-* Sajnos egy váratlan kék halál miatt a felvétel megállt 67 percnél, de mivel utána sem éledt fel a gépem, nem haladtunk sokkal tovább.
-* A prezentáció a `slides-node-2.html` fájllal is elérhető.
+- Összeállította: [Fekete Sámuel](https://github.com/Tschonti) és [Piller Trisztán](https://github.com/triszt4n)
+- Előadta: Fekete Sámuel
+- A kódbázis elérhető [ezen a címen](https://github.com/kir-dev/ticketing-api-2024/tree/start). Ez a kiindulási állapotra mutat, az alkalom végére a chapter_04 ágon lévő állapot közelébe jutottunk.
+- Visszanézhető [itt](https://youtu.be/wtzeZ0WopWU).
+- A prezentáció a `slides-node-2.html` fájllal is elérhető.
+<!--
 
 ## 3. alkalom: [NestJS live coding part 2](https://slides.com/samuelfekete/nodejs-3)
 
-* Összeállította: [Fekete Sámuel](https://github.com/Tschonti) és [Piller Trisztán](https://github.com/triszt4n)
-* Előadta: Fekete Sámuel
-* A kódbázis elérhető [ezen a címen](https://github.com/kir-dev/ticketing-api-next/tree/2.0.0) (a ticketing-api-next repó 2.0.0-ás verziója tükrözi azt az állapotot, ameddig a tanfolyam során jutottunk).
-* Ugyanebben a repóban pár extrával kiegészítettem az alkalmazást, ezt a [master branchen](https://github.com/kir-dev/ticketing-api-next) találjátok, a README-ben összefoglaltam, mik kerültek még bele.
-* Visszanézhető [itt](https://www.youtube.com/watch?v=FnOO_3I6XQk).
-* A prezentáció a `slides-node-3.html` fájllal is elérhető. -->
+- Összeállította: [Fekete Sámuel](https://github.com/Tschonti) és [Piller Trisztán](https://github.com/triszt4n)
+- Előadta: Fekete Sámuel
+- A kódbázis elérhető [ezen a címen](https://github.com/kir-dev/ticketing-api-next/tree/2.0.0) (a ticketing-api-next repó 2.0.0-ás verziója tükrözi azt az állapotot, ameddig a tanfolyam során jutottunk).
+- Ugyanebben a repóban pár extrával kiegészítettem az alkalmazást, ezt a [master branchen](https://github.com/kir-dev/ticketing-api-next) találjátok, a README-ben összefoglaltam, mik kerültek még bele.
+- Visszanézhető [itt](https://www.youtube.com/watch?v=FnOO_3I6XQk).
+- A prezentáció a `slides-node-3.html` fájllal is elérhető. -->
