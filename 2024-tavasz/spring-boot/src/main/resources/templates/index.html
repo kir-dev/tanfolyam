@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        :root {
+            font-family: 'Helvetica', sans-serif;
+        }
+    </style>
+</head>
+<body>
+<h2>Hello from Spring Boot and Thymeleaf🎩🎩</h2>
+<p th:if="${name}" th:text='|Hello ${name}|'></p>
+
+<div th:if="${!greetedPeople.isEmpty()}">
+    <h3>Here are the people we already met:</h3>
+    <ul>
+        <li th:each="person: ${greetedPeople}" th:text="${person}"></li>
+    </ul>
+</div>
+
+</body>
+</html>
