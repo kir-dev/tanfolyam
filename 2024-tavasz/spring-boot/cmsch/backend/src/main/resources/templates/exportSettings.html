@@ -1,0 +1,59 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="hu">
+<head th:replace="~{layout4 :: head(${context.siteName})}">
+</head>
+<body>
+<div th:replace="~{layout4 :: mobile(null)}"></div>
+<div th:replace="~{layout4 :: siteBegin(${userContext}, ${context})}"></div>
+
+<div class="group">
+    <div class="app">
+        <div th:replace="~{layout4 :: menus(${userContext}, ${context})}">
+        </div>
+
+        <div class="content">
+            <h1>Export minden</h1>
+
+            <div class="card">
+                <h4>Összes beállítás</h4>
+
+                <div class="desc">Ezeket a beállításokat a properties fájlba kell beilleszteni első indítás előtt vagy üres adatbázissal.</div>
+
+                <form onsubmit="return false">
+                    <textarea th:text="${settings}" readonly style="height: 600px; width: 100%; font-family: monospace">
+                    </textarea>
+                </form>
+
+                <div class="desc">Megjegyzés: Az IntelliJ-be exportált properties fájlokat nem lehet vissza importálni CMSch-be</div>
+
+                <div class="button-group">
+                    <a href="#" th:href="@{/admin/control/export/properties}" target="_blank" class="btn">
+                        <span class="material-symbols-outlined">download</span>
+                        <ins>LETÖLTÉS (CMSCH)</ins>
+                    </a>
+                    <a href="#" th:href="@{/admin/control/export/properties?useIsoEncoding=true}" target="_blank" class="btn">
+                        <span class="material-symbols-outlined">download</span>
+                        <ins>LETÖlTÉS (INTELLIJ IDEA)</ins>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="card" th:if="${user.isAdmin()}">
+                <h4>Jogosultságok</h4>
+
+                <div class="options">
+                    <div class="option">
+                        <div><span class="material-symbols-outlined">local_police</span></div>
+                        <div>
+                            <h5 th:text="${permission}">PERMISSION_NAME</h5>
+                            <span>Ez a jog szükséges az exportálás használatához.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

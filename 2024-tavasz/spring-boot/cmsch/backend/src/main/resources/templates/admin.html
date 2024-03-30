@@ -1,0 +1,36 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="hu">
+<head th:replace="~{layout4 :: head(${context.siteName})}">
+</head>
+<body>
+<div th:replace="~{layout4 :: mobile(null)}"></div>
+<div th:replace="~{layout4 :: siteBegin(${userContext}, ${context})}"></div>
+
+<div class="group">
+    <div class="app">
+        <div th:replace="~{layout4 :: menus(${userContext}, ${context})}">
+        </div>
+
+        <div class="content">
+            <h1><ins>Rendezői oldal</ins>
+                <span class="material-symbols-outlined color-yellow star-button"
+                      th:class="|material-symbols-outlined color-yellow star-button ${userContext.favoriteMenus.contains('Rendezői oldal') ? 'favorite' : ''}|"
+                      id="star-page"
+                      data-star="Rendezői oldal"
+                      onclick="toggleStarred(this.getAttribute('data-star')); return false">star</span>
+            </h1>
+            <div class="details">Üdv a rendezvény rendezői felületén!</div>
+
+            <div class="card">
+                <h4>Rendezői üzenet</h4>
+                <div th:utext="${staffMessage}">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

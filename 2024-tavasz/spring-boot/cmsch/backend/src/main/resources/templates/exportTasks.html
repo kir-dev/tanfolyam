@@ -1,0 +1,167 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <title th:text="|BucketList_${groupName}|">Bucketlist_G07</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * { border: 0; padding: 0; margin: 0; box-sizing: border-box; }
+        body {
+            width: 100%; background-color: #cbcbcb; color: #2E2F37; font-family: 'Be Vietnam Pro', sans-serif;
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+        }
+        .content {
+            max-width: 800px;
+            margin: 1rem auto;
+            width: 100%;
+            padding-bottom: 1rem;
+        }
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+        }
+        h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        h4 {
+            text-align: center;
+            font-weight: 300;
+        }
+        .submission {
+            margin: 3rem 0;
+            border-bottom: 2px solid #2E2F37;
+        }
+        td:nth-of-type(2) {
+            font-weight: 300;
+            padding-left: 2rem;
+        }
+        table {
+            margin: 1rem 3rem;
+        }
+        blockquote {
+            margin-top: 3rem;
+            color: #880000;
+            text-align: center;
+        }
+        h2 span.material-icons {
+            position: relative;
+            top: 4px;
+        }
+        img {
+            border: 2px solid #2E2F37;
+            max-width: 700px;
+            max-height: 700px;
+            margin-bottom: 2rem;
+        }
+        .image-holder {
+            text-align: center;
+        }
+        .lead-organizer-quote {
+            text-align: center;
+            color: #2E2F37;
+            margin: 40px 0;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #2E2F37;
+        }
+        .logo-holder {
+            margin: 40px auto;
+            text-align: center;
+        }
+    </style>
+    <style media="print">
+        blockquote {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+
+        <h1 th:text="|A ${groupName} BucketList beadásai|">A G07 BucketList beadásai</h1>
+        <h3>2022-es gólyahét folyamán</h3>
+        <h4 th:if="${place > 0}">Gratulálunk a tankörnek az elért - <insert th:remove="tag" th:text="${place}"></insert>. - helyezéséért, reméljük jól éreztétek magatokat!</h4>
+        <h4 th:unless="${place > 0}">Gratulálunk a tankörnek az elért helyezéséért, reméljük jól éreztétek magatokat!</h4>
+
+        <blockquote>Nyomj Ctrl+P-t és mentsd el PDF-be, mert csak korlátozott ideig elérhető itt az oldalon!</blockquote>
+
+        <div class="logo-holder">
+            <img th:src="${logoUrl}" height="250" width="250" alt="Logo" class="logo">
+        </div>
+
+        <h2 class="lead-organizer-quote" th:utext="${notes}">"Ez a főrendezők üzenete"<br />- A Főrendezők</h2>
+
+        <div class="submission" th:each="task : ${tasks}">
+            <h2><span class="material-icons">emoji_events</span> <span th:text="|${categories[task.task.categoryId]?.get(0)?.name ?: 'N/A'} - ${task.task.title}|">Kategória - Feladat neve</span></h2>
+            <table>
+                <tr>
+                    <td>Feladat:</td>
+                    <td th:text="${task.task.description}">Feladat szövege</td>
+                </tr>
+                <tr>
+                    <td>Státusz:</td>
+                    <td th:text="|${task.approved ? 'Elfogadva' : (task.rejected ? 'Visszautasítva' : 'Nincs értékelve')}|">Elfogadva</td>
+                </tr>
+                <tr>
+                    <td>Kapott pontok:</td>
+                    <td th:text="|${task.score}/${task.task.maxScore}|">5/5</td>
+                </tr>
+                <tr th:if="${task.task.type.name != 'IMAGE'}">
+                    <td>Beadás:</td>
+                    <td th:text="${task.textAnswerLob}">Szöveges beadás</td>
+                </tr>
+                <tr>
+                    <td>Értékelés:</td>
+                    <td th:text="${task.response}">Jó lett</td>
+                </tr>
+            </table>
+            <div class="image-holder" th:if="${task.task.type.name != 'TEXT'}" >
+                <img src="" th:src="|@{/cdn}/${task.imageUrlAnswer}|" alt="Beadás képe">
+            </div>
+        </div>
+
+        <div class="submission" th:remove="all">
+            <h2>Kategória - Feladat neve</h2>
+            <table>
+                <tr>
+                    <td>Feladat:</td>
+                    <td>Feladat szövege</td>
+                </tr>
+                <tr>
+                    <td>Kapott pontok:</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Beadás:</td>
+                    <td>Szöveges beadás</td>
+                </tr>
+            </table>
+            <img src="" width="750" alt="Beadás képe">
+        </div>
+
+
+        <div class="submission" th:remove="all">
+            <h2>Kategória - Feladat neve</h2>
+            <table>
+                <tr>
+                    <td>Feladat:</td>
+                    <td>Feladat szövege</td>
+                </tr>
+                <tr>
+                    <td>Beadás:</td>
+                    <td>Szöveges beadás</td>
+                </tr>
+                <tr>
+                    <td>Kapott pontok:</td>
+                    <td>5</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

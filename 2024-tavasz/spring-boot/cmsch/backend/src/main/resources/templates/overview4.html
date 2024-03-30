@@ -1,0 +1,252 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="hu">
+<head th:replace="~{layout4 :: head(${context.siteName})}">
+</head>
+<body>
+<div th:replace="~{layout4 :: mobile(null)}"></div>
+<div th:replace="~{layout4 :: siteBegin(${userContext}, ${context})}"></div>
+
+<div class="group">
+    <div class="app">
+        <div th:replace="~{layout4 :: menus(${userContext}, ${context})}">
+        </div>
+
+        <div class="content">
+            <h1><ins th:text="${title}">Rendezői Oldal</ins>
+                <span class="material-symbols-outlined color-yellow star-button"
+                      th:class="|material-symbols-outlined color-yellow star-button ${userContext.favoriteMenus.contains(title) ? 'favorite' : ''}|"
+                      id="star-page"
+                      th:data-star="${title}"
+                      onclick="toggleStarred(this.getAttribute('data-star')); return false">star</span>
+            </h1>
+            <div class="details" th:text="${description}">Üdv a rendezvény rendezői felületén!</div>
+
+            <div class="button-group">
+                <object th:each="button : ${buttonActions}" th:remove="tag">
+                    <a href="#" th:href="|@{/admin/control}/${view}/${button.target}|" class="btn"
+                       th:class="|btn ${button.primary ? 'btn-primary' : 'btn-secondary'}|"
+                       th:target="${button.newPage ? '_blank' : ''}"
+                    ><span class="material-symbols-outlined regular" th:text="${button.icon}">code</span> <ins th:text="${button.name}">Button name</ins></a>
+                </object>
+            </div>
+
+            <div class="card">
+                <h4>Bejegyzések</h4>
+
+                <object th:if="${searchSettings != null}" th:remove="tag">
+                    <input type="text" id="table-search-input" placeholder="Keresés" autocomplete="off" spellcheck="false" autofocus>
+                    <span class="note" th:text="|Keresés a következő oszlopokon: ${#strings.listJoin(searchSettings.displayNames, ', ')} (fuzzy: ${searchSettings.fuzzy ? 'igen' : 'nem'})|"></span>
+                </object>
+                <div id="cmsch-table"></div>
+            </div>
+
+            <div class="card" th:if="${user.isAdmin() && (permissionShow != null || permissionEdit != null || permissionCreate != null || permissionDelete != null)}">
+                <h4>Jogosultságok</h4>
+
+                <div class="options flex-options">
+                    <div class="option" th:if="${permissionShow != null}">
+                        <div><span class="material-symbols-outlined">visibility</span></div>
+                        <div>
+                            <h5 th:text="${permissionShow}">PERMISSION_NAME</h5>
+                            <span th:if="${exportEnabled}">Ez a jog szükséges az adatok megtekintéséhez és exportáláshoz.</span>
+                            <span th:unless="${exportEnabled}">Ez a jog szükséges az adatok megtekintéséhez.</span>
+                        </div>
+                    </div>
+                    <div class="option" th:if="${permissionEdit != null}">
+                        <div><span class="material-symbols-outlined">edit</span></div>
+                        <div>
+                            <h5 th:text="${permissionEdit}">PERMISSION_NAME</h5>
+                            <span>Ez a jog szükséges az adatok módosításához.</span>
+                        </div>
+                    </div>
+                    <div class="option" th:if="${permissionCreate != null}">
+                        <div><span class="material-symbols-outlined">add_box</span></div>
+                        <div>
+                            <h5 th:text="${permissionCreate}">PERMISSION_NAME</h5>
+                            <span th:if="${importEnabled}">Ez a jog szükséges új elem létrehozásához és importálásához.</span>
+                            <span th:unless="${importEnabled}">Ez a jog szükséges új elem létrehozásához.</span>
+                        </div>
+                    </div>
+                    <div class="option" th:if="${permissionDelete != null}">
+                        <div><span class="material-symbols-outlined">delete</span></div>
+                        <div>
+                            <h5 th:text="${permissionDelete}">PERMISSION_NAME</h5>
+                            <span>Ez a jog szükséges egy vagy az összes elem törléséhez.</span>
+                        </div>
+                    </div>
+                    <div class="option" th:each="action : ${allControlActions}" th:if="${not action.basic}">
+                        <div><span class="material-symbols-outlined" th:text="${action.icon}">delete</span></div>
+                        <div>
+                            <h5 th:text="${action.permission.permissionString}">PERMISSION_NAME</h5>
+                            <span th:text="${action.usageString}">Ez a jog szükséges egy vagy az összes elem törléséhez.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" th:if="${not user.isAdmin() && not allControlActions.isEmpty()}">
+                <h4>Jelmagyarázat</h4>
+
+                <div class="options flex-options">
+                    <div class="option small-icon" th:each="action : ${allControlActions}">
+                        <div><span class="material-symbols-outlined" th:text="${action.icon}">delete</span></div>
+                        <div>
+                            <h5 th:text="${action.usageString}">Usage text</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/tabulator.min.js}"></script>
+<script th:inline="javascript">
+    function timestampFormatter(cell, formatterParams, onRendered) {
+        const value = cell.getValue();
+        if (!value) return "-";
+        const dt = luxon.DateTime.fromSeconds(value);
+        return dt.toFormat("yyyy-MM-dd HH:mm");
+    }
+
+    const buttons = JSON.parse(/*[[${controlActions}]]*/ "[]");
+    let tableData = JSON.parse(/*[[${tableData}]]*/ "[]");
+    let view = /*[[${view}]]*/ "";
+    for (let rowId in tableData) {
+        const row = tableData[rowId];
+        let buttonColumn = "";
+        for (let buttonId in buttons) {
+            const button = buttons[buttonId];
+            buttonColumn += `<a href="/admin/control/${view}/${button.endpoint.replace("{id}", row.id)}" ${button.newPage ? 'target="_blank"' : ''} class="control-action"><span class="material-symbols-outlined">${button.icon}</span></a>`
+        }
+        row['buttons'] = buttonColumn;
+    }
+
+    function enumIconsFormatter(cell, formatterParams, onRendered) {
+        let value = cell.getValue();
+
+        const names = /*[[${T(hu.bme.sch.cmsch.admin.IconStatus).names()}]]*/ [];
+        const icons = /*[[${T(hu.bme.sch.cmsch.admin.IconStatus).icons()}]]*/ [];
+        const colors = /*[[${T(hu.bme.sch.cmsch.admin.IconStatus).colors()}]]*/ [];
+
+        let enumElementMap = {};
+
+        for (let id in names) {
+            if (names[id] !== 'EMPTY')
+                enumElementMap[names[id]] = `<span class='material-symbols-outlined' style='color: ${colors[id]}'>${icons[id]}</span>`
+        }
+
+        return enumElementMap[value] || "";
+    }
+
+    let columData = JSON.parse(/*[[${columnData}]]*/ "[]");
+    for (let columnId in columData) {
+        if (columData[columnId].formatter === 'tickCross') {
+            columData[columnId]['formatterParams'] = {
+                allowEmpty: true,
+                allowTruthy: true,
+                tickElement: "<span class='material-symbols-outlined color-green'>done</span>",
+                crossElement: "<span class='material-symbols-outlined color-red'>close</span>",
+            }
+        } else if (columData[columnId].formatter === 'enumIconsFormatter') {
+            columData[columnId]['formatter'] = enumIconsFormatter;
+        } else if (columData[columnId].formatter === 'datetime') {
+            columData[columnId]['formatter'] = timestampFormatter;
+            columData[columnId]['minWidth'] = 180;
+        } else {
+            columData[columnId]['minWidth'] = 200;
+        }
+    }
+    if (buttons.length !== 0) {
+        columData.push({
+            title: " ",
+            field: "buttons",
+            formatter: "html",
+            hozAlign: "center",
+            width: 60 * buttons.length,
+            minWidth: 60 * buttons.length,
+            resizable: false,
+            headerSort: false
+        });
+    }
+
+    let table = new Tabulator("#cmsch-table", {
+        data: tableData,
+        autoColumns: false,
+        layout: 'fitColumns',
+        responsiveLayout: 'collapse',
+        columns: columData,
+        height: "500px"
+    });
+
+</script>
+<script th:if="${searchSettings != null && not searchSettings.fuzzy}" th:inline="javascript">
+    function normalSearch(data, searchTerm) {
+        let result = false;
+        const fields = /*[[${searchSettings.rows}]]*/ [];
+        for (let field in fields) {
+            result = result || (data[fields[field]] && data[fields[field]].toLowerCase().includes(searchTerm.toLowerCase()));
+        }
+        return result;
+    }
+
+    document.getElementById("table-search-input").addEventListener("input", function(e) {
+        const searchTerm = e.target.value;
+
+        if (searchTerm) {
+            table.setFilter(normalSearch, searchTerm);
+        } else {
+            table.clearFilter();
+        }
+    });
+</script>
+<script th:if="${searchSettings != null && searchSettings.fuzzy}" th:inline="javascript">
+    function levenshtein(a, b) {
+        let t = [], u, i, j, m = a.length, n = b.length;
+        if (!m) { return n; }
+        if (!n) { return m; }
+        for (j = 0; j <= n; j++) { t[j] = j; }
+        for (i = 1; i <= m; i++) {
+            for (u = [i], j = 1; j <= n; j++) {
+                u[j] = a[i - 1] === b[j - 1] ? t[j - 1] : Math.min(t[j - 1], t[j], u[j - 1]) + 1;
+            }
+            t = u;
+        }
+        return u[n];
+    }
+
+    function isFuzzyMatch(str, pattern) {
+        if (pattern.includes(" ")) {
+            const distance = levenshtein(str.toLowerCase(), pattern.toLowerCase());
+            return distance < 3
+        } else {
+            return str.split(' ').filter(word => {
+                const distance = levenshtein(word.toLowerCase(), pattern.toLowerCase());
+                return distance < 3
+            }).length > 0
+        }
+    }
+
+    function fuzzyFilter(data, searchTerm) {
+        let result = false;
+        const fields = /*[[${searchSettings.rows}]]*/ [];
+        for (let field in fields) {
+            result = result || isFuzzyMatch(data[fields[field]].trim(), searchTerm.trim());
+        }
+        return result;
+    }
+
+    document.getElementById("table-search-input").addEventListener("input", function(e) {
+        const searchTerm = e.target.value;
+
+        if (searchTerm && searchTerm.length >= 3) {
+            table.setFilter(fuzzyFilter, searchTerm);
+        } else {
+            table.clearFilter();
+        }
+    });
+</script>
+
+</body>
+</html>
