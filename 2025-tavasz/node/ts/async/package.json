@@ -1,0 +1,18 @@
+{
+  "name": "async",
+  "version": "1.0.0",
+  "main": "loops.js",
+  "type": "module",
+  "description": "Ismertető itt: https://www.youtube.com/watch?v=vn3tm0quoqE&ab_channel=Fireship",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node-fetch": "^2.1.2",
+    "node-fetch": "^2.2.0",
+    "tsx": "^4.19.3"
+  }
+}

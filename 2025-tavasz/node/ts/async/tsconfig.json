@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "sourceMap": true,
+    "outDir": "dist",
+    "lib": ["dom", "es2015"]
+  }
+}
