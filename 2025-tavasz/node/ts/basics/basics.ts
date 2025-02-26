@@ -2,33 +2,36 @@
 interface Kitty {
   name: string;
   age?: number;
-  children: (Kitty | string)[];
+  children: Kitty[] | string[];
 }
 
 const array: Kitty[] = [
   {
-    name: "Cirmos",
+    name: 'Cirmos',
     age: 1,
-    children: ["Scruffles", "Snowballs II", { children: [], name: "d" }],
+    children: ['Scruffles', 'Snowballs II'],
   },
-  { name: "Foltos", children: [] },
+  { name: 'Foltos', children: [] },
 ];
 
-// functions
-function funnyLog(element: Kitty, index: number): void {
-  console.log(`${index} - ${element.name}: ${element.age ?? "Újszülött"}.`);
+function logFunction(element: Kitty, index: number): void {
+  console.log(`${index} - ${element.name}: ${element.age ?? 'Újszülött'}.`);
 }
 
-const funnyLogArrayFunction = (element: Kitty, index: number): void => {
-  console.log(`${index} - ${element.name}: ${element.age ?? "Újszülött"}.`);
+const logArrowFunction = (element: Kitty, index: number): void => {
+  console.log(
+    `${index} - ${element.name}: ${
+      element.age ? 'Nem újszülött' : 'Újszülött'
+    }.`
+  );
 };
 
-console.log("Old way:");
+console.log('Old way:');
 for (let i = 0; i < array.length; ++i) {
-  funnyLog(array[i], i);
+  logFunction(array[i], i);
 }
 
-console.log("\nArrow function way:");
+console.log('\nArrow function way:');
 array.forEach((element, index) => {
-  funnyLog(element, index);
+  logArrowFunction(element, index);
 });
