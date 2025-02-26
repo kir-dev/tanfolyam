@@ -1,7 +1,7 @@
 import fetch, { Response } from 'node-fetch';
 
 const promise: Promise<Response> = fetch(
-  'https://jsonplaceholder.typicode.com/todos/1'
+  'https://jsonplaceholder.typicod.com/todos/2'
 );
 
 promise
