@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Form</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: end;
+                align-items: start;
+                flex-direction: column;
+
+                height: 100vh;
+                background-color: #f4f4f4;
+                font-family: Arial, sans-serif;
+            }
+            .login-container {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+            input {
+                width: 100%;
+                padding: 10px 0 10px 0;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            button {
+                width: 100%;
+                padding: 10px 0 10px 0;
+                background: blue;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            button:disabled {
+                background: gray;
+                cursor: not-allowed;
+            }
+            button:hover {
+                background: darkblue;
+            }
+            .label {
+                text-align: left;
+                width: 100%;
+                display: block;
+                font-weight: bold;
+                color: pink;
+            }
+            label {
+                color: black !important;
+            }
+            body > a {
+                color: white;
+                background: black;
+                margin-bottom: 10px;
+
+            }
+        </style>
+    </head>
+    <body>
+        <a href="https://origo.hu" target="_blank">(0,0)</a>
+        <div class="login-container" ondrag="handleDrag()">
+            <h2 style=" max-width: 300px;">Gyula hiper szuper bejelentkező oldala</h2>
+            <label class="username-label label" for="username"><i>felhasználó név</i></label>
+            <input type="text" placeholder="Username" id="username">
+            <label class="password-label label" for="password">Jelszóóó</label>
+            <input type="password" placeholder="Password" id="password">
+            <button id="loginBtn" onclick="handleLogin()">Login</button>
+        </div>
+
+        <script>
+            function handleLogin() {
+                const loginBtn = document.getElementById("loginBtn");
+                const usernameField = document.getElementById("username");
+                const passwdField = document.getElementById("password");
+                loginBtn.disabled = true;
+                console.log("Username: ", usernameField.value, "Password: ", passwdField.value);
+                setTimeout(() => {
+                    console.log("Login successful");
+                    loginBtn.disabled = false;
+                }, 2000);
+            }
+
+            function handleDrag(x, y) {
+                console.log("draggong", x, y)
+            }
+        </script>
+    </body>
+</html>
