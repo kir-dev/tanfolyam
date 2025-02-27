@@ -1,9 +1,9 @@
-let foo: number = 5;
+let variableWithType: number = 5;
 
-function bar(param: string): void {
+function normalFunction(param: string): void {
   console.log(param);
 }
-
-async function baz() {
+//
+async function asyncFunction() {
   return 'hello world';
 }
