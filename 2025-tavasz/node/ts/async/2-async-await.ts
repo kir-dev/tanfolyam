@@ -39,5 +39,5 @@ export const checkFriendsAwait = async () => {
   } catch {}
 };
 
-// checkFriendsPromise().then(console.log);
+// checkFriendsPromise().then((a) => console.log(a));
 // checkFriendsAwait().then(console.log);
