@@ -5,15 +5,22 @@ import { LabelsModule } from './labels/labels.module';
 import { BoardsModule } from './boards/boards.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { TicketsModule } from './tickets/tickets.module';
+import { ConfigModule } from '@nestjs/config';
+
+import configuration from './config/configuration';
 
 @Module({
   imports: [
-    TicketsModule,
-    BoardsModule,
-    LabelsModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [configuration],
+    }),
     PrismaModule.forRoot({
       isGlobal: true,
     }),
+    TicketsModule,
+    BoardsModule,
+    LabelsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
