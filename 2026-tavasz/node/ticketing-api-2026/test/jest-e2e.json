@@ -12,5 +12,8 @@
         }
       }
     ]
+  },
+  "moduleNameMapper": {
+    "^(.+)/generated/prisma/client$": "<rootDir>/../src/generated/prisma/__mocks__/client.ts"
   }
 }
