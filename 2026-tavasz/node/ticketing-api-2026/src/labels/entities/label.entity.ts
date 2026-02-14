@@ -9,13 +9,13 @@ import {
 export class Label {
   @IsNumber()
   @Min(1)
-  id: number;
+  id: number = 0;
 
   @IsString()
   @IsNotEmpty()
-  name: string;
+  name: string = '';
 
   @IsString()
   @IsHexColor()
-  color: string;
+  color: string = '';
 }

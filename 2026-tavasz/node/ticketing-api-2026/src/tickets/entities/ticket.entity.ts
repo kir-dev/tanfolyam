@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { TicketPhase } from '@prisma/client';
+
 import {
   IsDate,
   IsEnum,
@@ -9,30 +9,31 @@ import {
   IsString,
   Min,
 } from 'class-validator';
+import { TicketPhase } from '../../generated/prisma/client';
 
 export class Ticket {
   @IsNumber()
   @Min(1)
-  id: number;
+  id: number = 0;
 
   @IsString()
   @IsNotEmpty()
-  name: string;
+  name: string = '';
 
   @IsString()
   @IsOptional()
-  description: string | null;
+  description: string | null = null;
 
   @IsEnum(TicketPhase)
   @ApiProperty({ enum: TicketPhase })
-  ticketPhase: TicketPhase;
+  ticketPhase: TicketPhase = TicketPhase.CREATED;
 
   @IsNumber()
-  boardsId: number;
+  boardsId: number = 0;
 
   @IsDate()
-  createdAt: Date;
+  createdAt: Date = new Date();
 
   @IsDate()
-  updatedAt: Date;
+  updatedAt: Date = new Date();
 }
