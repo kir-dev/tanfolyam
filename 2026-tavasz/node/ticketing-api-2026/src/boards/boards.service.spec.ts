@@ -5,6 +5,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { BoardsService } from './boards.service';
 import { Board } from './entities/board.entity';
 import { CreateBoardDto } from './dto/create-board.dto';
+import { Prisma } from '../lib/mocks/prisma-client';
 
 describe('BoardsService', () => {
   let service: BoardsService;
@@ -70,21 +71,12 @@ describe('BoardsService', () => {
   });
 
   it('throws when updating a missing board', async () => {
-    // mockPrismaService.boards.update.mockRejectedValueOnce(
-    //   new PrismaClientKnownRequestError('P2025', {
-    //     code: 'P2025',
-    //     clientVersion: '',
-    //   }),
-    // );
     mockPrismaService.boards.update.mockRejectedValueOnce(
-      new Error('Board not found'),
+      new Prisma.PrismaClientKnownRequestError('Record not found', 'P2025'),
     );
 
     await expect(service.update(404, { title: 'Ops' })).rejects.toBeInstanceOf(
       NotFoundException,
     );
-    // await expect(service.update(404, { title: 'Ops' })).rejects.toBeInstanceOf(
-    //   NotFoundException,
-    // );
   });
 });

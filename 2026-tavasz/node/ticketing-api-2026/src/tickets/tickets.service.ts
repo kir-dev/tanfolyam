@@ -54,7 +54,7 @@ export class TicketsService {
 
   async update(id: number, updateTicketDto: Prisma.TicketUncheckedUpdateInput) {
     try {
-      return this.prisma.ticket.update({
+      return await this.prisma.ticket.update({
         where: { id },
         data: updateTicketDto,
       });

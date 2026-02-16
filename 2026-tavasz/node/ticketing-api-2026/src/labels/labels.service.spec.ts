@@ -1,21 +1,14 @@
 /* eslint-disable @typescript-eslint/unbound-method */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { BadRequestException, NotFoundException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { PrismaService } from '../prisma/prisma.service';
 import { LabelsService } from './labels.service';
 import { CreateLabelDto } from './dto/create-label.dto';
+import { Prisma } from '../lib/mocks/prisma-client';
 
 describe('LabelsService', () => {
   let service: LabelsService;
   let prisma: PrismaService;
-
-  // const makePrismaError = (code: string) =>
-  //   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  //   Object.assign(
-  //     Object.create(Prisma.PrismaClientKnownRequestError.prototype),
-  //     { code },
-  //   );
 
   const mockPrismaService = {
     label: {
@@ -82,19 +75,21 @@ describe('LabelsService', () => {
     expect(prisma.label.findUnique).toHaveBeenCalledWith({ where: { id: 42 } });
   });
 
-  // it('throws when updating a missing label', async () => {
-  //   const error = makePrismaError('P2025');
-  //   mockPrismaService.label.update.mockRejectedValueOnce(error);
+  it('throws when updating a missing label', async () => {
+    mockPrismaService.label.update.mockRejectedValueOnce(
+      new Prisma.PrismaClientKnownRequestError('Record not found', 'P2025'),
+    );
 
-  //   await expect(
-  //     service.update(404, { name: 'Ops', color: '#0000ff' }),
-  //   ).rejects.toBeInstanceOf(NotFoundException);
-  // });
+    await expect(
+      service.update(404, { name: 'Ops', color: '#0000ff' }),
+    ).rejects.toBeInstanceOf(NotFoundException);
+  });
 
-  // it('throws when deleting a missing label', async () => {
-  //   const error = makePrismaError('P2025');
-  //   mockPrismaService.label.delete.mockRejectedValueOnce(error);
+  it('throws when deleting a missing label', async () => {
+    mockPrismaService.label.delete.mockRejectedValueOnce(
+      new Prisma.PrismaClientKnownRequestError('Record not found', 'P2025'),
+    );
 
-  //   await expect(service.remove(404)).rejects.toBeInstanceOf(NotFoundException);
-  // });
+    await expect(service.remove(404)).rejects.toBeInstanceOf(NotFoundException);
+  });
 });

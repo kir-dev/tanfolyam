@@ -5,7 +5,7 @@ import { TicketPhase } from '../generated/prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 import { TicketsService } from './tickets.service';
 import { Ticket } from './entities/ticket.entity';
-import { PrismaClient, Prisma } from '../lib/mocks/prisma-client';
+import { Prisma } from '../lib/mocks/prisma-client';
 
 describe('TicketsService', () => {
   let service: TicketsService;
@@ -63,7 +63,10 @@ describe('TicketsService', () => {
 
   it('throws when board does not exist on create', async () => {
     mockPrismaService.ticket.create.mockRejectedValueOnce(
-      new Error('Board not found'),
+      new Prisma.PrismaClientKnownRequestError(
+        'Foreign key constraint failed on the field: `boardsId`',
+        'P2003',
+      ),
     );
 
     await expect(
@@ -112,7 +115,10 @@ describe('TicketsService', () => {
 
   it('throws when assigning with invalid label', async () => {
     mockPrismaService.ticket.update.mockRejectedValueOnce(
-      new Error('Label not found'),
+      new Prisma.PrismaClientKnownRequestError(
+        'Foreign key constraint failed on the field: `labelsId`',
+        'P2003',
+      ),
     );
 
     await expect(service.assignLabel(1, 999)).rejects.toBeInstanceOf(
