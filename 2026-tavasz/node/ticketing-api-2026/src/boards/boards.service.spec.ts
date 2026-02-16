@@ -1,6 +1,10 @@
+/* eslint-disable @typescript-eslint/unbound-method */
+import { BadRequestException, NotFoundException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { BoardsService } from './boards.service';
 import { PrismaService } from '../prisma/prisma.service';
+import { BoardsService } from './boards.service';
+import { Board } from './entities/board.entity';
+import { CreateBoardDto } from './dto/create-board.dto';
 
 describe('BoardsService', () => {
   let service: BoardsService;
@@ -17,6 +21,7 @@ describe('BoardsService', () => {
   };
 
   beforeEach(async () => {
+    jest.clearAllMocks();
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         BoardsService,
@@ -33,5 +38,53 @@ describe('BoardsService', () => {
 
   it('should be defined', () => {
     expect(service).toBeDefined();
+  });
+
+  it('creates a board', async () => {
+    const createBoardDto: CreateBoardDto = { title: 'Backlog' };
+    const createdBoard: Board = {
+      id: 1,
+      title: 'Backlog',
+      createdAt: new Date(),
+    };
+    mockPrismaService.boards.create.mockResolvedValueOnce(createdBoard);
+
+    await expect(service.create(createBoardDto)).resolves.toEqual(createdBoard);
+    expect(prisma.boards.create).toHaveBeenCalledWith({
+      data: createBoardDto,
+    });
+  });
+
+  it('throws when creating a board fails', async () => {
+    mockPrismaService.boards.create.mockRejectedValueOnce(new Error('boom'));
+
+    await expect(service.create({ title: 'Backlog' })).rejects.toBeInstanceOf(
+      BadRequestException,
+    );
+  });
+
+  it('throws when board is not found', async () => {
+    mockPrismaService.boards.findUnique.mockResolvedValueOnce(null);
+
+    await expect(service.findOne(99)).rejects.toBeInstanceOf(NotFoundException);
+  });
+
+  it('throws when updating a missing board', async () => {
+    // mockPrismaService.boards.update.mockRejectedValueOnce(
+    //   new PrismaClientKnownRequestError('P2025', {
+    //     code: 'P2025',
+    //     clientVersion: '',
+    //   }),
+    // );
+    mockPrismaService.boards.update.mockRejectedValueOnce(
+      new Error('Board not found'),
+    );
+
+    await expect(service.update(404, { title: 'Ops' })).rejects.toBeInstanceOf(
+      NotFoundException,
+    );
+    // await expect(service.update(404, { title: 'Ops' })).rejects.toBeInstanceOf(
+    //   NotFoundException,
+    // );
   });
 });

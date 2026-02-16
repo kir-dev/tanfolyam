@@ -14,6 +14,6 @@
     ]
   },
   "moduleNameMapper": {
-    "^(.+)/generated/prisma/client$": "<rootDir>/../src/generated/prisma/__mocks__/client.ts"
+    "^(.+)/generated/prisma/client$": "<rootDir>/../src/lib/mocks/prisma-client.ts"
   }
 }
