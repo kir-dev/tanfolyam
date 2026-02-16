@@ -12,7 +12,8 @@
         "options": {
           "classValidatorShim": true,
           "introspectComments": true,
-          "skipAutoHttpCode": false
+          "skipAutoHttpCode": false,
+          "esmCompatible": true
         }
       }
     ]
