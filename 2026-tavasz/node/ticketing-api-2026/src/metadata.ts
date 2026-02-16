@@ -42,9 +42,18 @@ export default async () => {
           import('./boards/entities/board.entity'),
           {
             Board: {
-              id: { required: true, type: () => Number, minimum: 1 },
-              title: { required: true, type: () => String },
-              createdAt: { required: true, type: () => Date },
+              id: {
+                required: true,
+                type: () => Number,
+                default: 0,
+                minimum: 1,
+              },
+              title: { required: true, type: () => String, default: '' },
+              createdAt: {
+                required: true,
+                type: () => Date,
+                default: new Date(),
+              },
             },
           },
         ],
