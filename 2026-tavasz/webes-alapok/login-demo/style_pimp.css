@@ -1,0 +1,71 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+    font-family: Helvetica, serif;
+    color: #1b3de5;
+}
+
+.panel {
+    position: absolute;
+    top: 20%;
+    left: calc(50% - 200px);
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px 50px 30px 50px;
+    width: 400px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px 0;
+}
+
+label {
+    font-size: 0.85rem;
+    align-self: start;
+    position: relative;
+    top: 5px;
+    left: 15px;
+}
+
+input {
+    font-size: 1rem;
+    padding: 12px 20px;
+    border: 2px #1b3de5 solid;
+    border-radius: 10px;
+}
+
+a:any-link {
+    font-size: .85rem;
+    text-decoration: none;
+    color: #1b3de5;
+    text-align: right;
+}
+
+#submit {
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 22px;
+    font-size: 22px;
+    font-weight: 400;
+    color: white;
+    background: linear-gradient(90deg,#1b3de5 0,#0074e4 100%);
+    border-radius: 50px;
+}
+
+#submit:hover{
+    background: linear-gradient(-90deg,#1b3de5 0,#0074e4 100%);
+}
