@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Boards {
+  id        Int      @id @default(autoincrement())
+  title     String
+  tickets   Ticket[]
+  createdAt DateTime @default(now())
+}
+
+model Ticket {
+  id          Int         @id @default(autoincrement())
+  name        String
+  description String?
+  ticketPhase TicketPhase @default(CREATED)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  board    Boards @relation(fields: [boardsId], references: [id])
+  boardsId Int
+
+  labels Label[]
+}
+
+enum TicketPhase {
+  CREATED
+  IN_PROGRESS
+  UNDER_REVIEW
+}
+
+model Label {
+  id    Int    @id @default(autoincrement())
+  name  String
+  color String
+
+  tickets Ticket[]
+}
